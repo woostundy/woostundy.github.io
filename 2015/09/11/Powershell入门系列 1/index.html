@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>Powershell入门系列 1 | woostundy</title>
+  <title>PowerShell入门系列1：介绍和快速开始 | woostundy</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -221,17 +221,17 @@
     
     
     | 
-    <a href='/tags/Powershell/'>Powershell</a>
+    <a href='/tags/PowerShell/'>PowerShell</a>
     
     
 </span>
-                <h1>Powershell入门系列 1</h1>
+                <h1>PowerShell入门系列1：介绍和快速开始</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<h2 id="Powershell简介">Powershell简介</h2><h3 id="Powershell是什么？">Powershell是什么？</h3><p>Powershell 是运行在windows机器上实现系统和应用程序管理自动化的命令行脚本环境。<br>相比Linux里的shell，Windows自带的cmd命令提示符显得有些简陋，所以从Windows 7之后微软提供了cmd的超级升级版——Powershell。</p>
-<h3 id="怎么安装Powershell？">怎么安装Powershell？</h3><p>Windows 7/Windows Server 2008 内置Powershell 2.0 <br><br>Windows 8/Windows Server 2012 内置Powershell 3.0 <br><br>Windows 8.1/Windows Server 2012 R2 内置 Powershell 4.0 <br><br>Windows 10 内置Powershell 5.0预览版 <br></p>
-<p>使用$psversiontable变量可以查看Powershell，.net框架的版本。</p>
+      		<h2 id="PowerShell简介">PowerShell简介</h2><h3 id="PowerShell是什么？">PowerShell是什么？</h3><p>PowerShell 是运行在windows机器上实现系统和应用程序管理自动化的命令行脚本环境。<br>相比Linux里的shell，Windows自带的cmd命令提示符显得有些简陋，所以从Windows 7之后微软提供了cmd的超级升级版——PowerShell。</p>
+<h3 id="怎么安装PowerShell？">怎么安装PowerShell？</h3><p>Windows 7/Windows Server 2008 内置PowerShell 2.0 <br><br>Windows 8/Windows Server 2012 内置PowerShell 3.0 <br><br>Windows 8.1/Windows Server 2012 R2 内置 PowerShell 4.0 <br><br>Windows 10 内置PowerShell 5.0预览版 <br></p>
+<p>使用$psversiontable变量可以查看PowerShell，.net框架的版本。</p>
 <pre><code>PS C:\Users\Admin&gt; $psversiontable
 
 Name   Value
@@ -243,11 +243,33 @@ WSManStackVersion  <span class="number">2.0</span>
 PSCompatibleVersions   {<span class="number">1.0</span>, <span class="number">2.0</span>}
 SerializationVersion   <span class="number">1.1</span><span class="number">.0</span><span class="number">.1</span>
 PSRemotingProtocolVersion  <span class="number">2.1</span>
-</code></pre><p>Powershell 2.0已经可以满足大部分需求了，如果需要新版本升级到这里下载：<br></p>
+</code></pre><p>PowerShell 2.0已经可以满足大部分需求了，如果需要新版本升级到这里下载：<br></p>
 <blockquote>
-<p>Powershell4.0 MSDN官方下载地址： <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40855" target="_blank" rel="external">https://www.microsoft.com/en-us/download/details.aspx?id=40855</a></p>
+<p>PowerShell4.0 MSDN官方下载地址： <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40855" target="_blank" rel="external">https://www.microsoft.com/en-us/download/details.aspx?id=40855</a></p>
 </blockquote>
-<h3 id="Powershell强大在哪？">Powershell强大在哪？</h3>
+<h3 id="PowerShell有哪些功能和特点？">PowerShell有哪些功能和特点？</h3><ul>
+<li>PowerShell传递的是.net Object（PSObject），这与LinuxShell、CMD完全不同</li>
+<li>PowerShell有完整的强类型支持</li>
+<li>PowerShell和.net 还有COM、WMI、ADSI是无缝结合的</li>
+<li>PowerShell支持CMD原有的所有命令</li>
+<li>PowerShell的命令叫做cmdlet，采用动词-名词的形式，不区分大小写</li>
+</ul>
+<h3 id="快速开始">快速开始</h3><p>在运行里直接输入powershell，或者在附件 -&gt; Windows PowerShell里面打开。<br><br>PS：如果在Windows7里面，这两种方式打开的PowerShell背景颜色、窗体样式不一样，但实际上它们都是同一个文件%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe，<b>没有任何区别</b>，只不过在附件里的快捷方式设置了一下背景颜色和窗体大小。</p>
+<p>按照传统，写一个最简单的hello world，<br>在这里可以使用cmd的echo命令”hello world”，也可以使用write(“hello world”)<br>或者，其实他们本质是一样的，他们都是Write-Out的别名（Alias）</p>
+<pre><code>PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; write "hello world"
+hello world
+PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; echo("hello world")
+hello world
+PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; write hello world
+hello
+world
+PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; echo "hello world"
+hello world
+</code></pre><p>执行一下你会发现与cmd里输出echo hello world还是有区别的，cmd里输出echo “hello world”会把引号也输出，而PS里加上括号/引号都会当成一个字符串输出，什么都不加时会分行输出。如上面代码所示。</p>
+<p>除了直接在Shell界面操作，也可以在文本编辑器里写了PS脚本，然后保存为.ps1格式，右键 -&gt; 以PowerShell格式运行。</p>
+<p>当然，更推荐的code环境是PowerShell ISE，Win7以上系统全部自带，在运行输入powershell ise或者在附件里打开，界面如下图：<br><img src="http://7xlizz.com1.z0.glb.clouddn.com/QQ截图20150921182557.png" alt=""></p>
+<p>简单介绍一下：最上面一栏是脚本文件编辑的，中间一栏是运行结果，第三栏是console。这个编辑器看着简单其实功能蛮多的，之后会再次详细介绍。</p>
+
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
@@ -265,7 +287,7 @@ PSRemotingProtocolVersion  <span class="number">2.1</span>
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2015/09/11/Powershell入门系列 1/" data-title="Powershell入门系列 1" data-url="http://woostundy.github.io/2015/09/11/Powershell入门系列 1/"></div>
+<div class="ds-thread" data-thread-key="2015/09/11/Powershell入门系列 1/" data-title="PowerShell入门系列1：介绍和快速开始" data-url="http://woostundy.github.io/2015/09/11/Powershell入门系列 1/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"duoshuo_name"};
 (function() {
