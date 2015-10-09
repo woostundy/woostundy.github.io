@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>PowerShell学习资料整理 | woostundy</title>
+  <title>PowerShell入门系列2:cmdlet | woostundy</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -215,7 +215,7 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2015-10-09T06:46:12.000Z" itemprop="datePublished">
+      <time datetime="2015-10-09T03:05:16.000Z" itemprop="datePublished">
           2015-10-09
       </time>
     
@@ -225,63 +225,102 @@
     
     
 </span>
-                <h1>PowerShell学习资料整理</h1>
+                <h1>PowerShell入门系列2:cmdlet</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>这篇博文会长期更新，整理一些PowerShell、PowerShell安全相关的网站和学习资料。</p>
-<h2 id="基础资料：">基础资料：</h2><ul>
-<li><a href="https://msdn.microsoft.com/en-us/powershell" title="MSDN" target="_blank" rel="external">微软PowerShell官网</a></li>
-<li><a href="http://blogs.msdn.com/b/powershell/" target="_blank" rel="external">MSDN PowerShell Blog</a> 官博，很多新内容</li>
-<li><a href="http://www.pstips.net/" target="_blank" rel="external">PowerShell中文站</a> 有翻译好的在线教程，提供电子书下载</li>
-<li><a href="http://powershell.com/cs/" target="_blank" rel="external">PowerShell英文站</a> 资料各种全</li>
-<li><a href="http://blog.vichamp.com/" target="_blank" rel="external">微软MVP吴波博客 叹为观止</a> 常年更新PowerShell技巧</li>
-<li><a href="http://powershell.net/" target="_blank" rel="external">PowerShellMagazine</a> 偏资讯类</li>
-<li><a href="http://study.163.com/course/introduction/1270015.htm#/courseDetail" target="_blank" rel="external">网易云课堂 PowerShell管理第一季</a> 收费的，但也收录进来万一有人需要</li>
+      		<h3 id="什么是cmdlet">什么是cmdlet</h3><ul>
+<li>PowerShell里可以执行<strong>内置的命令</strong>和用户定义的内容（函数、脚本、别名、过滤器），还有可执行程序。<br>其中<strong>内置的命令</strong>就叫做cmdlet，换个说法就是系统命令，也是继续学习PowerShell的基础。</li>
+<li>cmdlet的特殊之处在于，每一个cmdlet都是一个.net object，运行于PowerShell进程里。</li>
+<li>cmdlet的格式是<strong>动词-名词，不区分大小写</strong>，很清晰很长很恶心，但你可以自定义别名来缩短，这个后面还会讲。</li>
 </ul>
-<h2 id="GitHub">GitHub</h2><ul>
-<li><a href="https://github.com/powershell" target="_blank" rel="external">PowerShell Module库</a></li>
-<li><a href="https://github.com/samratashok/nishang" target="_blank" rel="external">Nishang 安全相关PowerShell脚本集合（后门爆破扫描等等）</a></li>
-<li><a href="https://github.com/besimorhino/powercat" target="_blank" rel="external">PowerCat PS版的Netcat</a></li>
+<h3 id="两条基础cmdlet">两条基础cmdlet</h3><ul>
+<li><p><strong>Get-Command</strong>，我们直接在PowerShell里执行Get-Command，结果如下</p>
+<p>  PS C:\Users\Woody&gt; Get-Command</p>
+<p>  CommandType     Name                            Definition</p>
+<hr>
+<p>  Alias           %                               ForEach-Object<br>  Alias           ac                              Add-Content<br>  Alias           asnp                            Add-PSSnapIn<br>  Alias           clc                             Clear-Content<br>  Alias           cli                             Clear-Item<br>  Alias           clp                             Clear-ItemProperty<br>  Alias           clv                             Clear-Variable<br>  Alias           compare                         Compare-Object<br>  Alias           cpi                             Copy-Item<br>  Alias           cpp                             Copy-ItemProperty<br>  Alias           cvpa                            Convert-Path<br>  Alias           dbp                             Disable-PSBreakpoin<br>  Alias           diff                            Compare-Object<br>  Alias           ebp                             Enable-PSBreakpoint<br>  Alias           epal                            Export-Alias<br>  Alias           epcsv                           Export-Csv<br>  Alias           fc                              Format-Custom<br>  ……</p>
+</li>
 </ul>
-<h2 id="下载资料">下载资料</h2><ul>
-<li><a href="http://www.pstips.net/professional-windows-powershell-programing.html" target="_blank" rel="external">Windows PowerShell 高级编程</a></li>
-<li><a href="http://www.pstips.net/powershell-v3-basic-tutorial.html" target="_blank" rel="external">PowerShell 3.0 入门级教程</a></li>
-<li><a href="http://www.pstips.net/powershell-3-0-advanced-tutorial-pdf.html" target="_blank" rel="external">PowerShell 3.0 进阶教程</a></li>
-<li><a href="http://blog.vichamp.com/powershell/2014/02/14/powershell-mva-lessons/" target="_blank" rel="external">PowerShell 微软虚拟学院课程</a></li>
+<p><strong>Get-Command不加任何的参数时，作用是显示当前作用域/当前会话支持的所有命令</strong>（不仅限于Cmdlet）</p>
+<p>那如果想只查看Cmdlet命令呢，以传统cmd的处理方式就是用|管道符传递给findstr然后过滤，如下。</p>
+<pre><code>PS <span class="keyword">C</span>:\Users\Woody&gt; <span class="keyword">Get</span>-Command|findstr <span class="string">"Cmdlet"</span>
+Cmdlet  Add-ComputerAdd-Computer [-DomainName] &lt;...
+Cmdlet  Add-Content Add-Content [-<span class="keyword">Path</span>] &lt;<span class="keyword">String</span>[...
+Cmdlet  Add-History Add-History [[-InputObject] ...
+Cmdlet  Add-Member  Add-Member [-MemberType] &lt;PS...
+Cmdlet  Add-PSSnapinAdd-PSSnapin [-Name] &lt;<span class="keyword">String</span>...
+Cmdlet  Add-TypeAdd-Type [-TypeDefinition] &lt;...
+Cmdlet  Checkpoint-Computer Checkpoint-Computer [-Descri...
+Cmdlet  <span class="keyword">Clear</span>-Content   <span class="keyword">Clear</span>-Content [-<span class="keyword">Path</span>] &lt;Strin...
+Cmdlet  <span class="keyword">Clear</span>-EventLog  <span class="keyword">Clear</span>-EventLog [-LogName] &lt;S...
+Cmdlet  <span class="keyword">Clear</span>-History   <span class="keyword">Clear</span>-History [[-Id] &lt;Int32[...
+Cmdlet  <span class="keyword">Clear</span>-<span class="keyword">Item</span>  <span class="keyword">Clear</span>-<span class="keyword">Item</span> [-<span class="keyword">Path</span>] &lt;<span class="keyword">String</span>[]...
+Cmdlet  <span class="keyword">Clear</span>-ItemProperty  <span class="keyword">Clear</span>-ItemProperty [-<span class="keyword">Path</span>] &lt;...
+Cmdlet  <span class="keyword">Clear</span>-Variable  <span class="keyword">Clear</span>-Variable [-Name] &lt;Stri...
+……
+……
+</code></pre><p><strong>我们可以用Get-Command findstr来查看具体命令的属性</strong></p>
+<pre><code>PS C:<span class="command">\Users</span><span class="command">\Woody</span>&gt; Get-Command findstr
+
+CommandType     Name                            Definition
+-----------     ----                            ----------
+Application     findstr.exe                     C:<span class="command">\Windows</span><span class="command">\system</span>32<span class="command">\findstr</span>.exe
+</code></pre><p>从CommandType我们可以发现    ，findstr并不是一个Cmdlet，而是一个可执行程序。那怎么用Cmdlet的方式来实现呢？引入下一个Cmdlet:Get-Help</p>
+<ul>
+<li><p>Get-Help，执行Get-Help Get-Command,结果如下</p>
+<p>  PS C:\Users\Woody&gt; Get-Help Get-Command</p>
+<p>  名称</p>
+<pre><code><span class="keyword">Get</span>-Command
+</code></pre><p>  摘要</p>
+<pre><code>获取有关 cmdlet 以及有关 Windows PowerShell 命令的其他元素的基本信息。
+</code></pre><p>  语法</p>
+<pre><code>Get-Command <span class="comment">[<span class="comment">[-Name]</span> &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-CommandType {Alias | Function | Filter |
+ Cmdlet | ExternalScript | Application | Script | All}]</span> <span class="comment">[<span class="comment">[-ArgumentList]</span> &lt;O
+bject<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Module &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Syntax]</span> <span class="comment">[-TotalCount &lt;int&gt;]</span> <span class="comment">[&lt;CommonParame
+ters&gt;]</span>
+
+Get-Command <span class="comment">[-Noun &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Verb &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[<span class="comment">[-ArgumentList]</span> &lt;Object<span class="comment">[
+]</span>&gt;]</span> <span class="comment">[-Module &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Syntax]</span> <span class="comment">[-TotalCount &lt;int&gt;]</span> <span class="comment">[&lt;CommonParameters&gt;]</span>
+</code></pre><p>  说明</p>
+<pre><code><span class="keyword">Get</span>-Command cmdlet 获取会话中 Windows PowerShell 命令的 cmdlet 及其他元素（
+例如，别名、函数、筛选器、脚本和应用程序）的基本信息。
+
+<span class="keyword">Get</span>-Command 直接从 cmdlet、函数、脚本或别名的代码中获取其数据，而不像 <span class="keyword">Get</span>-H
+elp 那样从帮助主题文件中获取其信息。
+
+如果不使用参数，“<span class="keyword">Get</span>-Command”将获取当前会话中的所有 cmdlet 和函数。“<span class="keyword">Get</span>-
+Command *”获取所有 Windows PowerShell 元素以及 <span class="keyword">Path</span> 环境变量 ($env:path)
+中的所有非 Windows-PowerShell 文件。它将这些文件归入“Application”命令类型
+。
+
+可以使用 <span class="keyword">Get</span>-Command 的 <span class="keyword">Module</span> 参数查找通过添加 Windows PowerShell 管理单元
+或导入模块而添加到会话中的命令。
+……
+……
+</code></pre></li>
 </ul>
-<h2 id="安全相关资料">安全相关资料</h2><ul>
-<li><a href="http://open.freebuf.com/live/619.html" target="_blank" rel="external">FreeBuf公开课 PowerShell内网渗透实例</a></li>
-<li><a href="http://www.windowsecurity.com/articles-tutorials/windows_os_security/PowerShell-Security.html" target="_blank" rel="external">PowerShell Security</a></li>
-<li><a href="http://drops.wooyun.org/tips/8971" target="_blank" rel="external">通过DNS TXT记录执行powershell</a></li>
-<li><a href="http://drops.wooyun.org/tips/8568" target="_blank" rel="external">使用powershell Client进行有效钓鱼</a></li>
-<li><a href="http://drops.wooyun.org/tips/6199" target="_blank" rel="external">powershell各种反弹姿势以及取证（一）</a></li>
-<li><a href="http://drops.wooyun.org/tips/6090" target="_blank" rel="external">powershell各种反弹姿势以及取证（二）</a></li>
-<li><a href="http://drops.wooyun.org/tips/4707" target="_blank" rel="external">Powershell and Windows RAW SOCKET</a></li>
-<li><a href="http://drops.wooyun.org/tips/3473" target="_blank" rel="external">Powershell tricks::Powershell Remoting</a></li>
-<li><a href="http://drops.wooyun.org/tips/3353" target="_blank" rel="external">Powershell tricks::Bypass AV</a></li>
-<li><a href="http://drops.wooyun.org/tips/9336" target="_blank" rel="external">BadUsb与PowerShell的结合利用</a></li>
-<li><a href="http://drops.wooyun.org/tips/8290" target="_blank" rel="external">WMI Defense (PowerShell操作WMI)</a></li>
-<li><a href="http://drops.wooyun.org/tips/8260" target="_blank" rel="external">WMI Backdoor</a></li>
-<li><a href="http://drops.wooyun.org/tips/8189" target="_blank" rel="external">WMI Attacks</a></li>
-<li><a href="http://www.freebuf.com/articles/web/76892.html" target="_blank" rel="external">Empire：PowerShell后期漏洞利用代理工具</a></li>
-<li><a href="https://blog.netspi.com/powershell-remoting-cheatsheet/" target="_blank" rel="external">PowerShell Remoting Cheatsheet</a></li>
-</ul>
-<h2 id="PowerShell其他应用">PowerShell其他应用</h2>
+<p>Get-Help的用法很简单，就是Get-Help 命令，结果里会详细的把各种信息都罗列出来。从结果我们可以看到Get-Command的其他参数，所以我们可以用Get-Command -CommandTpye cmdlet 来实现上面的功能，结果是一样的。</p>
+<p>有了这两个命令，其他命令就可以遇到再自食其力解决了。</p>
+
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
+    <a class="pull-left" href="/2015/10/09/PowerShell学习资料整理/" style="float: left;">
+        ← PowerShell学习资料整理
+    </a>
     
-    <a class="pull-right" href="/2015/10/09/PowerShell入门系列2-cmdlet/">
-        PowerShell入门系列2:cmdlet →
+    
+    <a class="pull-right" href="/2015/09/21/Skill-List/">
+        Skill List →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2015/10/09/PowerShell学习资料整理/" data-title="PowerShell学习资料整理" data-url="http://woostundy.github.io/2015/10/09/PowerShell学习资料整理/"></div>
+<div class="ds-thread" data-thread-key="2015/10/09/PowerShell入门系列2-cmdlet/" data-title="PowerShell入门系列2:cmdlet" data-url="http://woostundy.github.io/2015/10/09/PowerShell入门系列2-cmdlet/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"duoshuo_name"};
 (function() {
