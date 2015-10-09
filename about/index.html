@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>深入理解JS笔记 1：数据类型Tips | woostundy</title>
+  <title>about | woostundy</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -209,93 +209,94 @@
         <!-- // End height spacing helper -->
 
         <!-- ============================ END Hero Image =========================== -->
-      
-<section id="intro">
+      <section id="intro">
     <div class="container">
         <div class="row col-md-offset-2">
             <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2015-09-08T02:39:08.000Z" itemprop="datePublished">
-          2015-09-08
-      </time>
-    
-    
-    | 
-    <a href='/tags/JS/'>JS</a>
-    
-    
-</span>
-                <h1>深入理解JS笔记 1：数据类型Tips</h1>
+                <h1>about</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>备注：为了方便阅读《Javascript高级程序设计》 以下简称为 《J高》，笔记会引用很多该书内容，同时非常感谢笨蛋的座右铭的《理解Javascript》一系列文章。</p>
-<h2 id="引用数据类型和原始数据类型">引用数据类型和原始数据类型</h2><ul>
-<li>ECMA-262 把类型（type）定义为值的集合，每种原始类型定义了包含它的值的范围及其字面量表示形式</li>
-<li>5种原始数据类型：Null、Boolean、Number、String</li>
-<li>引用类型就是类（class），引用值就是对象，所以引用类型变量typeof的运算结果一定是一个object</li>
-<li>原始数据类型其值存在栈中，引用数据类型值存在堆中</li>
-<li>也就是说原始类型的值直接存在变量访问的位置，而引用类型存在变量处的值是一个指向堆的指针 </li>
-<li>String类型比较特殊，它是唯一没有固定大小的原始类型，不过它还是存在栈中……</li>
-<li>每一个基础类型都有其对应的引用类型number Number,string String,boolean Boolean，推测结论：基本数据类型是对应引用数据类型的子类，为了提高效率，将基础类型放在了栈内存中，所以undefined继承自null（存疑）</li>
-<li>因此所有原始类型也都是伪类，都拥有toString()等object的方法</li>
-<li>object</li>
+            <h3 id="关于我">关于我</h3><p>现居北京，走在Web安全和编程学习路上，网络常用ID：WooStundy。</p>
+<p>爱好杂而广，安全、开发、设计、诗词、书法、葡萄酒。喜欢的多懂的少，技能点随机乱加。</p>
+<p>活跃于知乎：<a href="http://www.zhihu.com/people/shitao" target="_blank" rel="external">石涛的知乎主页</a></p>
+<p>也常听歌，摇滚，民谣偏多：<a href="http://music.163.com/#/user/home?id=41335954" target="_blank" rel="external">WooStundy的网易云音乐主页</a></p>
+<p>同时也是飞面信徒，RAmen！</p>
+<p>邮箱：woostundy#gmail<br><br>微信：woostundy_scrm</p>
+<p>我的朋友们：</p>
+<ul>
+<li>ZongBao：高中同学，很牛的PHP开发，Bolg：<a href="http://www.fzb.me/" target="_blank" rel="external">莫名的扯淡</a></li>
 </ul>
-<h2 id="undefined_和_null">undefined 和 null</h2><ul>
-<li>Undefined 代表未赋值的基本数据类型，Null 代表未赋值的引用数据类型</li>
-<li>Undefined 只有唯一值 undefined，Null下只有唯一的值 null （注意大小写 =。=）</li>
-<li>但是为了效率，null 作为引用数据类型，其值仍然存在栈中</li>
-<li>因此导致了 null == undefined</li>
-<li>《J高》里的说法是，值undefined实际是从null派生（继承）而来的，所以null == undefined</li>
-<li>《J高》：typeof(null)会返回object，这是Javascript最初实现中的一个错误，但一直沿用至今，现在null被认为是对象的占位符，但从技术上来说它仍然是原始值（“从技术上说null是原始值”，大概是因为null存在栈中）</li>
-<li>null 在参与数值运算时其值会自动转换为 0 ，undefined参与任何数值运算时，结果为NaN</li>
-<li>当函数无明确返回值时，返回的值是undefined</li>
-</ul>
-<h2 id="对象和函数">对象和函数</h2><ul>
-<li>对象是一个无序属性的集合，这些属性的值位简单数据类型、对象或者函数。</li>
-<li>函数是对象的一种，实现上内部熟悉[[Class]]的值位 “Function” ，表明它是函数类型，除了对象的内部属性方法外，还有[[Construct]]、[[Call]]、[[Scope]]等内部属性。内部方法[[Construct]]用于实现作为构造器的逻辑，[[Call]]实现作为函数调用的逻辑。</li>
-<li>Function是函数类型的用户接口</li>
-<li>Object是对象类型的用户接口</li>
-<li>Boolean，Number，String均为这三种简单数值类型的<strong>对象包装器</strong></li>
-<li>Date, Array, RegExp: 可以把它们看作是几种内置的扩展数据类型</li>
-</ul>
+<h3 id="关于博客">关于博客</h3><p>博客主题可能会经常变，要看我正在从事的工作。目前以PowerShell、JavaScript、Web安全为主，也偶尔更新一些生活相关内容，尽量勤奋保证更新频率。</p>
+<p>博客封面是我和我的朋友们去年拍的 ^_^</p>
+<p>欢迎关注！</p>
 
             <div class="clearfix"></div>
-            <hr class="nogutter">
         </div>
-        <nav class="pagination" role="pagination">
-    
-    <a class="pull-left" href="/2015/09/11/Powershell入门系列1-介绍和开始/" style="float: left;">
-        ← PowerShell入门系列1：介绍和快速开始
-    </a>
-    
-    
-    <a class="pull-right" href="/2015/08/26/Python-PowerShell-一句话远控脚本/">
-        Python+PowerShell 一句话远控脚本 →
-    </a>
-    
-</nav>
-
-        <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2015/09/08/深入理解JS笔记 1：数据类型Tips/" data-title="深入理解JS笔记 1：数据类型Tips" data-url="http://woostundy.github.io/2015/09/08/深入理解JS笔记 1：数据类型Tips/"></div>
-<script type="text/javascript">
-var duoshuoQuery = {short_name:"duoshuo_name"};
-(function() {
-	var ds = document.createElement('script');
-	ds.type = 'text/javascript';ds.async = true;
-	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-	ds.charset = 'UTF-8';
-	(document.getElementsByTagName('head')[0] 
-	 || document.getElementsByTagName('body')[0]).appendChild(ds);
-})();
-</script>
-</div>
+        
     </div>
-	
 </section>
-<script>
-this.location.href="#intro";
-</script>
+<section id="process">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                <div class="timeline-centered">
+                    <div class="line"></div>
+                    <div class="present">Past</div>
+                    <div class="dot_tp"></div>
+                    <div class="born">Now</div>
+                    <div class="dot_bt"></div>
+                    
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
+                                    <span class="number">1</span>
+                                </div>
+                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
+                                    <p>2015/08/24-Start</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
+                                    <span class="number">2</span>
+                                </div>
+                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
+                                    <p>2015/10/9-Update About</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
+                                    <span class="number">3</span>
+                                </div>
+                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
+                                    <p>2015/02/18-DDD</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="timeline-entry">
+                            <div class="timeline-entry-inner">
+                                <div class="timeline-icon wow fadeInUp" data-wow-delay="0.2s">
+                                    <span class="number">4</span>
+                                </div>
+                                <div class="timeline-label wow fadeInUp" data-wow-delay="0.2s">
+                                    <p>More</p>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+                <!-- timeline-centered -->
+            </div>
+        </div>
+    </div>
+</section>
 
       
 <!-- ============================ Footer =========================== -->
