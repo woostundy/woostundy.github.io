@@ -236,10 +236,27 @@
 </ul>
 <h3 id="两条基础cmdlet">两条基础cmdlet</h3><ul>
 <li><p><strong>Get-Command</strong>，我们直接在PowerShell里执行Get-Command，结果如下</p>
-<p>  PS C:\Users\Woody&gt; Get-Command</p>
-<p>  CommandType     Name                            Definition</p>
-<hr>
-<p>  Alias           %                               ForEach-Object<br>  Alias           ac                              Add-Content<br>  Alias           asnp                            Add-PSSnapIn<br>  Alias           clc                             Clear-Content<br>  Alias           cli                             Clear-Item<br>  Alias           clp                             Clear-ItemProperty<br>  Alias           clv                             Clear-Variable<br>  Alias           compare                         Compare-Object<br>  Alias           cpi                             Copy-Item<br>  Alias           cpp                             Copy-ItemProperty<br>  Alias           cvpa                            Convert-Path<br>  Alias           dbp                             Disable-PSBreakpoin<br>  Alias           diff                            Compare-Object<br>  Alias           ebp                             Enable-PSBreakpoint<br>  Alias           epal                            Export-Alias<br>  Alias           epcsv                           Export-Csv<br>  Alias           fc                              Format-Custom<br>  ……</p>
+<pre><code>PS C:\Users\Woody&gt; <span class="keyword">Get</span>-Command
+CommandType     Name                            Definition
+-----------     ----                            ----------
+<span class="keyword">Alias</span>           %                               ForEach-<span class="built_in">Object</span>
+<span class="keyword">Alias</span>           ac                              Add-Content
+<span class="keyword">Alias</span>           asnp                            Add-PSSnapIn
+<span class="keyword">Alias</span>           clc                             Clear-Content
+<span class="keyword">Alias</span>           cli                             Clear-Item
+<span class="keyword">Alias</span>           clp                             Clear-ItemProperty
+<span class="keyword">Alias</span>           clv                             Clear-Variable
+<span class="keyword">Alias</span>           <span class="keyword">compare</span>                         <span class="keyword">Compare</span>-<span class="built_in">Object</span>
+<span class="keyword">Alias</span>           cpi                             Copy-Item
+<span class="keyword">Alias</span>           cpp                             Copy-ItemProperty
+<span class="keyword">Alias</span>           cvpa                            Convert-Path
+<span class="keyword">Alias</span>           dbp                             Disable-PSBreakpoin
+<span class="keyword">Alias</span>           diff                            <span class="keyword">Compare</span>-<span class="built_in">Object</span>
+<span class="keyword">Alias</span>           ebp                             Enable-PSBreakpoint
+<span class="keyword">Alias</span>           epal                            Export-<span class="keyword">Alias</span>
+<span class="keyword">Alias</span>           epcsv                           Export-Csv
+<span class="keyword">Alias</span>           fc                              Format-<span class="keyword">Custom</span>
+</code></pre><p>  ……</p>
 </li>
 </ul>
 <p><strong>Get-Command不加任何的参数时，作用是显示当前作用域/当前会话支持的所有命令</strong>（不仅限于Cmdlet）</p>

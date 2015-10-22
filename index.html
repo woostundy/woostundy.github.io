@@ -217,6 +217,124 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
+                    <h3><a href="/2015/10/22/PowerShell XML处理、注册表Default取值坑两则/">PowerShell XML处理和注册表(Default)取值 坑两则</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2015-10-22T09:43:58.000Z" itemprop="datePublished">
+          2015-10-22
+      </time>
+    
+    
+    | 
+    <a href='/tags/PowerShell/'>PowerShell</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        
+处理XML时，PowerShell支持直接以对象的方式访问节点，像这样
+&lt;report&gt;
+    &lt;baseInfo&gt;
+        &lt;systemLanguage&gt;zh-CN&lt;/systemLanguage&gt;
+    &lt;/baseInfo&gt;
+    &lt;error&gt;
+    &lt;/error&gt;
+&lt;/report&gt;
+
+PS C:\Users\
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2015/10/22/PowerShell XML处理、注册表Default取值坑两则/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2015/10/22/PowerShell-判断操作系统语言等信息/">PowerShell 判断操作系统语言</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2015-10-22T06:49:46.000Z" itemprop="datePublished">
+          2015-10-22
+      </time>
+    
+    
+    | 
+    <a href='/tags/PowerShell/'>PowerShell</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        ###用PowerShell判断系统语言的的几种方法：
+
+systeminfo.exe最简单的方法，但是数据不好进一步处理，而且速度慢
+WMI对象
+(get-wmiobject win32_operatingsystem).MUILanguages
+
+用.net对象获取，结果更加完整
+PS C:\Users\Woody&gt; [System.Globalization.Cultureinfo]::InstalledUICulture
+
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2015/10/22/PowerShell-判断操作系统语言等信息/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2015/10/20/PowerShell入门系列3基本语法/">PowerShell入门系列3基本语法</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2015-10-20T07:34:51.000Z" itemprop="datePublished">
+          2015-10-20
+      </time>
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2015/10/20/PowerShell入门系列3基本语法/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
                     <h3><a href="/2015/10/09/PowerShell学习资料整理/">PowerShell学习资料整理</a></h3>
                     <span>
                         <span class="post-meta">
