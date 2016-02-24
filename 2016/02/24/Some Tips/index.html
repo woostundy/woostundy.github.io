@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>PowerShell XML处理和注册表(Default)取值 坑两则 | woostundy</title>
+  <title>Some Tips | woostundy</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -215,102 +215,33 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2015-10-22T09:43:58.000Z" itemprop="datePublished">
-          2015-10-22
+      <time datetime="2016-02-24T02:45:37.000Z" itemprop="datePublished">
+          2016-02-24
       </time>
     
-    
-    | 
-    <a href='/tags/PowerShell/'>PowerShell</a>
-    
-    
 </span>
-                <h1>PowerShell XML处理和注册表(Default)取值 坑两则</h1>
+                <h1>Some Tips</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<ol>
-<li><p>处理XML时，PowerShell支持直接以对象的方式访问节点，像这样</p>
-<pre><code>&lt;report&gt;
-<span class="code">    &lt;baseInfo&gt;</span>
-<span class="code">        &lt;systemLanguage&gt;zh-CN&lt;/systemLanguage&gt;</span>
-<span class="code">    &lt;/baseInfo&gt;</span>
-<span class="code">    &lt;error&gt;</span>
-<span class="code">    &lt;/error&gt;</span>
-&lt;/report&gt;
-
-PS C:\Users\Woody&gt; $xmlObj.report.baseInfo
-
-<span class="header">systemLanguage
---------------</span>
-zh-CN
-</code></pre></li>
-</ol>
-<p>但如果目标节点是没有子级，这样取到的节点类型不是xmlnode，而是object，如下所示。</p>
-<pre><code>PS C:\Users\Woody&gt; <span class="variable">$test</span><span class="class">.report</span><span class="class">.baseInfo</span><span class="class">.systemlanguage</span><span class="class">.getType</span>()
-
-IsPublic IsSerial Name                                     BaseType
--------- -------- ----                                     --------
-True     True     String                                   System<span class="class">.Object</span>
-
-
-PS C:\Users\Woody&gt; <span class="variable">$test</span><span class="class">.report</span><span class="class">.baseInfo</span><span class="class">.getType</span>()
-
-IsPublic IsSerial Name                                     BaseType
--------- -------- ----                                     --------
-True     False    XmlElement                               System<span class="class">.Xml</span><span class="class">.XmlLinkedNode</span>
-</code></pre><p>所以，如果想给一个空的节点添加子节点就不能这样写，因为没有对应方法，应该用selectNodes代替，如下所示。</p>
-<pre><code>PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.selectnodes(<span class="string">"error"</span>).item(<span class="number">0</span>).gettype()
-
-IsPublic IsSerial Name                                     BaseType
--------- -------- ----                                     --------
-<span class="keyword">True</span>     <span class="keyword">False</span>    XmlElement                               System.Xml.XmlLinkedNode
-
-
-PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.error.gettype()
-
-IsPublic IsSerial Name                                     BaseType
--------- -------- ----                                     --------
-<span class="keyword">True</span>     <span class="keyword">True</span>     <span class="keyword">String</span>                                   System.Object
-
-
-PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.error.appendChild
-##没反应，表示不存在##
-PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.selectnodes(<span class="string">"error"</span>).item(<span class="number">0</span>).appendChild
-
-
-MemberType          : <span class="keyword">Method</span>
-OverloadDefinitions : <span class="list">{System.Xml.XmlNode AppendChild(System.Xml.XmlNode newChild)}</span>
-TypeNameOfValue     : System.Management.Automation.PSMethod
-<span class="keyword">Value</span>               : System.Xml.XmlNode AppendChild(System.Xml.XmlNode newChild)
-Name                : AppendChild
-IsInstance          : <span class="keyword">True</span>
-</code></pre><ol>
-<li>注册表里有些键比较特殊，它里面包含一个Default项，如下图所示。如果想用PowerShell取这个值，要格外注意，<strong>PowerShell自带的注册表访问方法是没法访问到这个值的，这是个Bug，</strong> 我试了无数种访问方法，都不行，目测是（默认）和 (Default)这俩键值造成的冲突。</li>
-</ol>
-<p><img src="http://7xlizz.com1.z0.glb.clouddn.com/注册表.png" alt=""><br><img src="http://7xlizz.com1.z0.glb.clouddn.com/注册表操作.png" alt=""></p>
-<p>解决办法只能是改用CMD的方式，用reg命令解决，如下所示。</p>
-<pre><code>reg Query HKLM<span class="command">\System</span><span class="command">\CurrentControlSet</span><span class="command">\Control</span><span class="command">\Nls</span><span class="command">\Locale</span><span class="command">\ </span>/v "(Default)"
-</code></pre><p>注意要先括号再引号</p>
+      		<ul>
+<li>超过100人的公司，用键盘走位密码跑一遍，总会有收获。</li>
+</ul>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/02/24/Some Tips/" style="float: left;">
-        ← Some Tips
-    </a>
     
-    
-    <a class="pull-right" href="/2015/10/22/PowerShell-判断操作系统语言等信息/">
-        PowerShell 判断操作系统语言 →
+    <a class="pull-right" href="/2015/10/22/PowerShell XML处理、注册表Default取值坑两则/">
+        PowerShell XML处理和注册表(Default)取值 坑两则 →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2015/10/22/PowerShell XML处理、注册表Default取值坑两则/" data-title="PowerShell XML处理和注册表(Default)取值 坑两则" data-url="http://woostundy.github.io/2015/10/22/PowerShell XML处理、注册表Default取值坑两则/"></div>
+<div class="ds-thread" data-thread-key="2016/02/24/Some Tips/" data-title="Some Tips" data-url="http://woostundy.github.io/2016/02/24/Some Tips/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"duoshuo_name"};
 (function() {
