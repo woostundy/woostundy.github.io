@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>woostundy</title>
+  <title>Apache2 设置自签发证书 | woostundy</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -75,7 +75,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -209,190 +209,66 @@
         <!-- // End height spacing helper -->
 
         <!-- ============================ END Hero Image =========================== -->
-      <!-- ============================ Content =========================== -->
-
+      
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/09/21/Skill-List/">Skill List</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-09-21T06:55:41.000Z" itemprop="datePublished">
-          2015-09-21
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-07-15T05:48:27.000Z" itemprop="datePublished">
+          2016-07-15
       </time>
     
-    
-    | 
-    <a href='/tags/other/'>other</a>
-    
-    
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        2016年前该读完
-《Javascript高级编程》
-《Python灰帽子编程》
-《现代操作系统》
-
-要熟练什么
-LinuxBash
-PowerShell
-Python爬虫
-PHP、JS常用操作
-
-接下来做出什么
-维护好博客
-一个靠谱爬虫项目
-保持提交漏洞
-leetcode
-
-
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/09/21/Skill-List/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
+                <h1>Apache2 设置自签发证书</h1>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/09/11/Powershell入门系列1-介绍和开始/">PowerShell入门系列1：介绍和快速开始</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-09-11T09:24:34.000Z" itemprop="datePublished">
-          2015-09-11
-      </time>
-    
-    
-    | 
-    <a href='/tags/PowerShell/'>PowerShell</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        PowerShell简介PowerShell是什么？PowerShell 是运行在windows机器上实现系统和应用程序管理自动化的命令行脚本环境。相比Linux里的shell，Windows自带的cmd命令提示符显得有些简陋，所以从Windows 7之后微软提供了cmd的超级升级版——PowerShell。
-怎么安装PowerShell？大部分情况下是不需要安装的
-Windows 7/Windows Server 2008 内置Pow
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/09/11/Powershell入门系列1-介绍和开始/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>1.使用OpenSSL生成公私钥</p>
+<p>2./etc/apache2/sites-available/default-ssl.conf<br>将<virtualhost _default_:443="">节点下修改为如下</virtualhost></p>
+<pre><code>&lt;VirtualHost <span class="string">_default_:</span><span class="number">443</span>&gt;
+ServerAdmin shitao<span class="annotation">@transfereasy</span>.com
+ServerName localhost
+DocumentRoot <span class="regexp">/var/</span>www/html
+SSLEngine on
+SSLCertificateFile      <span class="regexp">/etc/</span>apache2<span class="regexp">/ssl/</span>apache.crt
+SSLCertificateKeyFile <span class="regexp">/etc/</span>apache2<span class="regexp">/ssl/</span>apache.key
+</code></pre><p>3.确保打开ssl模块，重启apache</p>
+<pre><code><span class="title">sudo</span> a2enmod ssl
+sudo service apache2 restart
+</code></pre>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/09/08/深入理解JS笔记 1：数据类型Tips/">深入理解JS笔记 1：数据类型Tips</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-09-08T02:39:08.000Z" itemprop="datePublished">
-          2015-09-08
-      </time>
-    
-    
-    | 
-    <a href='/tags/JS/'>JS</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        备注：为了方便阅读《Javascript高级程序设计》 以下简称为 《J高》，笔记会引用很多该书内容，同时非常感谢笨蛋的座右铭的《理解Javascript》一系列文章。
-引用数据类型和原始数据类型
-ECMA-262 把类型（type）定义为值的集合，每种原始类型定义了包含它的值的范围及其字面量表示形式
-5种原始数据类型：Null、Boolean、Number、String
-引用类型就是类（class），引用值就是对象，所以引用类型变量t
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/09/08/深入理解JS笔记 1：数据类型Tips/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/08/26/Python-PowerShell-一句话远控脚本思路/">Python+PowerShell 一句话远控脚本思路</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-08-26T07:59:26.000Z" itemprop="datePublished">
-          2015-08-26
-      </time>
-    
-    
-    | 
-    <a href='/tags/python-powershell-hacker/'>python,powershell,hacker</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        简介从Win7开始，Windows全部自带极其强大的Powershell，Windows的新利器！我之后会陆续写一些关于Powershell应用的文章。
-这是用Python写服务端，PowerShell写客户端，基于Socket的一个远控脚本。其实Powershell也可以写服务端，选Python写服务端主要是为了在Linux服务器上也能跑。
-原理iex (New-Object Sys.Net.Webclient).DownloadSt
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/08/26/Python-PowerShell-一句话远控脚本思路/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
-          <a class="pull-left" href="/">← Newer Posts</a>
-          
-        </nav>
+    
+    
+    <a class="pull-right" href="/2016/07/15/hello-world/">
+        Hello World →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/07/15/Apache2-设置自签发证书/" data-title="Apache2 设置自签发证书" data-url="http://woostundy.github.io/2016/07/15/Apache2-设置自签发证书/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
     </div>
+	
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>还没想好写点什么。</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+<script>
+this.location.href="#intro";
+</script>
 
       
 <!-- ============================ Footer =========================== -->
