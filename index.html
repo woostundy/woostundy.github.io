@@ -217,12 +217,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2016/07/15/Apache2-设置自签发证书/">Apache2 设置自签发证书</a></h3>
+                    <h3><a href="/2016/07/16/常见加密算法简介/">常见加密算法简介</a></h3>
                     <span>
                         <span class="post-meta">
-      <time datetime="2016-07-15T05:48:27.000Z" itemprop="datePublished">
-          2016-07-15
+      <time datetime="2016-07-16T06:35:59.000Z" itemprop="datePublished">
+          2016-07-16
       </time>
+    
+    
+    | 
+    <a href='/tags/hacker/'>hacker</a>
+    
     
 </span>
                     </span>
@@ -230,19 +235,50 @@
                 <div class="col-md-8">
                     <p>
                       
-                        1.使用OpenSSL生成公私钥
-2./etc/apache2/sites-available/default-ssl.conf将节点下修改为如下
-&lt;VirtualHost _default_:443&gt;
-ServerAdmin shitao@transfereasy.com
-ServerName localhost
-DocumentRoot /var/www/html
-SSLEngine on
-SSLCertificateF
+                        对称加密 对称秘钥（单秘钥）DES (Data Encryption Standard)DES是一种分组加密算法
+DES算法的入口参数有三个:Key,Data,Mode，Key是秘钥占7个字节56位（64位里另外8位是用来校验的），Data是加密内容，占8个字节64位，Mode是加密还是解密。
+DES算法于1976被确定，现在已经被认为不够安全，主要原因是56位的秘钥过短。据说这个算法因为包含一些机密设计元素，被怀疑内含美国国家安全局（
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2016/07/15/Apache2-设置自签发证书/">Read More...</a>
+                        <a href="/2016/07/16/常见加密算法简介/">Read More...</a>
+                    </p>
+                    
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-4">
+                    <h3><a href="/2016/07/15/Apache2自签发V3证书详细流程/">Apache2 设置自签发证书</a></h3>
+                    <span>
+                        <span class="post-meta">
+      <time datetime="2016-07-15T05:48:27.000Z" itemprop="datePublished">
+          2016-07-15
+      </time>
+    
+    
+    | 
+    <a href='/tags/Linux/'>Linux</a>
+    
+    
+</span>
+                    </span>
+                </div>
+                <div class="col-md-8">
+                    <p>
+                      
+                        1. 生成自建CA Root什么是CACA,Catificate Authority，数字证书认证中心，用于签发证书，保证客户端之间服务端的信任。CA实际上是在做key和cert的pair。常见的Symantec, Comodo等公司都是CA服务商。
+为什么要CA不经过CA签证的证书之间挂到Apache上也能用，但浏览器肯定会报错ERR_CERT_AUTHORITY_INVALID，带着一个红叉，需要点强行访问来通过。使用这些公司签发的
+                      
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/2016/07/15/Apache2自签发V3证书详细流程/">Read More...</a>
                     </p>
                     
                 </div>
@@ -555,58 +591,6 @@ cmdlet的格式是动词-名词，不区分大小写，很清晰很长很恶心�
                     
                     <p class="pull-right readMore">
                         <a href="/2015/10/09/PowerShell入门系列2-cmdlet/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/09/21/Skill-List/">Skill List</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-09-21T06:55:41.000Z" itemprop="datePublished">
-          2015-09-21
-      </time>
-    
-    
-    | 
-    <a href='/tags/other/'>other</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        2016年前该读完
-《Javascript高级编程》
-《Python灰帽子编程》
-《现代操作系统》
-
-要熟练什么
-LinuxBash
-PowerShell
-Python爬虫
-PHP、JS常用操作
-
-接下来做出什么
-维护好博客
-一个靠谱爬虫项目
-保持提交漏洞
-leetcode
-
-
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/09/21/Skill-List/">Read More...</a>
                     </p>
                     
                 </div>

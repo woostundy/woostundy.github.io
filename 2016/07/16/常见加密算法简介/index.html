@@ -8,7 +8,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>woostundy</title>
+  <title>常见加密算法简介 | woostundy</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -75,7 +75,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -209,190 +209,72 @@
         <!-- // End height spacing helper -->
 
         <!-- ============================ END Hero Image =========================== -->
-      <!-- ============================ Content =========================== -->
-
+      
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/09/21/Skill-List/">Skill List</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-09-21T06:55:41.000Z" itemprop="datePublished">
-          2015-09-21
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-07-16T06:35:59.000Z" itemprop="datePublished">
+          2016-07-16
       </time>
     
     
     | 
-    <a href='/tags/other/'>other</a>
+    <a href='/tags/hacker/'>hacker</a>
     
     
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        2016年前该读完
-《Javascript高级编程》
-《Python灰帽子编程》
-《现代操作系统》
-
-要熟练什么
-LinuxBash
-PowerShell
-Python爬虫
-PHP、JS常用操作
-
-接下来做出什么
-维护好博客
-一个靠谱爬虫项目
-保持提交漏洞
-leetcode
-
-
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/09/21/Skill-List/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
+                <h1>常见加密算法简介</h1>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/09/11/Powershell入门系列1-介绍和开始/">PowerShell入门系列1：介绍和快速开始</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-09-11T09:24:34.000Z" itemprop="datePublished">
-          2015-09-11
-      </time>
-    
-    
-    | 
-    <a href='/tags/PowerShell/'>PowerShell</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        PowerShell简介PowerShell是什么？PowerShell 是运行在windows机器上实现系统和应用程序管理自动化的命令行脚本环境。相比Linux里的shell，Windows自带的cmd命令提示符显得有些简陋，所以从Windows 7之后微软提供了cmd的超级升级版——PowerShell。
-怎么安装PowerShell？大部分情况下是不需要安装的
-Windows 7/Windows Server 2008 内置Pow
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/09/11/Powershell入门系列1-介绍和开始/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="对称加密_对称秘钥（单秘钥）">对称加密 对称秘钥（单秘钥）</h2><h3 id="DES_(Data_Encryption_Standard)">DES (Data Encryption Standard)</h3><p>DES是一种分组加密算法</p>
+<p>DES算法的入口参数有三个:Key,Data,Mode，Key是秘钥占7个字节56位（64位里另外8位是用来校验的），Data是加密内容，占8个字节64位，Mode是加密还是解密。</p>
+<p>DES算法于1976被确定，现在已经被认为不够安全，主要原因是56位的秘钥过短。据说这个算法因为包含一些机密设计元素，被怀疑内含美国国家安全局（NSA）的后门。</p>
+<p>DES算法有个拓展算法叫3DES，就是对数据块进行三次DES加密，增加爆破成本，但本质上也不够安全。</p>
+<p>tip：分组加密加密（Block cipher），也叫块加密，将明文分成多个等长的模块（block），使用确定的算法和对称密钥对每组分别加密解密。现代分组加密建立在迭代的思想上产生密文。迭代产生的密文在每一轮加密中使用不同的子密钥，而子密钥生成自原始密钥。</p>
+<h3 id="RC4_(Rivest_Cipher_4)">RC4 (Rivest Cipher 4)</h3><p>RC4是一种流加密算法</p>
+<p>RC4起源于1987年，现在已经被认为不够安全。<br>RC4由伪随机数生成器和异或运算组成。RC4的密钥长度可变，范围是[1,255]。RC4一个字节一个字节地加解密。给定一个密钥，伪随机数生成器接受密钥并产生一个S盒。S盒用来加密数据，而且在加密过程中S盒会变化。</p>
+<p>由于异或运算的对合性，RC4加密解密使用同一套算法。这个算法实现起来很简单，只用了最基本的加、异或、循环，话说我大学时某个课程设计的做的加密算法就是简化版的RC4。</p>
+<p>之后还出现了RC5、RC6加密算法，但RC5和RC6都是分组加密，和RC4原理并不一样。</p>
+<p>tip: 流加密（Stream cipher）是对称加密常用的一种实现方法，加密和解密双方使用相同伪随机加密数据流，一般都是逐位异或随机密码本的内容。</p>
+<h3 id="RC5（Rivest_Cipher_5）">RC5（Rivest Cipher 5）</h3><p>RC5是一种分组加密算法，它和RC2，RC4，RC6都是同一个叫Ronald Rivest的人设计的。</p>
+<p>相比RC4，RC5的秘钥成了128位，但RC5仍然只需要基础的加、异或、循环运算，可以在很多硬件上实现。RC5有三个参数：字的大小，循环轮数（round），秘钥中的8位字节个数，所以可以说RC5是一种可变加密算法。实际上循环轮数12轮以下的RC5都被认为是不安全的，会被差分分析法（Differential cryptanalysis）攻击，18-20轮才足够安全。</p>
+<p>虽然说现在的解密都不会直接针对算法，而是用彩虹表碰撞，当然这是后话。<br>目前来说，RC5还是挺安全的，因为事先简单，在一些传感器、嵌入式设备上使用很合适。</p>
+<h3 id="RC6（Rivest_Cipher_6）">RC6（Rivest Cipher 6）</h3><h3 id="AES_(Rijndael)">AES (Rijndael)</h3><h2 id="对称加密_非对称秘钥">对称加密 非对称秘钥</h2><h2 id="非对称加密">非对称加密</h2><h2 id="其他">其他</h2>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/09/08/深入理解JS笔记 1：数据类型Tips/">深入理解JS笔记 1：数据类型Tips</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-09-08T02:39:08.000Z" itemprop="datePublished">
-          2015-09-08
-      </time>
-    
-    
-    | 
-    <a href='/tags/JS/'>JS</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        备注：为了方便阅读《Javascript高级程序设计》 以下简称为 《J高》，笔记会引用很多该书内容，同时非常感谢笨蛋的座右铭的《理解Javascript》一系列文章。
-引用数据类型和原始数据类型
-ECMA-262 把类型（type）定义为值的集合，每种原始类型定义了包含它的值的范围及其字面量表示形式
-5种原始数据类型：Null、Boolean、Number、String
-引用类型就是类（class），引用值就是对象，所以引用类型变量t
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/09/08/深入理解JS笔记 1：数据类型Tips/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2015/08/26/Python-PowerShell-一句话远控脚本思路/">Python+PowerShell 一句话远控脚本思路</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2015-08-26T07:59:26.000Z" itemprop="datePublished">
-          2015-08-26
-      </time>
-    
-    
-    | 
-    <a href='/tags/python-powershell-hacker/'>python,powershell,hacker</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        简介从Win7开始，Windows全部自带极其强大的Powershell，Windows的新利器！我之后会陆续写一些关于Powershell应用的文章。
-这是用Python写服务端，PowerShell写客户端，基于Socket的一个远控脚本。其实Powershell也可以写服务端，选Python写服务端主要是为了在Linux服务器上也能跑。
-原理iex (New-Object Sys.Net.Webclient).DownloadSt
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2015/08/26/Python-PowerShell-一句话远控脚本思路/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
-          <a class="pull-left" href="/">← Newer Posts</a>
-          
-        </nav>
+    
+    
+    <a class="pull-right" href="/2016/07/15/Apache2自签发V3证书详细流程/">
+        Apache2 设置自签发证书 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/07/16/常见加密算法简介/" data-title="常见加密算法简介" data-url="http://woostundy.github.io/2016/07/16/常见加密算法简介/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"duoshuo_name"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
     </div>
+	
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>还没想好写点什么。</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+<script>
+this.location.href="#intro";
+</script>
 
       
 <!-- ============================ Footer =========================== -->
