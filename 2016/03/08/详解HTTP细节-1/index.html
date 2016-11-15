@@ -251,6 +251,27 @@
 <li>HTTP/1.1在1.0的基础上加入了一些cache的新特性，当缓存对象的Age超过Expire时变为stale对象，cache不需要直接抛弃stale对象，而是与源服务器进行重新激活（revalidation）。</li>
 <li>date/timestamp (日期时间戳)有细微差别。</li>
 </ul>
+<h2 id="关于RESTful">关于RESTful</h2><p>中间插一句，最近很流行的一个概念RESTful，REST全称是Representational State Transfer，不过这个全称看着也很懵逼。提出这个概念的Roy Thomas Fielding是HTTP协议的主要设计者，以我的理解，REST其实是让我们回归HTTP方法本身的语义。</p>
+<p>HTTP 1.1 是1999年发表的，HTTP 2都发布了，但开发者几乎还在用HTTP 1.0的特性，请求方法平时几乎只用到GET和POST，大量的GET方法都不是幂等的。这显然有悖于HTTP 1.1的设计思想。</p>
+<p>REST作为一种标准或者约定，主要定义了以下几点：</p>
+<ul>
+<li>URL定位资源，URL都指向Resource，都应该是名词，不涉及任何操作语义</li>
+<li><p>操作语义交给HTTP请求方法，GET和PUT应当幂等：</p>
+<ul>
+<li>GET 获取资源，</li>
+<li>POST 新建资源</li>
+<li>PUT 更新资源，</li>
+<li>DELETE 删除资源</li>
+<li>UPDATE 更新资源</li>
+</ul>
+<p>如上，其实HTTP协议的请求方法已经能覆盖所有对资源的操作了。</p>
+</li>
+<li>HTTP传递资源（无论Json、XML还是二进制数据，都是资源的不同形式）</li>
+<li>使用正确的HTTP状态码。HTTP 1.1就有三十多个状态码了。但我们平时用到的极少，很多网站都只有404、500、200这三个状态码。</li>
+<li>用/嵌套的url来标示子资源，比如：/tickets/12/messages</li>
+<li>用?来过滤资源</li>
+</ul>
+<p>以上这些约定，仔细看不难发现，都是在重复和强调HTTP本身的语义。</p>
 <h2 id="安全问题">安全问题</h2>
             <div class="clearfix"></div>
             <hr class="nogutter">
