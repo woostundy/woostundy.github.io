@@ -18,36 +18,6 @@
 
   
 
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </head>
 <body>
 <div class="container">
@@ -139,21 +109,84 @@
                             </ul>
                         </div>
                     </li>
-                    
-                    
-                    
                     <li>
-                        <a class="fa fa-weibo" href="#"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Weibo Show</a>
+                        <a class="fa fa-copy" href="#"><i class="fa fa-angle-left">
+                            </i>&nbsp;&nbsp;Categories</a>
 
                         <div class="mp-level page-list">
-                            <h2 ><i class="fa fa-weibo"></i>
-                                Weibo Show</h2>
+                            <h2 ><i class="fa fa-copy"></i>
+                                Categories</h2>
                             <a class="mp-back" href="#">back</a>
+                            <form id="search-form" action="">
+                                <input type="text" class="search search-category" placeholder="Search.."/>
+                            </form>
+                            <ul>
+                                <div class="mp-scroll">
+                                
+                                </div>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="fa fa-tags" href="#"><i class="fa fa-angle-left">
+                            </i>&nbsp;&nbsp;Tags</a>
+                        <div class="mp-level page-list">
+                            <h2 ><i class="fa fa-tags"></i>
+                                Tags</h2>
+                            <a class="mp-back" href="#">back</a>
+                            <form id="search-form" action="">
+                                <input type="text" class="search search-tag" placeholder="Search.."/>
+                            </form>
+                            <ul>
+                                <div class="mp-scroll">
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/JS/">&nbsp;&nbsp;&nbsp;JS</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/Linux/">&nbsp;&nbsp;&nbsp;Linux</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/PowerShell/">&nbsp;&nbsp;&nbsp;PowerShell</a>
+                                    <small>5</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/hacker/">&nbsp;&nbsp;&nbsp;hacker</a>
+                                    <small>3</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/other/">&nbsp;&nbsp;&nbsp;other</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/python-powershell-hacker/">&nbsp;&nbsp;&nbsp;python,powershell,hacker</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/加密/">&nbsp;&nbsp;&nbsp;加密</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                <li class="search-tag-li mp-pjax">
+                                    <a href="/tags/网络/">&nbsp;&nbsp;&nbsp;网络</a>
+                                    <small>1</small>
+                                </li>
+                                
+                                </div>
+                            </ul>
                         </div>
                     </li>
                     
                     <li class="mp-pjax"><a class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a></li>
-                    <li><a class="fa fa-github" href='http://github.com/woostundy'>&nbsp;&nbsp;&nbsp;Github</a></li>
+                    <li><a class="fa fa-github" href="https://github.com/woostundy">&nbsp;&nbsp;&nbsp;Github</a></li>
 
                 </ul>
 
@@ -256,6 +289,7 @@
                 <a data-pjax href='/tags/PowerShell/'>PowerShell</a>
                 
                 
+                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
             </div>
             <h1 class="post-title"><a data-pjax href="/2015/10/22/PowerShell XML处理、注册表Default取值坑两则/">PowerShell XML处理和注册表(Default)取值 坑两则</a>
             </h1>
@@ -295,6 +329,7 @@ PS C:\Users\
                 <a data-pjax href='/tags/PowerShell/'>PowerShell</a>
                 
                 
+                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
             </div>
             <h1 class="post-title"><a data-pjax href="/2015/10/22/PowerShell-判断操作系统语言等信息/">PowerShell 判断操作系统语言</a>
             </h1>
@@ -332,6 +367,7 @@ PS C:\Users\Woody&gt; [System.Globalization.Cultureinfo]::InstalledUICulture
                 <a data-pjax href='/tags/PowerShell/'>PowerShell</a>
                 
                 
+                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
             </div>
             <h1 class="post-title"><a data-pjax href="/2015/10/09/PowerShell学习资料整理/">PowerShell学习资料整理</a>
             </h1>
@@ -369,6 +405,7 @@ PowerShellMagazine 偏资讯类
                 <a data-pjax href='/tags/PowerShell/'>PowerShell</a>
                 
                 
+                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
             </div>
             <h1 class="post-title"><a data-pjax href="/2015/10/09/PowerShell入门系列2-cmdlet/">PowerShell入门系列2:cmdlet</a>
             </h1>
@@ -401,6 +438,7 @@ cmdlet的格式是动词-名词，不区分大小写，很清晰很长很恶心�
                 <a data-pjax href='/tags/PowerShell/'>PowerShell</a>
                 
                 
+                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
             </div>
             <h1 class="post-title"><a data-pjax href="/2015/09/11/Powershell入门系列1-介绍和开始/">PowerShell入门系列1：介绍和快速开始</a>
             </h1>
@@ -471,8 +509,17 @@ Windows 7/Windows Server 2008 内置Pow
 
 
 
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-101322721-1']);
+    _gaq.push(['_trackPageview']);
 
-
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
 
 </body>
 </html>

@@ -229,21 +229,14 @@ function afterPjax() {
         e.preventDefault();
     });
 
-//    Click TOC navbar to show or hide
-    var isTocShow = false;
-    $('#navbar-toc').click(function(e){
-        if (!isTocShow) {
-            $('#navbar-toc i').removeClass('hover-down').addClass("hover-up");
-            $('.hidden-box').slideDown();
-            isTocShow = true;
-        } else {
-            $('#navbar-toc i').removeClass('hover-up').addClass("hover-down");
-            $('.hidden-box').slideUp();
-            isTocShow = false;
-        }
-        e.prevent_default;
-    })
-
+//    Hover TOC navbar to show
+    $('#navbar-toc').hover(function () {
+        $('#navbar-toc i').removeClass('hover-down').addClass("hover-up");
+        $('.hidden-box').slideDown();
+    }, function () {
+        $('#navbar-toc i').removeClass('hover-up').addClass("hover-down");
+        $('.hidden-box').slideUp();
+    });
 
 
 
@@ -275,7 +268,6 @@ $(document).on({
         $('#navbar-toc').hide();
         $('.nexus').css('width', 'auto');
         $('#navbar-title a').hide();
-        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
     },
     'pjax:popstate': function () {
         setTimeout("$('#toc').find('li').remove();",100);
@@ -283,8 +275,5 @@ $(document).on({
         setTimeout("$('#comment-box').children().remove();",100);
     },
 });
-
-
-
 
 
