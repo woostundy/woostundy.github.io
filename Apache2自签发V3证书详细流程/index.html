@@ -16,7 +16,9 @@
   
   
   
-
+    {% if theme.favicon %}
+    <link rel="shorticon icon" type="image/x-icon" href="{{ url_for(theme.favicon) }}" />
+    {% endif %}
   
 
 </head>
@@ -367,8 +369,8 @@ SSLCertificateKeyFile <span class="regexp">/etc/</span>apache2<span class="regex
             <div id="comment-box"></div>
         </section>
     </article>
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <link rel="stylesheet" href="http://ortxojl5r.bkt.clouddn.com/default.css">
+    <script src="http://ortxojl5r.bkt.clouddn.com/gitment.browser.js"></script>
 <script>
     const gitment = new Gitment({
     owner: 'woostundy',
