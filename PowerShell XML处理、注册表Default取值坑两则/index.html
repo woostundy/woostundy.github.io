@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Category: 杂谈 | woostundy</title>
+  <title>PowerShell XML处理和注册表(Default)取值 坑两则 | woostundy</title>
   <meta name="description" content="about woody" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -285,7 +285,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
+                        <li id="navbar-title"><a href="#">PowerShell XML处理和注册表(Default)取值 坑两则</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -304,131 +304,125 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/PowerShell/' style='color:#D5D5D5'>PowerShell</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">PowerShell XML处理和注册表(Default)取值 坑两则</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2015-10-22T09:43:58.000Z"
+                              itemprop="datePublished">2015-10-22</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/局域网/'>局域网</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/两个局域网怎么互连 一个简单解决方案/">两个局域网怎么互连？一个简单解决方案</a>
-            </h1>
+        <section class="post-content">
+            <ol>
+<li><p>处理XML时，PowerShell支持直接以对象的方式访问节点，像这样</p>
+<pre><code>&lt;report&gt;
+<span class="code">    &lt;baseInfo&gt;</span>
+<span class="code">        &lt;systemLanguage&gt;zh-CN&lt;/systemLanguage&gt;</span>
+<span class="code">    &lt;/baseInfo&gt;</span>
+<span class="code">    &lt;error&gt;</span>
+<span class="code">    &lt;/error&gt;</span>
+&lt;/report&gt;
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-12-12T12:55:44.000Z"
-                      itemprop="datePublished">2016-12-12</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                背景故事这样的：工作室有两条宽带，一条用于同学们日常使用，另一条留给四台服务器专用，两个宽带分别用两个路由器做出口。
-现在有几个同学想要远程连服务器，但不在一个内网很麻烦，如果都放在同一个网络，又不希望服务器专用网络的带宽被占用。
-所以，问题就成了A, B两个局域网怎么在保证wlan出口不变的情况下，让A局域网内的部分机器能直接访问B局域网内的机器。
-开始想过用VPN，但从外网绕进来，怎么也觉得别扭。后来又想俩路由器中间加个交换机，弄个
-                
-            </p>
+PS C:\Users\Woody&gt; $xmlObj.report.baseInfo
+
+<span class="header">systemLanguage
+--------------</span>
+zh-CN
+</code></pre></li>
+</ol>
+<p>但如果目标节点是没有子级，这样取到的节点类型不是xmlnode，而是object，如下所示。</p>
+<pre><code>PS C:\Users\Woody&gt; <span class="variable">$test</span><span class="class">.report</span><span class="class">.baseInfo</span><span class="class">.systemlanguage</span><span class="class">.getType</span>()
+
+IsPublic IsSerial Name                                     BaseType
+-------- -------- ----                                     --------
+True     True     String                                   System<span class="class">.Object</span>
+
+
+PS C:\Users\Woody&gt; <span class="variable">$test</span><span class="class">.report</span><span class="class">.baseInfo</span><span class="class">.getType</span>()
+
+IsPublic IsSerial Name                                     BaseType
+-------- -------- ----                                     --------
+True     False    XmlElement                               System<span class="class">.Xml</span><span class="class">.XmlLinkedNode</span>
+</code></pre><p>所以，如果想给一个空的节点添加子节点就不能这样写，因为没有对应方法，应该用selectNodes代替，如下所示。</p>
+<pre><code>PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.selectnodes(<span class="string">"error"</span>).item(<span class="number">0</span>).gettype()
+
+IsPublic IsSerial Name                                     BaseType
+-------- -------- ----                                     --------
+<span class="keyword">True</span>     <span class="keyword">False</span>    XmlElement                               System.Xml.XmlLinkedNode
+
+
+PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.error.gettype()
+
+IsPublic IsSerial Name                                     BaseType
+-------- -------- ----                                     --------
+<span class="keyword">True</span>     <span class="keyword">True</span>     <span class="keyword">String</span>                                   System.Object
+
+
+PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.error.appendChild
+##没反应，表示不存在##
+PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.selectnodes(<span class="string">"error"</span>).item(<span class="number">0</span>).appendChild
+
+
+MemberType          : <span class="keyword">Method</span>
+OverloadDefinitions : <span class="list">{System.Xml.XmlNode AppendChild(System.Xml.XmlNode newChild)}</span>
+TypeNameOfValue     : System.Management.Automation.PSMethod
+<span class="keyword">Value</span>               : System.Xml.XmlNode AppendChild(System.Xml.XmlNode newChild)
+Name                : AppendChild
+IsInstance          : <span class="keyword">True</span>
+</code></pre><ol>
+<li>注册表里有些键比较特殊，它里面包含一个Default项，如下图所示。如果想用PowerShell取这个值，要格外注意，<strong>PowerShell自带的注册表访问方法是没法访问到这个值的，这是个Bug，</strong> 我试了无数种访问方法，都不行，目测是（默认）和 (Default)这俩键值造成的冲突。</li>
+</ol>
+<p><img src="http://7xlizz.com1.z0.glb.clouddn.com/注册表.png" alt=""><br><img src="http://7xlizz.com1.z0.glb.clouddn.com/注册表操作.png" alt=""></p>
+<p>解决办法只能是改用CMD的方式，用reg命令解决，如下所示。</p>
+<pre><code>reg Query HKLM<span class="command">\System</span><span class="command">\CurrentControlSet</span><span class="command">\Control</span><span class="command">\Nls</span><span class="command">\Locale</span><span class="command">\ </span>/v "(Default)"
+</code></pre><p>注意要先括号再引号</p>
+
+        </section>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
+            <a data-pjax class="newer-posts" href="/Some Tips/">← Prev Post</a>
+            
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/PowerShell-判断操作系统语言等信息/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
     </article>
-    
-    <article class="post">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    const gitment = new Gitment({
+    owner: 'woostundy',
+    repo: 'blog_comments',
+    oauth: {
+        client_id: 'e10d1539f77ab82d2d71',
+        client_secret: '4ad39492ae2a09bfcd0e7fd5fc92a5a2180b3719',
+    }
+    })
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/Fishing/'>Fishing</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/Some Tips/">Some Tips</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-02-24T02:45:37.000Z"
-                      itemprop="datePublished">2016-02-24</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-超过100人的公司，用键盘走位密码跑一遍，总会有收获。
-Fishing内容：招聘——投递简历 科研——会议邀请 媒体——策划方案 销售——咨询产品 网站——错误反馈
-
-
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/oter/'>oter</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/Skill-List/">Skill List</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-09-21T06:55:41.000Z"
-                      itemprop="datePublished">2015-09-21</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                2016年前该读完
-《Javascript高级编程》
-《Python灰帽子编程》
-《现代操作系统》
-
-要熟练什么
-LinuxBash
-PowerShell
-Python爬虫
-PHP、JS常用操作
-
-接下来做出什么
-维护好博客
-一个靠谱爬虫项目
-保持提交漏洞
-leetcode
-
-
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
+    gitment.render('comment-box')
+</script>
 </main>
 
 

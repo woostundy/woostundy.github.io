@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Category: 杂谈 | woostundy</title>
+  <title>两个局域网怎么互连？一个简单解决方案 | woostundy</title>
   <meta name="description" content="about woody" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -285,7 +285,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
+                        <li id="navbar-title"><a href="#">两个局域网怎么互连？一个简单解决方案</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -304,131 +304,75 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/局域网/' style='color:#D5D5D5'>局域网</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">两个局域网怎么互连？一个简单解决方案</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2016-12-12T12:55:44.000Z"
+                              itemprop="datePublished">2016-12-12</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/局域网/'>局域网</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/两个局域网怎么互连 一个简单解决方案/">两个局域网怎么互连？一个简单解决方案</a>
-            </h1>
+        <section class="post-content">
+            <p>背景故事这样的：工作室有两条宽带，一条用于同学们日常使用，另一条留给四台服务器专用，两个宽带分别用两个路由器做出口。</p>
+<p>现在有几个同学想要远程连服务器，但不在一个内网很麻烦，如果都放在同一个网络，又不希望服务器专用网络的带宽被占用。</p>
+<p>所以，问题就成了A, B两个局域网怎么在保证wlan出口不变的情况下，让A局域网内的部分机器能直接访问B局域网内的机器。</p>
+<p>开始想过用VPN，但从外网绕进来，怎么也觉得别扭。后来又想俩路由器中间加个交换机，弄个trunk接口。</p>
+<p>最后突然想明白，这不等同于一个局域网两个wlan口的问题嘛。<br>想明白这事，解决方案就很简单了：</p>
+<ol>
+<li>两个路由器A和B网线连lan口并联，把lan设置到同一IP段。</li>
+<li>路由器A开DHCP（默认网关指向A本身就行），路由器B关闭DHCP。</li>
+<li>其他同学日常用网用自动获取IP，网关自动就指向A。而服务器手动设置IP，网关指向路由器B。</li>
+<li>这样就实现两个网络互通，且出口不同了。</li>
+<li>最后在路由器A上添加访问规则，限制只能有部分同学的MAC地址可以访问服务器所在的IP范围。</li>
+</ol>
+<p>其实用一个双wlan口的路由器也能解决这个问题，只是后续再有变更可能没俩路由器那么灵活。<br>第三步如果服务器量大了手动设置就很麻烦，需要用静态DHCP+路由规则去做。</p>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-12-12T12:55:44.000Z"
-                      itemprop="datePublished">2016-12-12</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                背景故事这样的：工作室有两条宽带，一条用于同学们日常使用，另一条留给四台服务器专用，两个宽带分别用两个路由器做出口。
-现在有几个同学想要远程连服务器，但不在一个内网很麻烦，如果都放在同一个网络，又不希望服务器专用网络的带宽被占用。
-所以，问题就成了A, B两个局域网怎么在保证wlan出口不变的情况下，让A局域网内的部分机器能直接访问B局域网内的机器。
-开始想过用VPN，但从外网绕进来，怎么也觉得别扭。后来又想俩路由器中间加个交换机，弄个
-                
-            </p>
+        </section>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
+            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
+            
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/梁山神算子算天机-江州黄通判通地孤/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
     </article>
-    
-    <article class="post">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    const gitment = new Gitment({
+    owner: 'woostundy',
+    repo: 'blog_comments',
+    oauth: {
+        client_id: 'e10d1539f77ab82d2d71',
+        client_secret: '4ad39492ae2a09bfcd0e7fd5fc92a5a2180b3719',
+    }
+    })
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/Fishing/'>Fishing</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/Some Tips/">Some Tips</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-02-24T02:45:37.000Z"
-                      itemprop="datePublished">2016-02-24</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-超过100人的公司，用键盘走位密码跑一遍，总会有收获。
-Fishing内容：招聘——投递简历 科研——会议邀请 媒体——策划方案 销售——咨询产品 网站——错误反馈
-
-
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/oter/'>oter</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/Skill-List/">Skill List</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-09-21T06:55:41.000Z"
-                      itemprop="datePublished">2015-09-21</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                2016年前该读完
-《Javascript高级编程》
-《Python灰帽子编程》
-《现代操作系统》
-
-要熟练什么
-LinuxBash
-PowerShell
-Python爬虫
-PHP、JS常用操作
-
-接下来做出什么
-维护好博客
-一个靠谱爬虫项目
-保持提交漏洞
-leetcode
-
-
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
+    gitment.render('comment-box')
+</script>
 </main>
 
 

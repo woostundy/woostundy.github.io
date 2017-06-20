@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Category: 杂谈 | woostundy</title>
+  <title>深入理解JS笔记 1：数据类型Tips | woostundy</title>
   <meta name="description" content="about woody" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -285,7 +285,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
+                        <li id="navbar-title"><a href="#">深入理解JS笔记 1：数据类型Tips</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -304,131 +304,92 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/JS/' style='color:#D5D5D5'>JS</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">深入理解JS笔记 1：数据类型Tips</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2015-09-08T02:39:08.000Z"
+                              itemprop="datePublished">2015-09-08</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/局域网/'>局域网</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/两个局域网怎么互连 一个简单解决方案/">两个局域网怎么互连？一个简单解决方案</a>
-            </h1>
+        <section class="post-content">
+            <p>备注：为了方便阅读《Javascript高级程序设计》 以下简称为 《J高》，笔记会引用很多该书内容，同时非常感谢笨蛋的座右铭的《理解Javascript》一系列文章。</p>
+<h2 id="引用数据类型和原始数据类型">引用数据类型和原始数据类型</h2><ul>
+<li>ECMA-262 把类型（type）定义为值的集合，每种原始类型定义了包含它的值的范围及其字面量表示形式</li>
+<li>5种原始数据类型：Null、Boolean、Number、String</li>
+<li>引用类型就是类（class），引用值就是对象，所以引用类型变量typeof的运算结果一定是一个object</li>
+<li>原始数据类型其值存在栈中，引用数据类型值存在堆中</li>
+<li>也就是说原始类型的值直接存在变量访问的位置，而引用类型存在变量处的值是一个指向堆的指针 </li>
+<li>String类型比较特殊，它是唯一没有固定大小的原始类型，不过它还是存在栈中……</li>
+<li>每一个基础类型都有其对应的引用类型number Number,string String,boolean Boolean，推测结论：基本数据类型是对应引用数据类型的子类，为了提高效率，将基础类型放在了栈内存中，所以undefined继承自null（存疑）</li>
+<li>因此所有原始类型也都是伪类，都拥有toString()等object的方法</li>
+<li>object</li>
+</ul>
+<h2 id="undefined_和_null">undefined 和 null</h2><ul>
+<li>Undefined 代表未赋值的基本数据类型，Null 代表未赋值的引用数据类型</li>
+<li>Undefined 只有唯一值 undefined，Null下只有唯一的值 null （注意大小写 =。=）</li>
+<li>但是为了效率，null 作为引用数据类型，其值仍然存在栈中</li>
+<li>因此导致了 null == undefined</li>
+<li>《J高》里的说法是，值undefined实际是从null派生（继承）而来的，所以null == undefined</li>
+<li>《J高》：typeof(null)会返回object，这是Javascript最初实现中的一个错误，但一直沿用至今，现在null被认为是对象的占位符，但从技术上来说它仍然是原始值（“从技术上说null是原始值”，大概是因为null存在栈中）</li>
+<li>null 在参与数值运算时其值会自动转换为 0 ，undefined参与任何数值运算时，结果为NaN</li>
+<li>当函数无明确返回值时，返回的值是undefined</li>
+</ul>
+<h2 id="对象和函数">对象和函数</h2><ul>
+<li>对象是一个无序属性的集合，这些属性的值位简单数据类型、对象或者函数。</li>
+<li>函数是对象的一种，实现上内部熟悉[[Class]]的值位 “Function” ，表明它是函数类型，除了对象的内部属性方法外，还有[[Construct]]、[[Call]]、[[Scope]]等内部属性。内部方法[[Construct]]用于实现作为构造器的逻辑，[[Call]]实现作为函数调用的逻辑。</li>
+<li>Function是函数类型的用户接口</li>
+<li>Object是对象类型的用户接口</li>
+<li>Boolean，Number，String均为这三种简单数值类型的<strong>对象包装器</strong></li>
+<li>Date, Array, RegExp: 可以把它们看作是几种内置的扩展数据类型</li>
+</ul>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-12-12T12:55:44.000Z"
-                      itemprop="datePublished">2016-12-12</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                背景故事这样的：工作室有两条宽带，一条用于同学们日常使用，另一条留给四台服务器专用，两个宽带分别用两个路由器做出口。
-现在有几个同学想要远程连服务器，但不在一个内网很麻烦，如果都放在同一个网络，又不希望服务器专用网络的带宽被占用。
-所以，问题就成了A, B两个局域网怎么在保证wlan出口不变的情况下，让A局域网内的部分机器能直接访问B局域网内的机器。
-开始想过用VPN，但从外网绕进来，怎么也觉得别扭。后来又想俩路由器中间加个交换机，弄个
-                
-            </p>
+        </section>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
+            <a data-pjax class="newer-posts" href="/Powershell入门系列1-介绍和开始/">← Prev Post</a>
+            
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/Python-PowerShell-一句话远控脚本思路/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
     </article>
-    
-    <article class="post">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    const gitment = new Gitment({
+    owner: 'woostundy',
+    repo: 'blog_comments',
+    oauth: {
+        client_id: 'e10d1539f77ab82d2d71',
+        client_secret: '4ad39492ae2a09bfcd0e7fd5fc92a5a2180b3719',
+    }
+    })
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/Fishing/'>Fishing</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/Some Tips/">Some Tips</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-02-24T02:45:37.000Z"
-                      itemprop="datePublished">2016-02-24</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-超过100人的公司，用键盘走位密码跑一遍，总会有收获。
-Fishing内容：招聘——投递简历 科研——会议邀请 媒体——策划方案 销售——咨询产品 网站——错误反馈
-
-
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/oter/'>oter</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/Skill-List/">Skill List</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-09-21T06:55:41.000Z"
-                      itemprop="datePublished">2015-09-21</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                2016年前该读完
-《Javascript高级编程》
-《Python灰帽子编程》
-《现代操作系统》
-
-要熟练什么
-LinuxBash
-PowerShell
-Python爬虫
-PHP、JS常用操作
-
-接下来做出什么
-维护好博客
-一个靠谱爬虫项目
-保持提交漏洞
-leetcode
-
-
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
+    gitment.render('comment-box')
+</script>
 </main>
 
 

