@@ -166,7 +166,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Apache2 安全]]></title>
+      <title><![CDATA[Apache2自签发V3证书详细流程]]></title>
       <url>/Apache2%E8%87%AA%E7%AD%BE%E5%8F%91V3%E8%AF%81%E4%B9%A6%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B/</url>
       <content type="html"><![CDATA[<h2 id="1-_生成自建CA_Root">1. 生成自建CA Root</h2><h3 id="什么是CA">什么是CA</h3><p>CA,Catificate Authority，数字证书认证中心，用于签发证书，保证客户端之间服务端的信任。CA实际上是在做key和cert的pair。<br>常见的Symantec, Comodo等公司都是CA服务商。</p>
 <a id="more"></a>
