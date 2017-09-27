@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-CN">
 <head>
     <title> PowerShell XML处理和注册表(Default)取值 坑两则 · woostundy </title>
     <meta charset="UTF-8"/>
@@ -84,8 +84,9 @@
         
         <li class="menu-item">
             <a href="javascript:;" id="search">
-                <span>搜尋</span>
+                <span>搜索</span>
                 
+                    <span class="menu-item-label">search</span>
                 
             </a>
         </li>
@@ -94,8 +95,9 @@
         
             <li class="menu-item">
                 <a href="/">
-                    <span>記事</span>
+                    <span>文章</span>
                     
+                        <span class="menu-item-label">article</span>
                     
                 </a>
             </li>
@@ -104,8 +106,9 @@
         
             <li class="menu-item">
                 <a href="/archives">
-                    <span>歸檔</span>
+                    <span>归档</span>
                     
+                        <span class="menu-item-label">archives</span>
                     
                 </a>
             </li>
@@ -114,8 +117,9 @@
         
             <li class="menu-item">
                 <a href="javascript:;" id="tags">
-                    <span>標籤</span>
+                    <span>标签</span>
                     
+                        <span class="menu-item-label">tags</span>
                     
                 </a>
             </li>
@@ -124,8 +128,9 @@
         
             <li class="menu-item">
                 <a href="/about">
-                    <span>關於</span>
+                    <span>关于</span>
                     
+                        <span class="menu-item-label">about</span>
                     
                 </a>
             </li>
@@ -143,8 +148,9 @@
             
                 <div class="mobile-nav-item">
                     <a href="/">
-                        <span>記事</span>
+                        <span>文章</span>
                         
+                            <span class="menu-item-label">article</span>
                         
                     </a>
                 </div>
@@ -153,8 +159,9 @@
             
                 <div class="mobile-nav-item">
                     <a href="/archives">
-                        <span>歸檔</span>
+                        <span>归档</span>
                         
+                            <span class="menu-item-label">archives</span>
                         
                     </a>
                 </div>
@@ -164,8 +171,9 @@
                 <div class="mobile-nav-item inner-cloud">
                     <div class="mobile-nav-tag">
                         <a href="javascript:;" id="mobile-tags">
-                            <span>標籤</span>
+                            <span>标签</span>
                             
+                                <span class="menu-item-label">tags</span>
                             
                         </a>
                     </div>
@@ -180,8 +188,9 @@
             
                 <div class="mobile-nav-item">
                     <a href="/about">
-                        <span>關於</span>
+                        <span>关于</span>
                         
+                            <span class="menu-item-label">about</span>
                         
                     </a>
                 </div>
@@ -209,7 +218,7 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>October 22, 2015</span>
+                <span>2015年10月22日</span>
                 
                 
                     <span class="post-category"><a href="/categories/技术/">技术</a></span>
@@ -234,68 +243,19 @@
         <div class="post-content syuanpi riseIn-light back-3">
             
                 <ol>
-<li><p>处理XML时，PowerShell支持直接以对象的方式访问节点，像这样</p>
-<pre><code>&lt;report&gt;
-<span class="code">    &lt;baseInfo&gt;</span>
-<span class="code">        &lt;systemLanguage&gt;zh-CN&lt;/systemLanguage&gt;</span>
-<span class="code">    &lt;/baseInfo&gt;</span>
-<span class="code">    &lt;error&gt;</span>
-<span class="code">    &lt;/error&gt;</span>
-&lt;/report&gt;
-
-PS C:\Users\Woody&gt; $xmlObj.report.baseInfo
-
-<span class="header">systemLanguage
---------------</span>
-zh-CN
-</code></pre></li>
+<li>处理XML时，PowerShell支持直接以对象的方式访问节点，像这样</li>
 </ol>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;report&gt;</span><br><span class="line"><span class="code">	&lt;baseInfo&gt;</span></span><br><span class="line"><span class="code">		&lt;systemLanguage&gt;zh-CN&lt;/systemLanguage&gt;</span></span><br><span class="line"><span class="code">	&lt;/baseInfo&gt;</span></span><br><span class="line"><span class="code">	&lt;error&gt;</span></span><br><span class="line"><span class="code">	&lt;/error&gt;</span></span><br><span class="line">&lt;/report&gt;</span><br><span class="line"></span><br><span class="line">PS C:\Users\Woody&gt; $xmlObj.report.baseInfo</span><br><span class="line"></span><br><span class="line"><span class="header">systemLanguage</span><br><span class="line">--------------</span></span><br><span class="line">zh-CN</span><br></pre></td></tr></table></figure>
 <p>但如果目标节点是没有子级，这样取到的节点类型不是xmlnode，而是object，如下所示。<br><a id="more"></a></p>
-<pre><code>PS C:\Users\Woody&gt; <span class="variable">$test</span><span class="class">.report</span><span class="class">.baseInfo</span><span class="class">.systemlanguage</span><span class="class">.getType</span>()
-
-IsPublic IsSerial Name                                     BaseType
--------- -------- ----                                     --------
-True     True     String                                   System<span class="class">.Object</span>
-
-
-PS C:\Users\Woody&gt; <span class="variable">$test</span><span class="class">.report</span><span class="class">.baseInfo</span><span class="class">.getType</span>()
-
-IsPublic IsSerial Name                                     BaseType
--------- -------- ----                                     --------
-True     False    XmlElement                               System<span class="class">.Xml</span><span class="class">.XmlLinkedNode</span>
-</code></pre><p>所以，如果想给一个空的节点添加子节点就不能这样写，因为没有对应方法，应该用selectNodes代替，如下所示。</p>
-<pre><code>PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.selectnodes(<span class="string">"error"</span>).item(<span class="number">0</span>).gettype()
-
-IsPublic IsSerial Name                                     BaseType
--------- -------- ----                                     --------
-<span class="keyword">True</span>     <span class="keyword">False</span>    XmlElement                               System.Xml.XmlLinkedNode
-
-
-PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.error.gettype()
-
-IsPublic IsSerial Name                                     BaseType
--------- -------- ----                                     --------
-<span class="keyword">True</span>     <span class="keyword">True</span>     <span class="keyword">String</span>                                   System.Object
-
-
-PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.error.appendChild
-##没反应，表示不存在##
-PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.selectnodes(<span class="string">"error"</span>).item(<span class="number">0</span>).appendChild
-
-
-MemberType          : <span class="keyword">Method</span>
-OverloadDefinitions : <span class="list">{System.Xml.XmlNode AppendChild(System.Xml.XmlNode newChild)}</span>
-TypeNameOfValue     : System.Management.Automation.PSMethod
-<span class="keyword">Value</span>               : System.Xml.XmlNode AppendChild(System.Xml.XmlNode newChild)
-Name                : AppendChild
-IsInstance          : <span class="keyword">True</span>
-</code></pre><ol>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\Woody&gt; <span class="variable">$test</span><span class="class">.report</span><span class="class">.baseInfo</span><span class="class">.systemlanguage</span><span class="class">.getType</span>()</span><br><span class="line"></span><br><span class="line">IsPublic IsSerial Name                                     BaseType</span><br><span class="line">-------- -------- ----                                     --------</span><br><span class="line">True     True     String                                   System<span class="class">.Object</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PS C:\Users\Woody&gt; <span class="variable">$test</span><span class="class">.report</span><span class="class">.baseInfo</span><span class="class">.getType</span>()</span><br><span class="line"></span><br><span class="line">IsPublic IsSerial Name                                     BaseType</span><br><span class="line">-------- -------- ----                                     --------</span><br><span class="line">True     False    XmlElement                               System<span class="class">.Xml</span><span class="class">.XmlLinkedNode</span></span><br></pre></td></tr></table></figure>
+<p>所以，如果想给一个空的节点添加子节点就不能这样写，因为没有对应方法，应该用selectNodes代替，如下所示。</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.selectnodes(<span class="string">"error"</span>).item(<span class="number">0</span>).gettype()</span><br><span class="line"></span><br><span class="line">IsPublic IsSerial Name                                     BaseType</span><br><span class="line">-------- -------- ----                                     --------</span><br><span class="line"><span class="keyword">True</span>     <span class="keyword">False</span>    XmlElement                               System.Xml.XmlLinkedNode</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.error.gettype()</span><br><span class="line"></span><br><span class="line">IsPublic IsSerial Name                                     BaseType</span><br><span class="line">-------- -------- ----                                     --------</span><br><span class="line"><span class="keyword">True</span>     <span class="keyword">True</span>     <span class="keyword">String</span>                                   System.Object</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.error.appendChild</span><br><span class="line">   ##没反应，表示不存在##</span><br><span class="line">PS <span class="keyword">C</span>:\Users\Woody&gt; $test.report.selectnodes(<span class="string">"error"</span>).item(<span class="number">0</span>).appendChild</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">MemberType          : <span class="keyword">Method</span></span><br><span class="line">OverloadDefinitions : <span class="list">&#123;System.Xml.XmlNode AppendChild(System.Xml.XmlNode newChild)&#125;</span></span><br><span class="line">TypeNameOfValue     : System.Management.Automation.PSMethod</span><br><span class="line"><span class="keyword">Value</span>               : System.Xml.XmlNode AppendChild(System.Xml.XmlNode newChild)</span><br><span class="line">Name                : AppendChild</span><br><span class="line">IsInstance          : <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<ol>
 <li>注册表里有些键比较特殊，它里面包含一个Default项，如下图所示。如果想用PowerShell取这个值，要格外注意，<strong>PowerShell自带的注册表访问方法是没法访问到这个值的，这是个Bug，</strong> 我试了无数种访问方法，都不行，目测是（默认）和 (Default)这俩键值造成的冲突。</li>
 </ol>
 <p><img src="http://7xlizz.com1.z0.glb.clouddn.com/注册表.png" alt=""><br><img src="http://7xlizz.com1.z0.glb.clouddn.com/注册表操作.png" alt=""></p>
-<p>解决办法只能是改用CMD的方式，用reg命令解决，如下所示。</p>
-<pre><code>reg Query HKLM<span class="command">\System</span><span class="command">\CurrentControlSet</span><span class="command">\Control</span><span class="command">\Nls</span><span class="command">\Locale</span><span class="command">\ </span>/v "(Default)"
-</code></pre><p>注意要先括号再引号</p>
+<p>解决办法只能是改用CMD的方式，用reg命令解决，如下所示。<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg Query HKLM<span class="command">\System</span><span class="command">\CurrentControlSet</span><span class="command">\Control</span><span class="command">\Nls</span><span class="command">\Locale</span><span class="command">\ </span>/v "(Default)"</span><br></pre></td></tr></table></figure></p>
+<p>注意要先括号再引号</p>
 
             
         
@@ -419,11 +379,11 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
     </div>
     <div class="theme">
         <span>
-            動力來自
+            动力来源于
             <a href="http://hexo.io/" target="_blank">Hexo </a>
         </span>
         <span>
-            樣式
+            主题
             <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
         </span>
     </div>

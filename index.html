@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-CN">
 <head>
     <title>
     woostundy
@@ -87,8 +87,9 @@
         
         <li class="menu-item">
             <a href="javascript:;" id="search">
-                <span>搜尋</span>
+                <span>搜索</span>
                 
+                    <span class="menu-item-label">search</span>
                 
             </a>
         </li>
@@ -97,8 +98,9 @@
         
             <li class="menu-item">
                 <a href="/">
-                    <span>記事</span>
+                    <span>文章</span>
                     
+                        <span class="menu-item-label">article</span>
                     
                 </a>
             </li>
@@ -107,8 +109,9 @@
         
             <li class="menu-item">
                 <a href="/archives">
-                    <span>歸檔</span>
+                    <span>归档</span>
                     
+                        <span class="menu-item-label">archives</span>
                     
                 </a>
             </li>
@@ -117,8 +120,9 @@
         
             <li class="menu-item">
                 <a href="javascript:;" id="tags">
-                    <span>標籤</span>
+                    <span>标签</span>
                     
+                        <span class="menu-item-label">tags</span>
                     
                 </a>
             </li>
@@ -127,8 +131,9 @@
         
             <li class="menu-item">
                 <a href="/about">
-                    <span>關於</span>
+                    <span>关于</span>
                     
+                        <span class="menu-item-label">about</span>
                     
                 </a>
             </li>
@@ -146,8 +151,9 @@
             
                 <div class="mobile-nav-item">
                     <a href="/">
-                        <span>記事</span>
+                        <span>文章</span>
                         
+                            <span class="menu-item-label">article</span>
                         
                     </a>
                 </div>
@@ -156,8 +162,9 @@
             
                 <div class="mobile-nav-item">
                     <a href="/archives">
-                        <span>歸檔</span>
+                        <span>归档</span>
                         
+                            <span class="menu-item-label">archives</span>
                         
                     </a>
                 </div>
@@ -167,8 +174,9 @@
                 <div class="mobile-nav-item inner-cloud">
                     <div class="mobile-nav-tag">
                         <a href="javascript:;" id="mobile-tags">
-                            <span>標籤</span>
+                            <span>标签</span>
                             
+                                <span class="menu-item-label">tags</span>
                             
                         </a>
                     </div>
@@ -183,8 +191,9 @@
             
                 <div class="mobile-nav-item">
                     <a href="/about">
-                        <span>關於</span>
+                        <span>关于</span>
                         
+                            <span class="menu-item-label">about</span>
                         
                     </a>
                 </div>
@@ -216,7 +225,7 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>December 12, 2016</span>
+                <span>2016年12月12日</span>
                 
                 
                     <span class="post-category"><a href="/categories/杂谈/">杂谈</a></span>
@@ -255,7 +264,7 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>November 15, 2016</span>
+                <span>2016年11月15日</span>
                 
                 
                     <span class="post-category"><a href="/categories/安全/">安全</a></span>
@@ -293,7 +302,7 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>July 16, 2016</span>
+                <span>2016年7月16日</span>
                 
                 
                     <span class="post-category"><a href="/categories/安全/">安全</a></span>
@@ -338,7 +347,7 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>July 15, 2016</span>
+                <span>2016年7月15日</span>
                 
                 
                     <span class="post-category"><a href="/categories/技术/">技术</a></span>
@@ -375,7 +384,7 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>March 8, 2016</span>
+                <span>2016年3月8日</span>
                 
                 
                     <span class="post-category"><a href="/categories/技术/">技术</a></span>
@@ -412,7 +421,7 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>March 4, 2016</span>
+                <span>2016年3月4日</span>
                 
                 
                     <span class="post-category"><a href="/categories/技术/">技术</a></span>
@@ -449,7 +458,7 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>February 24, 2016</span>
+                <span>2016年2月24日</span>
                 
                 
                     <span class="post-category"><a href="/categories/杂谈/">杂谈</a></span>
@@ -484,7 +493,7 @@
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>October 22, 2015</span>
+                <span>2015年10月22日</span>
                 
                 
                     <span class="post-category"><a href="/categories/技术/">技术</a></span>
@@ -502,22 +511,9 @@
             
                 
                     <ol>
-<li><p>处理XML时，PowerShell支持直接以对象的方式访问节点，像这样</p>
-<pre><code>&lt;report&gt;
-<span class="code">    &lt;baseInfo&gt;</span>
-<span class="code">        &lt;systemLanguage&gt;zh-CN&lt;/systemLanguage&gt;</span>
-<span class="code">    &lt;/baseInfo&gt;</span>
-<span class="code">    &lt;error&gt;</span>
-<span class="code">    &lt;/error&gt;</span>
-&lt;/report&gt;
-
-PS C:\Users\Woody&gt; $xmlObj.report.baseInfo
-
-<span class="header">systemLanguage
---------------</span>
-zh-CN
-</code></pre></li>
+<li>处理XML时，PowerShell支持直接以对象的方式访问节点，像这样</li>
 </ol>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;report&gt;</span><br><span class="line"><span class="code">	&lt;baseInfo&gt;</span></span><br><span class="line"><span class="code">		&lt;systemLanguage&gt;zh-CN&lt;/systemLanguage&gt;</span></span><br><span class="line"><span class="code">	&lt;/baseInfo&gt;</span></span><br><span class="line"><span class="code">	&lt;error&gt;</span></span><br><span class="line"><span class="code">	&lt;/error&gt;</span></span><br><span class="line">&lt;/report&gt;</span><br><span class="line"></span><br><span class="line">PS C:\Users\Woody&gt; $xmlObj.report.baseInfo</span><br><span class="line"></span><br><span class="line"><span class="header">systemLanguage</span><br><span class="line">--------------</span></span><br><span class="line">zh-CN</span><br></pre></td></tr></table></figure>
 <p>但如果目标节点是没有子级，这样取到的节点类型不是xmlnode，而是object，如下所示。<br>
                     
             
@@ -538,7 +534,7 @@ zh-CN
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>October 22, 2015</span>
+                <span>2015年10月22日</span>
                 
                 
                     <span class="post-category"><a href="/categories/技术/">技术</a></span>
@@ -587,7 +583,7 @@ zh-CN
     <article class="post">
         <header class="post-header">
             <div class="post-time syuanpi riseIn-light back-1">
-                <span>October 9, 2015</span>
+                <span>2015年10月9日</span>
                 
                 
                     <span class="post-category"><a href="/categories/技术/">技术</a></span>
@@ -623,7 +619,7 @@ zh-CN
 </section>
     
     <nav class="pagination">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一頁 ></a>
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 ></a>
     </nav>
 
 
@@ -683,11 +679,11 @@ zh-CN
     </div>
     <div class="theme">
         <span>
-            動力來自
+            动力来源于
             <a href="http://hexo.io/" target="_blank">Hexo </a>
         </span>
         <span>
-            樣式
+            主题
             <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
         </span>
     </div>
