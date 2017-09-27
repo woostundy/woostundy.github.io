@@ -247,18 +247,8 @@
 <h3 id="怎么安装PowerShell？">怎么安装PowerShell？</h3><p>大部分情况下是不需要安装的</p>
 <p>Windows 7/Windows Server 2008 内置PowerShell 2.0 <br><br>Windows 8/Windows Server 2012 内置PowerShell 3.0 <br><br>Windows 8.1/Windows Server 2012 R2 内置 PowerShell 4.0 <br><br>Windows 10 内置PowerShell 5.0预览版 <br></p>
 <p>使用$psversiontable变量可以查看PowerShell，.net框架的版本。</p>
-<pre><code>PS C:\Users\Admin&gt; $psversiontable
-
-Name   Value
-----   -----
-CLRVersion <span class="number">2.0</span><span class="number">.50727</span><span class="number">.5485</span>
-BuildVersion   <span class="number">6.1</span><span class="number">.7601</span><span class="number">.17514</span>
-PSVersion  <span class="number">2.0</span>
-WSManStackVersion  <span class="number">2.0</span>
-PSCompatibleVersions   {<span class="number">1.0</span>, <span class="number">2.0</span>}
-SerializationVersion   <span class="number">1.1</span><span class="number">.0</span><span class="number">.1</span>
-PSRemotingProtocolVersion  <span class="number">2.1</span>
-</code></pre><p>PowerShell 2.0已经可以满足大部分需求了，<strong>如果需要新版本升级到这里下载</strong>：<br></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\Admin&gt; $psversiontable</span><br><span class="line"></span><br><span class="line">Name   Value</span><br><span class="line">----   -----</span><br><span class="line">CLRVersion <span class="number">2.0</span><span class="number">.50727</span><span class="number">.5485</span></span><br><span class="line">BuildVersion   <span class="number">6.1</span><span class="number">.7601</span><span class="number">.17514</span></span><br><span class="line">PSVersion  <span class="number">2.0</span></span><br><span class="line">WSManStackVersion  <span class="number">2.0</span></span><br><span class="line">PSCompatibleVersions   &#123;<span class="number">1.0</span>, <span class="number">2.0</span>&#125;</span><br><span class="line">SerializationVersion   <span class="number">1.1</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">PSRemotingProtocolVersion  <span class="number">2.1</span></span><br></pre></td></tr></table></figure>
+<p>PowerShell 2.0已经可以满足大部分需求了，<strong>如果需要新版本升级到这里下载</strong>：<br></p>
 <blockquote>
 <p>PowerShell4.0 MSDN官方下载地址： <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40855" target="_blank" rel="external">https://www.microsoft.com/en-us/download/details.aspx?id=40855</a></p>
 </blockquote>
@@ -271,16 +261,8 @@ PSRemotingProtocolVersion  <span class="number">2.1</span>
 </ul>
 <h3 id="快速开始">快速开始</h3><p>在运行里直接输入powershell，或者在附件 -&gt; Windows PowerShell里面打开。<br><br>PS：如果在Windows7里面，这两种方式打开的PowerShell背景颜色、窗体样式不一样，但实际上它们都是同一个文件%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe，<b>没有任何区别</b>，只不过在附件里的快捷方式设置了一下背景颜色和窗体大小。</p>
 <p>按照传统，写一个最简单的hello world，<br>在这里可以使用cmd的echo命令”hello world”，也可以使用write(“hello world”)<br>或者，其实他们本质是一样的，他们都是Write-Out的别名（Alias）</p>
-<pre><code>PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; write "hello world"
-hello world
-PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; echo("hello world")
-hello world
-PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; write hello world
-hello
-world
-PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; echo "hello world"
-hello world
-</code></pre><p>执行一下你会发现与cmd里输出echo hello world还是有区别的，cmd里输出echo “hello world”会把引号也输出，而PS里加上括号/引号都会当成一个字符串输出，什么都不加时会分行输出。如上面代码所示。</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; write "hello world"</span><br><span class="line">hello world</span><br><span class="line">PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; echo("hello world")</span><br><span class="line">hello world</span><br><span class="line">PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; write hello world</span><br><span class="line">hello</span><br><span class="line">world</span><br><span class="line">PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; echo "hello world"</span><br><span class="line">hello world</span><br></pre></td></tr></table></figure>
+<p>执行一下你会发现与cmd里输出echo hello world还是有区别的，cmd里输出echo “hello world”会把引号也输出，而PS里加上括号/引号都会当成一个字符串输出，什么都不加时会分行输出。如上面代码所示。</p>
 <p>除了直接在Shell界面操作，也可以在文本编辑器里写了PS脚本，然后保存为.ps1格式，右键 -&gt; 以PowerShell格式运行。</p>
 <p>当然，更推荐的code环境是PowerShell ISE，Win7以上系统全部自带，在运行输入powershell ise或者在附件里打开，界面如下图：<br><img src="http://7xlizz.com1.z0.glb.clouddn.com/QQ截图20150921182557.png" alt=""></p>
 <p>简单介绍一下：最上面一栏是脚本文件编辑的，中间一栏是运行结果，第三栏是console。这个编辑器看着简单其实功能蛮多的，之后会再次详细介绍。</p>

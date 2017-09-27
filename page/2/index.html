@@ -248,89 +248,36 @@
 <li>cmdlet的格式是<strong>动词-名词，不区分大小写</strong>，很清晰很长很恶心，但你可以自定义别名来缩短，这个后面还会讲。</li>
 </ul>
 <h3 id="两条基础cmdlet">两条基础cmdlet</h3><ul>
-<li><p><strong>Get-Command</strong>，我们直接在PowerShell里执行Get-Command，结果如下</p>
-<pre><code>PS C:\Users\Woody&gt; <span class="keyword">Get</span>-Command
-CommandType     Name                            Definition
------------     ----                            ----------
-<span class="keyword">Alias</span>           %                               ForEach-<span class="built_in">Object</span>
-<span class="keyword">Alias</span>           ac                              Add-Content
-<span class="keyword">Alias</span>           asnp                            Add-PSSnapIn
-<span class="keyword">Alias</span>           clc                             Clear-Content
-<span class="keyword">Alias</span>           cli                             Clear-Item
-<span class="keyword">Alias</span>           clp                             Clear-ItemProperty
-<span class="keyword">Alias</span>           clv                             Clear-Variable
-<span class="keyword">Alias</span>           <span class="keyword">compare</span>                         <span class="keyword">Compare</span>-<span class="built_in">Object</span>
-<span class="keyword">Alias</span>           cpi                             Copy-Item
-<span class="keyword">Alias</span>           cpp                             Copy-ItemProperty
-<span class="keyword">Alias</span>           cvpa                            Convert-Path
-<span class="keyword">Alias</span>           dbp                             Disable-PSBreakpoin
-<span class="keyword">Alias</span>           diff                            <span class="keyword">Compare</span>-<span class="built_in">Object</span>
-<span class="keyword">Alias</span>           ebp                             Enable-PSBreakpoint
-<span class="keyword">Alias</span>           epal                            Export-<span class="keyword">Alias</span>
-<span class="keyword">Alias</span>           epcsv                           Export-Csv
-<span class="keyword">Alias</span>           fc                              Format-<span class="keyword">Custom</span>
-</code></pre><p>  ……</p>
-</li>
+<li><strong>Get-Command</strong>，我们直接在PowerShell里执行Get-Command，结果如下</li>
 </ul>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\Woody&gt; <span class="keyword">Get</span>-Command</span><br><span class="line">CommandType     Name                            Definition</span><br><span class="line">-----------     ----                            ----------</span><br><span class="line"><span class="keyword">Alias</span>           %                               ForEach-<span class="built_in">Object</span></span><br><span class="line"><span class="keyword">Alias</span>           ac                              Add-Content</span><br><span class="line"><span class="keyword">Alias</span>           asnp                            Add-PSSnapIn</span><br><span class="line"><span class="keyword">Alias</span>           clc                             Clear-Content</span><br><span class="line"><span class="keyword">Alias</span>           cli                             Clear-Item</span><br><span class="line"><span class="keyword">Alias</span>           clp                             Clear-ItemProperty</span><br><span class="line"><span class="keyword">Alias</span>           clv                             Clear-Variable</span><br><span class="line"><span class="keyword">Alias</span>           <span class="keyword">compare</span>                         <span class="keyword">Compare</span>-<span class="built_in">Object</span></span><br><span class="line"><span class="keyword">Alias</span>           cpi                             Copy-Item</span><br><span class="line"><span class="keyword">Alias</span>           cpp                             Copy-ItemProperty</span><br><span class="line"><span class="keyword">Alias</span>           cvpa                            Convert-Path</span><br><span class="line"><span class="keyword">Alias</span>           dbp                             Disable-PSBreakpoin</span><br><span class="line"><span class="keyword">Alias</span>           diff                            <span class="keyword">Compare</span>-<span class="built_in">Object</span></span><br><span class="line"><span class="keyword">Alias</span>           ebp                             Enable-PSBreakpoint</span><br><span class="line"><span class="keyword">Alias</span>           epal                            Export-<span class="keyword">Alias</span></span><br><span class="line"><span class="keyword">Alias</span>           epcsv                           Export-Csv</span><br><span class="line"><span class="keyword">Alias</span>           fc                              Format-<span class="keyword">Custom</span></span><br><span class="line">……</span><br></pre></td></tr></table></figure>
 <p><strong>Get-Command不加任何的参数时，作用是显示当前作用域/当前会话支持的所有命令</strong>（不仅限于Cmdlet）</p>
 <p>那如果想只查看Cmdlet命令呢，以传统cmd的处理方式就是用|管道符传递给findstr然后过滤，如下。</p>
-<pre><code>PS <span class="keyword">C</span>:\Users\Woody&gt; <span class="keyword">Get</span>-Command|findstr <span class="string">"Cmdlet"</span>
-Cmdlet  Add-ComputerAdd-Computer [-DomainName] &lt;...
-Cmdlet  Add-Content Add-Content [-<span class="keyword">Path</span>] &lt;<span class="keyword">String</span>[...
-Cmdlet  Add-History Add-History [[-InputObject] ...
-Cmdlet  Add-Member  Add-Member [-MemberType] &lt;PS...
-Cmdlet  Add-PSSnapinAdd-PSSnapin [-Name] &lt;<span class="keyword">String</span>...
-Cmdlet  Add-TypeAdd-Type [-TypeDefinition] &lt;...
-Cmdlet  Checkpoint-Computer Checkpoint-Computer [-Descri...
-Cmdlet  <span class="keyword">Clear</span>-Content   <span class="keyword">Clear</span>-Content [-<span class="keyword">Path</span>] &lt;Strin...
-Cmdlet  <span class="keyword">Clear</span>-EventLog  <span class="keyword">Clear</span>-EventLog [-LogName] &lt;S...
-Cmdlet  <span class="keyword">Clear</span>-History   <span class="keyword">Clear</span>-History [[-Id] &lt;Int32[...
-Cmdlet  <span class="keyword">Clear</span>-<span class="keyword">Item</span>  <span class="keyword">Clear</span>-<span class="keyword">Item</span> [-<span class="keyword">Path</span>] &lt;<span class="keyword">String</span>[]...
-Cmdlet  <span class="keyword">Clear</span>-ItemProperty  <span class="keyword">Clear</span>-ItemProperty [-<span class="keyword">Path</span>] &lt;...
-Cmdlet  <span class="keyword">Clear</span>-Variable  <span class="keyword">Clear</span>-Variable [-Name] &lt;Stri...
-……
-……
-</code></pre><p><strong>我们可以用Get-Command findstr来查看具体命令的属性</strong></p>
-<pre><code>PS C:<span class="command">\Users</span><span class="command">\Woody</span>&gt; Get-Command findstr
-
-CommandType     Name                            Definition
------------     ----                            ----------
-Application     findstr.exe                     C:<span class="command">\Windows</span><span class="command">\system</span>32<span class="command">\findstr</span>.exe
-</code></pre><p>从CommandType我们可以发现    ，findstr并不是一个Cmdlet，而是一个可执行程序。那怎么用Cmdlet的方式来实现呢？引入下一个Cmdlet:Get-Help</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">PS <span class="keyword">C</span>:\Users\Woody&gt; <span class="keyword">Get</span>-Command|findstr <span class="string">"Cmdlet"</span></span><br><span class="line">Cmdlet  Add-ComputerAdd-Computer [-DomainName] &lt;...</span><br><span class="line">Cmdlet  Add-Content Add-Content [-<span class="keyword">Path</span>] &lt;<span class="keyword">String</span>[...</span><br><span class="line">Cmdlet  Add-History Add-History [[-InputObject] ...</span><br><span class="line">Cmdlet  Add-Member  Add-Member [-MemberType] &lt;PS...</span><br><span class="line">Cmdlet  Add-PSSnapinAdd-PSSnapin [-Name] &lt;<span class="keyword">String</span>...</span><br><span class="line">Cmdlet  Add-TypeAdd-Type [-TypeDefinition] &lt;...</span><br><span class="line">Cmdlet  Checkpoint-Computer Checkpoint-Computer [-Descri...</span><br><span class="line">Cmdlet  <span class="keyword">Clear</span>-Content   <span class="keyword">Clear</span>-Content [-<span class="keyword">Path</span>] &lt;Strin...</span><br><span class="line">Cmdlet  <span class="keyword">Clear</span>-EventLog  <span class="keyword">Clear</span>-EventLog [-LogName] &lt;S...</span><br><span class="line">Cmdlet  <span class="keyword">Clear</span>-History   <span class="keyword">Clear</span>-History [[-Id] &lt;Int32[...</span><br><span class="line">Cmdlet  <span class="keyword">Clear</span>-<span class="keyword">Item</span>  <span class="keyword">Clear</span>-<span class="keyword">Item</span> [-<span class="keyword">Path</span>] &lt;<span class="keyword">String</span>[]...</span><br><span class="line">Cmdlet  <span class="keyword">Clear</span>-ItemProperty  <span class="keyword">Clear</span>-ItemProperty [-<span class="keyword">Path</span>] &lt;...</span><br><span class="line">Cmdlet  <span class="keyword">Clear</span>-Variable  <span class="keyword">Clear</span>-Variable [-Name] &lt;Stri...</span><br><span class="line">……</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+<p><strong>我们可以用Get-Command findstr来查看具体命令的属性</strong></p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PS C:<span class="command">\Users</span><span class="command">\Woody</span>&gt; Get-Command findstr</span><br><span class="line"></span><br><span class="line">CommandType     Name                            Definition</span><br><span class="line">-----------     ----                            ----------</span><br><span class="line">Application     findstr.exe                     C:<span class="command">\Windows</span><span class="command">\system</span>32<span class="command">\findstr</span>.exe</span><br></pre></td></tr></table></figure>
+<p>从CommandType我们可以发现    ，findstr并不是一个Cmdlet，而是一个可执行程序。那怎么用Cmdlet的方式来实现呢？引入下一个Cmdlet:Get-Help</p>
 <ul>
-<li><p>Get-Help，执行Get-Help Get-Command,结果如下</p>
-<p>  PS C:\Users\Woody&gt; Get-Help Get-Command</p>
-<p>  名称</p>
-<pre><code><span class="keyword">Get</span>-Command
-</code></pre><p>  摘要</p>
-<pre><code>获取有关 cmdlet 以及有关 Windows PowerShell 命令的其他元素的基本信息。
-</code></pre><p>  语法</p>
-<pre><code>Get-Command <span class="comment">[<span class="comment">[-Name]</span> &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-CommandType {Alias | Function | Filter |
- Cmdlet | ExternalScript | Application | Script | All}]</span> <span class="comment">[<span class="comment">[-ArgumentList]</span> &lt;O
-bject<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Module &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Syntax]</span> <span class="comment">[-TotalCount &lt;int&gt;]</span> <span class="comment">[&lt;CommonParame
-ters&gt;]</span>
-
-Get-Command <span class="comment">[-Noun &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Verb &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[<span class="comment">[-ArgumentList]</span> &lt;Object<span class="comment">[
-]</span>&gt;]</span> <span class="comment">[-Module &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Syntax]</span> <span class="comment">[-TotalCount &lt;int&gt;]</span> <span class="comment">[&lt;CommonParameters&gt;]</span>
-</code></pre><p>  说明</p>
-<pre><code><span class="keyword">Get</span>-Command cmdlet 获取会话中 Windows PowerShell 命令的 cmdlet 及其他元素（
-例如，别名、函数、筛选器、脚本和应用程序）的基本信息。
-
-<span class="keyword">Get</span>-Command 直接从 cmdlet、函数、脚本或别名的代码中获取其数据，而不像 <span class="keyword">Get</span>-H
-elp 那样从帮助主题文件中获取其信息。
-
-如果不使用参数，“<span class="keyword">Get</span>-Command”将获取当前会话中的所有 cmdlet 和函数。“<span class="keyword">Get</span>-
-Command *”获取所有 Windows PowerShell 元素以及 <span class="keyword">Path</span> 环境变量 ($env:path)
-中的所有非 Windows-PowerShell 文件。它将这些文件归入“Application”命令类型
-。
-
-可以使用 <span class="keyword">Get</span>-Command 的 <span class="keyword">Module</span> 参数查找通过添加 Windows PowerShell 管理单元
-或导入模块而添加到会话中的命令。
-……
-……
-</code></pre></li>
+<li>Get-Help，执行Get-Help Get-Command,结果如下</li>
 </ul>
-<p>Get-Help的用法很简单，就是Get-Help 命令，结果里会详细的把各种信息都罗列出来。从结果我们可以看到Get-Command的其他参数，所以我们可以用Get-Command -CommandTpye cmdlet 来实现上面的功能，结果是一样的。</p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\Woody&gt; Get-Help Get-Command</span><br><span class="line"></span><br><span class="line">名称</span><br><span class="line">    Get-Command</span><br><span class="line"></span><br><span class="line">摘要</span><br><span class="line">    获取有关 cmdlet 以及有关 Windows PowerShell 命令的其他元素的基本信息。</span><br><span class="line"></span><br><span class="line">语法</span><br><span class="line"></span><br><span class="line">Get-Command <span class="comment">[<span class="comment">[-Name]</span> &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-CommandType &#123;Alias | Function | Filter |</span><br><span class="line"> Cmdlet | ExternalScript | Application | Script | All&#125;]</span> <span class="comment">[<span class="comment">[-ArgumentList]</span> &lt;O</span><br><span class="line">bject<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Module &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Syntax]</span> <span class="comment">[-TotalCount &lt;int&gt;]</span> <span class="comment">[&lt;CommonParame</span><br><span class="line">ters&gt;]</span></span><br><span class="line"></span><br><span class="line">Get-Command <span class="comment">[-Noun &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Verb &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[<span class="comment">[-ArgumentList]</span> &lt;Object<span class="comment">[</span><br><span class="line">]</span>&gt;]</span> <span class="comment">[-Module &lt;string<span class="comment">[]</span>&gt;]</span> <span class="comment">[-Syntax]</span> <span class="comment">[-TotalCount &lt;int&gt;]</span> <span class="comment">[&lt;CommonParameters&gt;]</span></span><br></pre></td></tr></table></figure>
+<pre><code>说明
+    <span class="keyword">Get</span>-Command cmdlet 获取会话中 Windows PowerShell 命令的 cmdlet 及其他元素（
+    例如，别名、函数、筛选器、脚本和应用程序）的基本信息。
+
+    <span class="keyword">Get</span>-Command 直接从 cmdlet、函数、脚本或别名的代码中获取其数据，而不像 <span class="keyword">Get</span>-H
+    elp 那样从帮助主题文件中获取其信息。
+
+    如果不使用参数，“<span class="keyword">Get</span>-Command”将获取当前会话中的所有 cmdlet 和函数。“<span class="keyword">Get</span>-
+    Command *”获取所有 Windows PowerShell 元素以及 <span class="keyword">Path</span> 环境变量 ($env:path)
+    中的所有非 Windows-PowerShell 文件。它将这些文件归入“Application”命令类型
+    。
+
+    可以使用 <span class="keyword">Get</span>-Command 的 <span class="keyword">Module</span> 参数查找通过添加 Windows PowerShell 管理单元
+    或导入模块而添加到会话中的命令。
+    ……
+    ……
+</code></pre><p>Get-Help的用法很简单，就是Get-Help 命令，结果里会详细的把各种信息都罗列出来。从结果我们可以看到Get-Command的其他参数，所以我们可以用Get-Command -CommandTpye cmdlet 来实现上面的功能，结果是一样的。</p>
 <p>有了这两个命令，其他命令就可以遇到再自食其力解决了。</p>
 
                 

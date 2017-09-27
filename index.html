@@ -554,16 +554,13 @@
                     <p>###用PowerShell判断系统语言的的几种方法：</p>
 <ol>
 <li>systeminfo.exe<br>最简单的方法，但是数据不好进一步处理，而且速度慢</li>
-<li><p>WMI对象</p>
-<pre><code>(<span class="keyword">get</span>-wmiobject win32_operatingsystem).MUILanguages
-</code></pre></li>
-<li><p>用.net对象获取，结果更加完整</p>
-<pre><code><span class="comment">PS</span> <span class="comment">C:\Users\Woody</span>&gt; <span class="title">[</span><span class="comment">System</span><span class="string">.</span><span class="comment">Globalization</span><span class="string">.</span><span class="comment">Cultureinfo</span><span class="title">]</span><span class="comment">::InstalledUICulture</span>
-
-<span class="comment">LCID</span>             <span class="comment">Name</span>             <span class="comment">DisplayName</span>
-<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>             <span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>             <span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>
-<span class="comment">2052</span>             <span class="comment">zh</span><span class="literal">-</span><span class="comment">CN</span>            <span class="comment">中文(中华人民共和国)、</span>
-</code></pre>
+<li>WMI对象</li>
+</ol>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">get</span>-wmiobject win32_operatingsystem).MUILanguages</span><br></pre></td></tr></table></figure>
+<ol>
+<li>用.net对象获取，结果更加完整</li>
+</ol>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">PS</span> <span class="comment">C:\Users\Woody</span>&gt; <span class="title">[</span><span class="comment">System</span><span class="string">.</span><span class="comment">Globalization</span><span class="string">.</span><span class="comment">Cultureinfo</span><span class="title">]</span><span class="comment">::InstalledUICulture</span></span><br><span class="line"></span><br><span class="line"><span class="comment">LCID</span>             <span class="comment">Name</span>             <span class="comment">DisplayName</span></span><br><span class="line"><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>             <span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>             <span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span></span><br><span class="line"><span class="comment">2052</span>             <span class="comment">zh</span><span class="literal">-</span><span class="comment">CN</span>            <span class="comment">中文(中华人民共和国)、</span></span><br></pre></td></tr></table></figure>
                     
             
         
