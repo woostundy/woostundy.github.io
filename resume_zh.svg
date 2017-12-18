@@ -14,37 +14,35 @@
 	</defs>
 	<line x1="33" y1="34" x2="783" y2="34" stroke="#545454" stroke-width="2"/>
 	<text x="0" y="74" class="h1">
-		<tspan style="font-size:32px" dx="290">W</tspan>
-		<tspan style="font-size:26px" dx="-2">OODY</tspan>
-		<tspan style="font-size:32px" dx="10">S</tspan>
-		<tspan style="font-size:26px" dx="-2">TONE</tspan>
+		<tspan style="font-size:26px" dx="380">石</tspan>
+		<tspan style="font-size:26px" dx="0">涛</tspan>
 	</text>
 
 	<line x1="33" y1="95.5" x2="783" y2="95.5" stroke="#545454" stroke-width="1"/>
 	<line x1="33" y1="100.5" x2="783" y2="100.5" stroke="#545454" stroke-width="3"/>
     <text x="25" y="127" class="p2">
-		<tspan x="102">HaiDian, BeiJing</tspan>
-		<tspan x="285">Phone: +86 15600277221</tspan>
-		<tspan x="495">Mail: i@woody.today / woostundy@gmail.com</tspan>
+		<tspan x="102">北京，海淀</tspan>
+		<tspan x="285">电话: +86 15600277221</tspan>
+		<tspan x="495">邮箱: i@woody.today / woostundy@gmail.com</tspan>
 	</text>
 
 	<circle cx="90" cy="123" r="3" class="li-disc"></circle>
 	<circle cx="275" cy="123" r="3" class="li-disc"></circle>
 	<circle cx="485" cy="123" r="3" class="li-disc"></circle>
 
-	<line x1="33" y1="160.5" x2="286" y2="160.5" stroke="#545454" stroke-width="1"/>
-	<text x="302" y="166" class="h2">PROFESSIONAL SUMMARY</text>
-	<line x1="529" y1="160.5" x2="783" y2="160.5" stroke="#545454" stroke-width="1"/>
+	<line x1="33" y1="160.5" x2="356" y2="160.5" stroke="#545454" stroke-width="1"/>
+	<text x="375" y="166" class="h2">职 业 概 述</text>
+	<line x1="467" y1="160.5" x2="783" y2="160.5" stroke="#545454" stroke-width="1"/>
 
 	<text x="34" y="192" class="p2">
-		<tspan x="34" y="191">Entering 3 years working experiences in Development and Security. Organized a software studio during the university.</tspan>
-		<tspan x="34" y="213">Having complete experience in the previous startup company and placing important responsibilities as the staff of No. 002 .</tspan>
-		<tspan x="34" y="235">Strict logical thinking, strong curiosity, and easy to communicate :).</tspan>
+		<tspan x="34" y="191">有三年的开发和网络安全工作经验。 大学期间曾组织一个20人左右规模的软件工作室。</tspan>
+		<tspan x="34" y="213">作为2号员工加入创业公司，经历了整个的创业过程（从天使轮到A轮后期），并在其中承担了重要责任。</tspan>
+		<tspan x="34" y="235">逻辑思维严密，好奇心强烈，最重要的是很好沟通。😉</tspan>
 
 	</text>
 
 	<line x1="33" y1="254.5" x2="366" y2="254.5" stroke="#545454" stroke-width="1"/>
-	<text x="379" y="260" class="h2">SKILLS</text>
+	<text x="379" y="260" class="h2">技 能 点</text>
 	<line x1="449" y1="254.5" x2="783" y2="254.5" stroke="#545454" stroke-width="1"/>
 
 	<!-- <circle cx="50" cy="258" r="3" class="li-disc"></circle> -->
@@ -59,11 +57,11 @@
 	<!-- <text x="115" y="286" class="p2 light">familiar</text>  -->
 	<text x="65" y="309" class="p2">HTML/Css/Js </text>
 	<!-- <text x="155" y="309" class="p2 light">general</text> -->
-	<text x="440" y="286" class="p2">Web Security </text> 
+	<text x="440" y="286" class="p2">Web 安全</text> 
 	<!-- <text x="525" y="286" class="p2 light">familiar</text>  -->
 	<text x="440" y="309" class="p2">MySQL/No-SQL </text>
 	 <!-- <text x="550" y="309" class="p2 light">general</text>  -->
-	<text x="65" y="332" class="p2">Requirement analysis/Document writing</text>
+	<text x="65" y="332" class="p2">需求分析/文档撰写</text>
 	<text x="440" y="332" class="p2">Basic PHP/C#</text>
 
 	<line x1="33" y1="372.5" x2="328" y2="372.5" stroke="#545454" stroke-width="1"/>
@@ -128,6 +126,6 @@
 	<text x="33" y="1010" class="p2">
 		<tspan dx="0" dy="0" class="p2">You can find me here:</tspan>
 		<a href='https://www.zhihu.com/people/shitao' target='_blank'>https://www.zhihu.com/people/shitao</a>
-		<tspan dx="150">中文版简历: <a href='https://woody.style/resume_zh'>https://woody.style/resume_zh</a></tspan>
+		<tspan dx="150">English resume: <a href='https://woody.style/resume_zh'>https://woody.style/resume_en.svg</a></tspan>
 	</text>
 </svg>
