@@ -25,7 +25,7 @@
     <text x="25" y="127" class="p2">
 		<tspan x="102">HaiDian, BeiJing</tspan>
 		<tspan x="285">Phone: +86 15600277221</tspan>
-		<tspan x="495">Mail: i@woody.style / woostundy@gmail.com</tspan>
+		<tspan x="495">Mail: i@woody.today / woostundy@gmail.com</tspan>
 	</text>
 
 	<circle cx="90" cy="123" r="3" class="li-disc"></circle>
@@ -115,20 +115,19 @@
 	
 	<text x="33" y="861" class="text-cap">
 		<tspan x="33" y="861" class="p2b">North University of China -</tspan>
-		<tspan dx="0" dy="0" class="p2">Taiyuan, Shanxi - 2009</tspan>
+		<tspan dx="0" dy="0" class="p2">Taiyuan, Shanxi 2010 - 2014</tspan>
 	</text>
 
 	<line x1="33" y1="885.5" x2="366" y2="885.5" stroke="#545454" stroke-width="1"/>
 	<text x="379" y="890" class="h2">OTHER</text>
 	<line x1="449" y1="885.5" x2="783" y2="885.5" stroke="#545454" stroke-width="1"/>
-
-	<text x="33" y="838" class="text-cap">
-		<tspan x="33" y="838" class="p2b">Bachelor of Information Security:</tspan>
-		<tspan dx="0" dy="0" class="p2">Computer Network, Radar Theory, Computer Programming, Cryptography</tspan>
-	</text>
-	
-	<text x="33" y="861" class="text-cap">
-		<tspan x="33" y="861" class="p2b">North University of China -</tspan>
-		<tspan dx="0" dy="0" class="p2">Taiyuan, Shanxi - 2009</tspan>
+	<text x="33" y="914" class="p2">Pay attention on the Internet industry and have deep thinking. Be willing to accept new things.</text>
+	<text x="33" y="938" class="p2">Hard core game player. Have a deep understanding of MOBA games.</text>
+	<text x="33" y="962" class="p2">Know a bit of Design (Poster/Web/PPT/Typesetting).</text>
+	<text x="33" y="986" class="p2">Bad spoken but fluent reading and writing in English. (Especially in the field of computer technology. )</text>
+	<text x="33" y="1010" class="p2">
+		<tspan dx="0" dy="0" class="p2">You can find me here:</tspan>
+		<a href='https://www.zhihu.com/people/shitao' target='_blank'>https://www.zhihu.com/people/shitao</a>
+		<tspan dx="150">中文版简历: <a href='https://woody.style/resume_zh'>https://woody.style/resume_zh</a></tspan>
 	</text>
 </svg>
