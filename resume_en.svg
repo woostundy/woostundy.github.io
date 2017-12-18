@@ -81,25 +81,23 @@
 	<circle cx="50" cy="629" r="3" class="li-disc"></circle>
 
 	<text x="65" y="449" class="p2">Developed the first edition of "TransferEasy" transaction system.Participated in developing both Python server and PHP front-end.</text>
-	<text x="65" y="472" class="p2">Including core service, operating system and customer system. ( https://www.transfereasy.com/ )</text>
+	<text x="65" y="472" class="p2">Including core service, operating system and customer system. ( <a href="https://www.transfereasy.com/" target='_blank'>https://www.transfereasy.com/ </a></text>
 	<text x="65" y="494" class="p2">"BasaltMatrix" project leader.  Manage a development team of 10 people. Participate in the design and development of the whole </text>
 	<text x="65" y="517" class="p2">product line. Including the search engine of a risk control blacklist with more than 10 million data, a large-scale scrapy crawler, </text>
 	<text x="65" y="540" class="p2">and the api open platform. Responsible for architecture design, database design and some key algorithms. This product provide </text>
-	<text x="65" y="562" class="p2">risk control services for WeChat, Hainan Airlines and many MSB merchants in HongKong. (https://www.basaltmatrix.com/)</text>
+	<text x="65" y="562" class="p2">risk control services for WeChat, Hainan Airlines and many MSB merchants in HongKong. (<a href="https://www.basaltmatrix.com/" target='_blank'>https://www.basaltmatrix.com/</a> )</text>
 	<text x="65" y="585" class="p2">Developed "WiseCashier" prototype version. Responsible for the api open platform, the system joint with WeChat service interface</text>
-	<text x="65" y="608" class="p2">and construction of basic framework. ( https://www.wisecashier.com/ )</text>
-	<text x="65" y="633" class="p2">Responsible for technical interview and intranet security.</text>
-
+	<text x="65" y="608" class="p2">and construction of project's basic framework. ( <a href='https://www.wisecashier.com/' target='_blank'>https://www.wisecashier.com/ )</a></text>
+	<text x="65" y="633" class="p2">Responsible for part of the technical interview and intranet security.</text>
 
 	<text x="33" y="667" class="p2b">Security Engineer,</text>
 	<text x="160" y="667" class="p2">06/2014 to 03/2016</text>
 	<text x="33" y="690" class="p2b">Beijing XINAOBO Technology Co.</text>
 	
-	<text x="65" y="721" class="p2">Participated in Web and external network penetration test.</text>
-	<text x="65" y="744" class="p2">Participated in APT maintenance in Windows environment. </text>
-	<text x="65" y="766" class="p2">Developing scripts and tools based on team requirements. Such as Burpsuite auxiliary SQL injection auxiliary plug-in, </text>
-	<text x="65" y="789" class="p2">Python + PowerShell remote control script and mailbox hit library tools.
-</text>
+	<text x="65" y="721" class="p2">Developing scripts and tools based on team requirements. Such as Burpsuite auxiliary SQL injection auxiliary plug-in, </text>
+	<text x="65" y="744" class="p2">Python + PowerShell remote control script and mailbox hit library tools.</text>
+	<text x="65" y="766" class="p2">Participated in Web and external network penetration test.</text>
+	<text x="65" y="789" class="p2">Participated in APT maintenance in Windows environment. </text>
 	<circle cx="50" cy="715" r="3" class="li-disc"></circle>
 	<circle cx="50" cy="760" r="3" class="li-disc"></circle>
 	
@@ -109,7 +107,7 @@
 	<line x1="470" y1="807.5" x2="783" y2="807.5" stroke="#545454" stroke-width="1"/>
 
 	<text x="33" y="838" class="text-cap">
-		<tspan x="33" y="838" class="p2b">Bachelor of Information Security:</tspan>
+		<tspan x="33" y="838" class="p2b">Bachelor of Information Security, some courses:</tspan>
 		<tspan dx="0" dy="0" class="p2">Computer Network, Radar Theory, Computer Programming, Cryptography</tspan>
 	</text>
 	
@@ -121,13 +119,14 @@
 	<line x1="33" y1="885.5" x2="366" y2="885.5" stroke="#545454" stroke-width="1"/>
 	<text x="379" y="890" class="h2">OTHER</text>
 	<line x1="449" y1="885.5" x2="783" y2="885.5" stroke="#545454" stroke-width="1"/>
-	<text x="33" y="914" class="p2">Pay attention on the Internet industry and have deep thinking. Be willing to accept new things.</text>
-	<text x="33" y="938" class="p2">Hard core game player. Have a deep understanding of MOBA games.</text>
-	<text x="33" y="962" class="p2">Know a bit of Design (Poster/Web/PPT/Typesetting).</text>
-	<text x="33" y="986" class="p2">Bad spoken but fluent reading and writing in English. (Especially in the field of computer technology. )</text>
+	<text x="33" y="914" class="p2">Pay attention to the Internet industry and have deep thinking. Be willing to accept new things.</text>
+	<text x="33" y="938" class="p2">Hard core game player. Have a deep understanding of MOBA games. Know a bit of Design (Poster/Web/PPT/Typesetting).</text>
+	<text x="33" y="962" class="p2">Bad spoken but fluent reading and writing in English, especially in the field of computer technology.</text>
+	<text x="33" y="986" class="p2">You can find me here:
+	<a href='https://www.zhihu.com/people/shitao' target='_blank'>https://www.zhihu.com/people/shitao </a>
+	<a href='https://weibo.com/woostundy' target='_blank'> or https://weibo.com/woostundy</a></text>
 	<text x="33" y="1010" class="p2">
-		<tspan dx="0" dy="0" class="p2">You can find me here:</tspan>
-		<a href='https://www.zhihu.com/people/shitao' target='_blank'>https://www.zhihu.com/people/shitao</a>
-		<tspan dx="150">中文版简历: <a href='https://woody.style/resume_zh.svg'>https://woody.style/resume_zh.svg</a></tspan>
+		<tspan dx="0">中文版简历: <a href='https://woody.style/resume_zh.svg'>https://woody.style/resume_zh.svg</a></tspan>
+		<tspan dx="10" dy="0" class="p2">(The Chinese version is a little more detailed)</tspan>
 	</text>
 </svg>
