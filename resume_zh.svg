@@ -126,6 +126,6 @@
 	<text x="33" y="1010" class="p2">
 		<tspan dx="0" dy="0" class="p2">You can find me here:</tspan>
 		<a href='https://www.zhihu.com/people/shitao' target='_blank'>https://www.zhihu.com/people/shitao</a>
-		<tspan dx="150">English resume: <a href='https://woody.style/resume_zh'>https://woody.style/resume_en.svg</a></tspan>
+		<tspan dx="150">English resume: <a href='https://woody.style/resume_zh.svg'>https://woody.style/resume_en.svg</a></tspan>
 	</text>
 </svg>
