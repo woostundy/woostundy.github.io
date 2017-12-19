@@ -78,13 +78,13 @@
 	<circle cx="50" cy="629" r="3" class="li-disc"></circle>
 
 	<text x="65" y="449" class="p2">开发了第一版的"TransferEasy"交易系统。同时参与了Python服务端及PHP前端的开发工作。包括核心交易系统(RESTful</text>
-	<text x="65" y="472" class="p2">服务)，内部运营系统，以及用户管理系统(PHP + bootstrap)。( <a href="https://www.transfereasy.com/" target='_blank'>https://www.transfereasy.com/ )</a></text>
+	<text x="65" y="472" class="p2">服务)，内部运营系统，以及用户管理系统(PHP + bootstrap)。( <a href="https://www.transfereasy.com/" target='_blank'>https://www.transfereasy.com/</a> )</text>
 	<text x="65" y="494" class="p2">"BasaltMatrix"项目负责人，管理10人左右的开发团队，参与了整个产品线的规划和开发。</text>
 	<text x="65" y="517" class="p2">负责沟通协调，产品结构设计，数据库设计，以及部分关键算法实现。包括针对1000万+风控黑名单数据的搜索引擎，</text>
 	<text x="65" y="540" class="p2">大型scrapy爬虫，移动端APP，SaaS，内部运营系统，API开放平台。该产品线为微信、海航、老虎证券等企业，以及</text>
 	<text x="65" y="562" class="p2">香港、新西兰等地的MSB行业商户提供反洗钱、反欺诈风控服务。 ( <a href="https://www.basaltmatrix.com/" target='_blank'>https://www.basaltmatrix.com/</a> )</text>
 	<text x="65" y="585" class="p2">参与了"WiseCashier"产品的原型版本设计及开发，负责API开发平台开发，与微信服务的系统对接，项目基础框架的</text>
-	<text x="65" y="608" class="p2">搭建。"WiseCashier"为海外商户提供微信/支付宝支付方案。 ( <a href='https://www.wisecashier.com/' target='_blank'>https://www.wisecashier.com/ )</a></text>
+	<text x="65" y="608" class="p2">搭建。"WiseCashier"为海外商户提供微信/支付宝支付方案。 ( <a href='https://www.wisecashier.com/' target='_blank'>https://www.wisecashier.com/</a> )</text>
 	<text x="65" y="633" class="p2">负责部分技术面试，公司内网安全。</text>
 
 
