@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Woody的博客">
+    <meta name="keyword"  content="博客">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <title>
+        
+        怎么科学的组CP - Woostundy | Woody&#39;s blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css" type="text/css">
+    <link rel="stylesheet" href="/css/gitment.css" type="text/css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Woody</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#最初方案"><span class="toc-text">最初方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三方方案"><span class="toc-text">第三方方案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分散变量方案"><span class="toc-text">分散变量方案</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> woody&#39;s style </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        怎么科学的组CP
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-06-21 17:10:33</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#加密" title="加密">加密</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>这个问题来自于一个好友群，大家讨论起组一周CP的事情（就是假装谈恋爱一周），聊到怎么随机分配组合，发现了现在这个问题：有10个男生，10个女生，大家都在网络上没法实际见面，怎么设计一个抽签系统，在组织者本身也不可信的情况下，保证抽签过程无法作弊，而结果尽可能随机。</p>
+<h2 id="最初方案">最初方案</h2><ol>
+<li>组织方写程序跑。这是最初的想法，组织方写个代码，将男女队列随机打乱，编号一样的为一组。组织方公开源码，跑完程序截图。但这个方案不可靠之处在于：a.源码和实际跑的代码不一定一致；b.截图可以修改；</li>
+<li>改进方案是结果图采用gif动态图，保证展示的源码就是实际抽签的代码，且难以P图。但这个方案仍有空挡可钻：整个过程可以跑多次，生成数个gif，然后只给大家展示组织方想要的那个结果。</li>
+<li>直播抽签，开个网络直播，从写代码到最终跑程序抽签全程被监视。这个方案我觉得的确没有空隙可钻了，但成本很高，需要直播整个过程。这就是所谓“中心化”的代价，保证中心可信需要的成本很高。</li>
+</ol>
+<p>如果要去掉这个中心（组织者或裁判），改怎么办呢，去中心化有两个思路，一个是借助第三方，第二个是分散变量。</p>
+<h2 id="第三方方案">第三方方案</h2><p>借助第三方其实本质上也仍然有“中心”，但这个第三方如果不涉及利益关系，就比参与者里面挑组织者略为可靠。第三方的思路有几种：</p>
+<ol>
+<li>找一个不参与活动且有威望的人作为组织者。这是古老朴素的思路，我们班级选举的班主任，法院的法官其实都类似这种思路。但问题在于第三方的可靠性仍然会受到一些因素的影响：a.第三方和参与者的亲疏关系；b.第三方有可能被贿赂；c.第三方的喜好不同；</li>
+<li>找一个第三方的程序。比如微博抽奖工具，微信红包。微博和微信属于极有公信力的产品，所以这种方案相当于选择了一个社会权威来做第三方。而问题在于：a.微博抽奖和微信红包不是专门针对这件事的，怎么去操作任然需要进一步制定方案; b.微博抽奖需要一个人去操作程序，变相又增加了一个中心。而微信红包没法一次性给出确定结果，效率很低。</li>
+</ol>
+<h2 id="分散变量方案">分散变量方案</h2><p>那我们来说今天的重点，分散变量的方案（或者叫分布式），怎么用最小的成本来保证抽签绝对可信度。下面是其中一个方案的思考过程：</p>
+<ol>
+<li>变量分散最简单的办法：所有人在群里同时发1-10的数字，如果出现两个人数字相同，则凑一对，剩下人发1-9的数字。如果多人一样则忽略，继续一轮。这个方案的问题很明显：a.低效，很可能好几轮都没法出现一对唯一匹配的；b.有迹可循，可以根据前几轮写的数字看某个人的喜好数字；c.假如有两人要串通，仍然可以作弊。</li>
+<li>变量分散到各个节点后，我们需要设计一个方案来保证任意一个变量都会影响最终结果：将两队人分别编号为0-9，每个人分别出一个1-10的数字，数字之和除以10的余数，该余数编号的人为本轮选出来的人。两组独立进行出两个人匹配为一对。这个方法杜绝了串通作弊的可能，20个数字里任何一个都将影响匹配结果。但仍然有漏洞：有人可以在看到别人出的数字后，快速计算出结果，再最后针对性出数字。即无法保证不同节点的同步。</li>
+<li>解决这个问题，我们可以采用两队单独处理，结果确定后再互相通知，这样即便有人想利用时间差来出数字，也不知道另一队匹配的结果。但这样又增加了一些沟通成本和不透明度，且两队有人串通的话，还是有机会利用上面的漏洞。</li>
+<li>三国演义里，周瑜和诸葛亮手心各自写了一个“火”，然后一起展开手，来说英雄所见略同。这算是一种留存机制，将答案先存到不可更改的地方再公布，可以避免某一方临时变化。如果是在线下，我们可以写在纸上再一起公布，但在线上怎么办呢？怎么确保每个人存的内容不被窥视，且不能更改，且只有一份呢？</li>
+<li>哈希就是一个很好办法，大家统一一种哈希算法，每个人将自己所选数字哈希结果先公布，然后再公布数字本身。由于通过哈希结果无法得到原文，但很容易通过原文来验证哈希，这样就算最终公布不同步，由于哈希已经确定了，也没法再作弊了。</li>
+<li>上面的办法其实还有漏洞，因为1-10的数字的某种哈希算法结果是固定的，有人只要提前计算并记住了这些数字的哈希值，还是可以利用不同步来作弊（这也是现在网上破解MD5的原理）。我们只需要每个人加上一个“特征字”就可以了，每个人的原文为“特征字+数字”，哈希结果就各有不同且没法推测了，最终每个人公布自己的特征字以及数字，其他规则一样，多一个用于校验的特征字。</li>
+</ol>
+<p>截止到这一步，我大概构思的一种方案就成型了：AB分两组，分别编号为0-9，</p>
+<p>其实看到“去中心化”、“分布式”这样的词时，大家肯定会想到区块链。区块链利用密码学来保证无法抵赖和破坏，同时用分布式来保证计算过程的可靠。我们的问题是去一个随机值，而非计算一个有准确答案的问题，所以没法直接用区块链模型去做。但我们可以将每次的抽签过程里，每个人出的数字和特征字作为按区块链的方式保存起来，下次活动继续在这个链上记载，可以确保将来没有人能否认自己的历史……</p>
+
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/woostundy">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/shitao">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/woostundy">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/woostundy">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/shi-tao-2b3b6781">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme AirCloud</p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js" type="text/javascript"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js" type="text/javascript"></script>
+<script>
+    var gitment = new Gitment({
+        id: '怎么科学的组CP',
+        owner: 'woostundy',
+        repo: 'blog_comments',
+        oauth: {
+            client_id: 'e10d1539f77ab82d2d71',
+            client_secret: '4ad39492ae2a09bfcd0e7fd5fc92a5a2180b3719',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>
