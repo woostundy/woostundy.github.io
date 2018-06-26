@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Woody的博客">
+    <meta name="keyword"  content="博客">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <title>
+        
+        关于Unicode的知识点及Python中的处理方法 - Woostundy | Woody&#39;s blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css" type="text/css">
+    <link rel="stylesheet" href="/css/gitment.css" type="text/css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/avatar.png" />
+        </div>
+        <div class="name">
+            <i>Woody</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础知识点"><span class="toc-text">基础知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于Unicode"><span class="toc-text">关于Unicode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python中的字符与Unicode"><span class="toc-text">Python中的字符与Unicode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于常见编码方式"><span class="toc-text">关于常见编码方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些处理办法"><span class="toc-text">一些处理办法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#处理时机"><span class="toc-text">处理时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特殊情况"><span class="toc-text">特殊情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unicodedata库"><span class="toc-text">unicodedata库</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> woody&#39;s style </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        关于Unicode的知识点及Python中的处理方法
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-06-20 16:33:10</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#python 编码" title="python 编码">python 编码</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <p>每个用Python的人都肯定为编码头疼过，现在python2和3的str类型又有不同。所以专门写篇博客来记录python里关于Unicode的知识点和处理方法。</p>
+<h2 id="基础知识点">基础知识点</h2><h3 id="关于Unicode">关于Unicode</h3><ol>
+<li>我们通常意义上说的“字符”，是Unicode字符。</li>
+<li>但计算机存储器里存的是字节序列，中间需要经过一层编码，并不是Unicode字符码位的二进制数据。</li>
+<li>Unicode字符包括一个前缀’U+’及字符码位，该码位与操作系统、编码方式无关，是Unicode可以跨平台的原因所在。</li>
+<li>Unicode码位是4-6位的16进制数字，但只有10%的码位会有对应字符。</li>
+<li>把码位转换成字节序列的过程是编码(encode)，把字节序列转换成码位的过程是解码(decode)。</li>
+<li>我们通常说的编码是Unicode到字节码的过程，而不是从自然语言到Unicode的过程，某种意义上，我们可以认为Unicode字符是人类可读的。</li>
+<li>字符的存储空间占用与Unicode无关，只和编码方式有关，但是在有的编码方式里，不同的码位字符占用空间可能不同（比如utf-8）。</li>
+<li>原则上，我们无法在不知道编码方式的情况下，将字节码还原成字符。实际上我们可以根据一些特征猜测。</li>
+</ol>
+<h3 id="Python中的字符与Unicode">Python中的字符与Unicode</h3><ol>
+<li>Python出现的比Unicode标准还早几年，所以你得理解早期别扭的设计。</li>
+<li>Python2的str对象是字节序列。</li>
+<li>Python3的str对象是Unicode，约等于Python2里面的unicode类型。</li>
+<li>Python3里的字节序列类型是bytes，形如b’ab\xc4’，里面看似有ASCII字符，但实际存储的都是0-255的整数，只是能显示ASCII字符会显示出来。</li>
+<li>Python2默认的编码方式是ASCII，Python3是utf-8。</li>
+</ol>
+<h3 id="关于常见编码方式">关于常见编码方式</h3><ol>
+<li>最常见的编码方式有这几种：utf-8，utf-16，latin1，除此外还有针对中文的gb2312，微软的cp1252，IBM的cp437，现在几乎没用了，知道一下就行。</li>
+<li>绝地大多数情况下，我们使用的都是utf-8。</li>
+<li>utf-16在开头会有形如b’\xff\xfeE\x00l\x00’的字节序列，是BOM，byte-order mark，字节序标记。大小字节序和CPU有关。使用确定字节序的编码方式UTF-16LE（小字节序），UTF-16BE（大字节序）可以避免出现BOM。</li>
+<li>utf-8的优势在于在不同平台的字节序都一致，根本不需要声明字节序，但Windows notepad还是会在utf-8的文件里增加BOM头b’\xef\xbb\xbf’，这很傻逼的处理方式会导致一些问题。</li>
+<li>gb2312是过时的中文编码方式，但很多文件（尤其Windows平台的）还会使用，如果中文用utf-8解析不出来，十有八九就是用的gb2312。</li>
+</ol>
+<h2 id="一些处理办法">一些处理办法</h2><h3 id="处理时机">处理时机</h3><ol>
+<li>尽量保证字节码只出现在输入和最终输出的地方，业务逻辑里保证处理的都是unicode字符，可以极大的减少混乱度。</li>
+<li><p>可以在入口处使用setdefaultencoding来直接改变默认编码方式，如下</p>
+ <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">reload</span><span class="params">(sys)</span></span></span><br><span class="line">sys.<span class="function"><span class="title">setdefaultencoding</span><span class="params">(<span class="string">'utf-8'</span>)</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取文件后尽早处理为unicode，或者直接开unicode通道。可以使用codecs库来直接开unicode通道，如下 <code>file = codecs.open(&quot;test&quot;, &quot;r&quot;, &quot;utf-8&quot;)</code></p>
+</li>
+</ol>
+<h3 id="特殊情况">特殊情况</h3><p>其实编码导致的特殊情况有很多但我多数都忘了，记起来一个来补充一个</p>
+<ol>
+<li><code>s = &#39;\u5f20\u4e09&#39;</code>形如这种情况，看似是个unicode，实际上s的类型是str，注意前面没有u，所以你继续用常用编码方式encode不会有任何改变，decode的话只会将<code>\</code>转为<code>\\</code>，结果还是无效，这时候需要的解码方法是<code>s.decode(&#39;unicode_escape&#39;)</code>，可以将unicode码位的字符串转成真正的unicode对象</li>
+</ol>
+<h3 id="unicodedata库">unicodedata库</h3><p>如果你经常要处理非英文的拉丁语系语言，或者做搜索相关项目，这真是个好用到哭的python内置库。我深有感触。</p>
+<ol>
+<li>形如<code>café</code>这种带着重音符号的拉丁文词组，想要当成英文处理，可以用unicodedata库的<code>unicodedata.normalize(&#39;NFKD&#39;, &#39;café&#39;)</code>，将重音符号挑出来，然后再去掉特殊符号，从而变成ASCII范围内的英文。</li>
+<li><code>unicodedata.normalize</code>第一个参数有4个可选项<code>NFC/NFD/NFKC/NFKD</code>，NFC会把重音符合合并到字母上，NFD相反，会拆分出来，NFKC和NFKD同上，但是会做兼容处理。比如符号’μ’会转成希腊字母’μ’，还有二分之一那个符号(\u00bd)，会被转成1/2。这对于提升搜索体验很有意义。</li>
+<li><p><code>unicodedata.name(uchar)</code>可以显示特殊字符的名称，也可以用<code>unicodedata.lookup(name)</code>根据名称找到对应的字符。比如</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>name(<span class="string">u'\u00bd'</span>)</span><br><span class="line"><span class="string">'VULGAR FRACTION ONE HALF'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>unicodedata.numeric(uchar)</code>会将内容直接转成对应的数字，比如，这个函数也能将罗马数字、中文数字、中文繁体数字、特殊符号数字都转成标准float类型，如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>numeric(<span class="string">u'\u00bd'</span>)</span><br><span class="line"><span class="number">0.5</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>numeric(<span class="string">u'①'</span>)</span><br><span class="line"><span class="number">1.0</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>numeric(<span class="string">u'貮'</span>)</span><br><span class="line"><span class="number">2.0</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>numeric(<span class="string">u'三'</span>)</span><br><span class="line"><span class="number">3.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>unicodedata.category(uchar)</code>可以区分字符的类型，有以下几种：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Lu（letter，<span class="value">uppercase</span>）：大写字母。 </span><br><span class="line">Ll（letter，<span class="value">lowercase</span>）：小写字母。 </span><br><span class="line">Lt（letter，titlecase）：词首字母大写的字母。 </span><br><span class="line">Lm（letter，modifier）：修饰符字母字符，它是独立式的间距字符，指示前面字母的修改。 </span><br><span class="line">Lo（letter，other）：不属于大写字母、小写字母、词首字母大写或修饰符字母的字母。 </span><br><span class="line">Nd（number，<span class="value">decimal</span> digit）：十进制数字字符，即范围 0 到 9 内的字符。</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>暂时就这些了，大家有想到的，或者发现的误区欢迎在评论区提出来。</p>
+
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/woostundy">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/shitao">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/woostundy">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/woostundy">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/shi-tao-2b3b6781">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme AirCloud</p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js" type="text/javascript"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js" type="text/javascript"></script>
+<script>
+    var gitment = new Gitment({
+        id: '关于Unicode的知识点及Python中的处理方法',
+        owner: 'woostundy',
+        repo: 'blog_comments',
+        oauth: {
+            client_id: 'e10d1539f77ab82d2d71',
+            client_secret: '4ad39492ae2a09bfcd0e7fd5fc92a5a2180b3719',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>
