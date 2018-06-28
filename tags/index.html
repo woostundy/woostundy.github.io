@@ -52,32 +52,32 @@
             <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
+                    <span>HOME</span>
                 </a>
             </li>
             <li  class=active >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
+                    <span>TAGS</span>
                 </a>
             </li>
             <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
+                    <span>ARCHIVES</span>
                 </a>
             </li>
             <li >
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
+                    <span>ABOUT</span>
                 </a>
             </li>
             
             <li>
                 <a id="search">
                     <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
+                    <span>SEARCH</span>
                 </a>
             </li>
             
@@ -92,7 +92,7 @@
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input"/>
-            <span id="begin-search">搜索</span>
+            <span id="begin-search">search</span>
         </div>
         <div class="search-result-container" id="search-result-container">
 
@@ -110,13 +110,13 @@
     
     <a href="#生活" title="生活" rel="1">生活</a>
     
-    <a href="#http" title="http" rel="1">http</a>
+    <a href="#http" title="http" rel="0">http</a>
     
     <a href="#JS" title="JS" rel="1">JS</a>
     
-    <a href="#RSA,加密" title="RSA,加密" rel="1">RSA,加密</a>
+    <a href="#RSA,加密" title="RSA,加密" rel="0">RSA,加密</a>
     
-    <a href="#加密" title="加密" rel="2">加密</a>
+    <a href="#加密" title="加密" rel="4">加密</a>
     
     <a href="#局域网" title="局域网" rel="1">局域网</a>
     
@@ -124,7 +124,7 @@
     
     <a href="#other" title="other" rel="1">other</a>
     
-    <a href="#python 编码" title="python 编码" rel="1">python 编码</a>
+    <a href="#python 编码" title="python 编码" rel="0">python 编码</a>
     
     <a href="#python,powershell,hacker" title="python,powershell,hacker" rel="1">python,powershell,hacker</a>
     
@@ -132,7 +132,19 @@
     
     <a href="#Linux" title="Linux" rel="1">Linux</a>
     
-    <a href="#App server;加密" title="App server;加密" rel="1">App server;加密</a>
+    <a href="#App server;加密" title="App server;加密" rel="0">App server;加密</a>
+    
+    <a href="#HTTP" title="HTTP" rel="2">HTTP</a>
+    
+    <a href="#基础知识" title="基础知识" rel="3">基础知识</a>
+    
+    <a href="#RSA" title="RSA" rel="1">RSA</a>
+    
+    <a href="#Python" title="Python" rel="1">Python</a>
+    
+    <a href="#编码" title="编码" rel="1">编码</a>
+    
+    <a href="#App server" title="App server" rel="1">App server</a>
     
 </div>
 
@@ -165,20 +177,6 @@
                     <span class="tag-text">http</span>
                 </span>
     
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/Detailed-HTTP-protocol-1/">
-            <h2 class="post-title">
-                详解HTTP细节 1
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
-    
 </div>
 
 <div class="one-tag-list">
@@ -207,6 +205,13 @@
                     <span class="tag-text">RSA,加密</span>
                 </span>
     
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="加密">
+                    <span class="tag-text">加密</span>
+                </span>
+    
     <!-- <li class="listing-item">
     <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
     <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
@@ -220,13 +225,6 @@
         </a>
         <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
     </div>
-    
-</div>
-
-<div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="加密">
-                    <span class="tag-text">加密</span>
-                </span>
     
     <!-- <li class="listing-item">
     <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -250,6 +248,20 @@
         <a href="/common-encryption-algorithm-introduction/">
             <h2 class="post-title">
                 常见加密算法简介
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/Thinking-on-security-design-of-App-Server-interface/">
+            <h2 class="post-title">
+                App Server接口安全设计思考
             </h2>
             
         </a>
@@ -325,20 +337,6 @@
                 <span class="fa fa-tag listing-seperator" id="python 编码">
                     <span class="tag-text">python 编码</span>
                 </span>
-    
-    <!-- <li class="listing-item">
-    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </li> -->
-    <div class="post-preview">
-        <a href="/knowledge-points-of-unicode-in-python/">
-            <h2 class="post-title">
-                关于Unicode的知识点及Python中的处理方法
-            </h2>
-            
-        </a>
-        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-    </div>
     
 </div>
 
@@ -464,6 +462,160 @@
 <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="App server;加密">
                     <span class="tag-text">App server;加密</span>
+                </span>
+    
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="HTTP">
+                    <span class="tag-text">HTTP</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/Detailed-URL/">
+            <h2 class="post-title">
+                详解URL细节
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/Detailed-HTTP-protocol-1/">
+            <h2 class="post-title">
+                详解HTTP细节 1
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="基础知识">
+                    <span class="tag-text">基础知识</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/Detailed-URL/">
+            <h2 class="post-title">
+                详解URL细节
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/Detailed-HTTP-protocol-1/">
+            <h2 class="post-title">
+                详解HTTP细节 1
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/deep-learn-javascript-reading-notes-1/">
+            <h2 class="post-title">
+                深入理解JS笔记 1：数据类型Tips
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="RSA">
+                    <span class="tag-text">RSA</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/entertain-cryptography/">
+            <h2 class="post-title">
+                梁山神算子算天机 江州黄通判通地孤
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Python">
+                    <span class="tag-text">Python</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/knowledge-points-of-unicode-in-python/">
+            <h2 class="post-title">
+                关于Unicode的知识点及Python中的处理方法
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="编码">
+                    <span class="tag-text">编码</span>
+                </span>
+    
+    <!-- <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li> -->
+    <div class="post-preview">
+        <a href="/knowledge-points-of-unicode-in-python/">
+            <h2 class="post-title">
+                关于Unicode的知识点及Python中的处理方法
+            </h2>
+            
+        </a>
+        <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+    </div>
+    
+</div>
+
+<div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="App server">
+                    <span class="tag-text">App server</span>
                 </span>
     
     <!-- <li class="listing-item">
