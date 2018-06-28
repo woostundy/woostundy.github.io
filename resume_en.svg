@@ -37,34 +37,32 @@
 	<line x1="529" y1="160.5" x2="783" y2="160.5" stroke="#545454" stroke-width="1"/>
 
 	<text x="34" y="192" class="p2">
-		<tspan x="34" y="191">Entering 3 years working experiences in Development and Security. Organized a software studio during the university.</tspan>
+		<tspan x="34" y="191">Entering 4 years working experiences in Development and Security. Organized a software studio during the university.</tspan>
 		<tspan x="34" y="213">Having complete experience in the previous startup company and placing important responsibilities as the staff of No. 002 .</tspan>
-		<tspan x="34" y="235">Strict logical thinking, strong curiosity, and easy to communicate :).</tspan>
+		<tspan x="34" y="235">Strict logical thinking, strong curiosity, excellent practical ability, and easy to communicate :).</tspan>
 
 	</text>
 
-	<line x1="33" y1="254.5" x2="366" y2="254.5" stroke="#545454" stroke-width="1"/>
-	<text x="379" y="260" class="h2">SKILLS</text>
-	<line x1="449" y1="254.5" x2="783" y2="254.5" stroke="#545454" stroke-width="1"/>
+	<line x1="33" y1="260.5" x2="366" y2="260.5" stroke="#545454" stroke-width="1"/>
+	<text x="379" y="266" class="h2">SKILLS</text>
+	<line x1="449" y1="260.5" x2="783" y2="260.5" stroke="#545454" stroke-width="1"/>
 
 	<!-- <circle cx="50" cy="258" r="3" class="li-disc"></circle> -->
-	<circle cx="50" cy="280" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="303" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="326" r="3" class="li-disc"></circle>
-	<circle cx="425" cy="280" r="3" class="li-disc"></circle>
-	<circle cx="425" cy="303" r="3" class="li-disc"></circle>
-	<circle cx="425" cy="326" r="3" class="li-disc"></circle>
+	<circle cx="50" cy="286" r="3" class="li-disc"></circle>
+	<circle cx="50" cy="309" r="3" class="li-disc"></circle>
+	<circle cx="50" cy="332" r="3" class="li-disc"></circle>
+	<circle cx="425" cy="286" r="3" class="li-disc"></circle>
+	<circle cx="425" cy="309" r="3" class="li-disc"></circle>
+	<circle cx="425" cy="332" r="3" class="li-disc"></circle>
 
-	<text x="65" y="286" class="p2">Python </text> 
-	<!-- <text x="115" y="286" class="p2 light">familiar</text>  -->
-	<text x="65" y="309" class="p2">HTML/Css/Js </text>
-	<!-- <text x="155" y="309" class="p2 light">general</text> -->
-	<text x="440" y="286" class="p2">Web Security </text> 
-	<!-- <text x="525" y="286" class="p2 light">familiar</text>  -->
-	<text x="440" y="309" class="p2">MySQL/No-SQL </text>
-	 <!-- <text x="550" y="309" class="p2 light">general</text>  -->
-	<text x="65" y="332" class="p2">Requirement analysis/Document writing</text>
-	<text x="440" y="332" class="p2">Basic PHP/C#</text>
+ 	<text x="34" y="290" class="p2">
+	<tspan x="65" dy="0">Python </tspan> 
+	<tspan x="440" dy="0">HTML/Css/Js </tspan>
+	<tspan x="65" dy="23">Web Security </tspan> 
+	<tspan x="440" dy="0">MySQL/No-SQL </tspan>
+	<tspan x="65" dy="23">Requirement analysis/Document writing</tspan>
+	<tspan x="440" dy="0">Data structure/Basic algorithm</tspan>
+	</text>
 
 	<line x1="33" y1="372.5" x2="328" y2="372.5" stroke="#545454" stroke-width="1"/>
 	<text x="343" y="378" class="h2">WORK HISTORY</text>
@@ -88,7 +86,7 @@
 	<text x="65" y="562" class="p2">risk control services for WeChat, Hainan Airlines and many MSB merchants in HongKong. (<a href="https://www.basaltmatrix.com/" target='_blank'>https://www.basaltmatrix.com/</a> )</text>
 	<text x="65" y="585" class="p2">Developed "WiseCashier" prototype version. Responsible for the api open platform, the system joint with WeChat service interface</text>
 	<text x="65" y="608" class="p2">and construction of project's basic framework. ( <a href='https://www.wisecashier.com/' target='_blank'>https://www.wisecashier.com/</a> )</text>
-	<text x="65" y="633" class="p2">Responsible for part of the technical interview and intranet security.</text>
+	<text x="65" y="633" class="p2">Manage the data team. Responsible for part of the technical interview and intranet security.</text>
 
 	<text x="33" y="667" class="p2b">Security Engineer,</text>
 	<text x="160" y="667" class="p2">06/2014 to 03/2016</text>
