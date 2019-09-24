@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" text-rendering="geometricPrecision" width="816" height="1550" viewBox="0 0 816 1550" style="margin:0 auto;">
+<svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" text-rendering="geometricPrecision" width="816" height="1300" viewBox="0 0 816 1300" style="margin:0 auto;">
 	<defs>
 		<style>
 			.h1{font-family:Times New Roman; fill:#000000; font-weight:bold; __fill:red}
@@ -35,7 +35,7 @@
 	<line x1="467" y1="160.5" x2="783" y2="160.5" stroke="#545454" stroke-width="1"/>
 
 	<text x="34" y="192" class="p2">
-		<tspan x="34" dy="0">超过五年的后端开发和网络安全工作经验。 在多个团队负责核心设计、开发、协调工作。</tspan>
+		<tspan x="34" dy="0">超过五年的后端开发和网络安全工作经验。 在多个团队负责核心系统设计、开发、协调工作。</tspan>
 		<tspan x="34" dy="20">曾作为2号员工加入创业公司，经历了整个的创业过程（从天使轮到B轮前期），并在其中承担了重要责任。</tspan>
 		<tspan x="34" dy="20">逻辑思维严密，好奇心强烈，高效落地能力，易于沟通。😊</tspan>
 	</text>
@@ -53,8 +53,8 @@
 	<circle cx="425" cy="332" r="3" class="li-disc"></circle>
 	
 	<text x="34" y="290" class="p2">
-		<tspan x="65" dy="0">Linux 服务端 </tspan>
-		<tspan x="440" dy="0">Web 安全 </tspan> 
+		<tspan x="65" dy="0">Linux 服务端开发 </tspan>
+		<tspan x="440" dy="0">Web 安全/前端基础 </tspan>
 		<tspan x="65" dy="23">数据处理 </tspan>
 		<tspan x="440" dy="0">MySQL/No-SQL </tspan>
 		<tspan x="65" dy="23">需求分析/文档撰写 </tspan>
@@ -65,97 +65,84 @@
 	<line x1="467" y1="372.5" x2="783" y2="372.5" stroke="#545454" stroke-width="1"/>
 
 	<text x="33" y="403" class="p2b">研发工程师,</text>
-	<text x="120" y="403" class="p2">2019-04 至 现在</text>
-	<text x="33" y="426" class="p2b">奇安信集团应用技术研发四部</text>
+	<text x="120" y="403" class="p2">2019-03 至 现在</text>
+	<text x="33" y="426" class="p2b">奇安信集团</text>
 
 	<circle cx="50" cy="443" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="538" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="648" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="723" r="3" class="li-disc"></circle>
+	<circle cx="50" cy="517" r="3" class="li-disc"></circle>
 
 	<text x="65" y="449" class="p2">
-		<tspan x="65" dy="0">新鉴定平台研发，负责调度系统研发、升级系统设计及研发。</tspan>
-		<tspan x="65" dy="20">通过k8sAPI实现了资源动态调度，支持静态鉴定器及动态沙箱。云端日处理样本量20000+。</tspan>
+		<tspan x="65" dy="0">鉴定平台研发，负责调度系统、升级系统的设计及研发。通过k8sAPI实现资源容器动态调度，通过 Jenkins + Ansible </tspan>
+		<tspan x="65" dy="20">实现多环境升级。该平台支持静态鉴定器及动态沙箱。云端日处理样本量20000+。</tspan>
 		<tspan x="65" dy="23">涉及技术：grpc微服务架构；k8s调度；KVM；Jenkins。</tspan>
-		<tspan x="65" dy="30">新天擎服务端任务编排模块设计</tspan>
-		<tspan x="65" dy="20">管理4人开发组，负责需求评审，架构设计和任务分配。</tspan>
-		<tspan x="65" dy="20">该模块为新天擎提供服务端所有的定时任务管理和调度，支持多节点，任务链，多种任务。</tspan>
+
+		<tspan x="65" dy="30">新天擎服务端任务编排模块设计，管理4人开发组，参与需求评审，负责架构设计和任务分配。</tspan>
+		<tspan x="65" dy="20">该模块为新天擎提供服务端所有的定时任务管理和调度，支持多种任务类型，多节点，可配置任务链。</tspan>
 		<tspan x="65" dy="23">涉及技术：多节点设计，任务链设计。</tspan>
 	</text>
 
-	<text x="33" y="403" class="p2b">研发工程师,</text>
-	<text x="120" y="403" class="p2">2018-08 至 2019-04</text>
-	<text x="33" y="426" class="p2b">360企业安全威胁情报中心</text>
+	<text x="33" y="603" class="p2b">研发工程师,</text>
+	<text x="120" y="603" class="p2">2018-08 至 2019-03</text>
+	<text x="33" y="626" class="p2b">360企业安全威胁情报中心</text>
 
-	<circle cx="50" cy="443" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="538" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="648" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="723" r="3" class="li-disc"></circle>
+	<circle cx="50" cy="643" r="3" class="li-disc"></circle>
 
-	<text x="65" y="449" class="p2">
-		<tspan x="65" dy="0">负责IP信誉云端API及相关数据处理任务开发</tspan>
-		<tspan x="65" dy="20">IP信誉对外提供10亿量级的IP威胁信息查询，每天更新并向设备端推送约1000万数据。</tspan>
-		<tspan x="65" dy="23">涉及技术：MapReduce；Kafka；Pika。</tspan>
+	<text x="65" y="649" class="p2">
+		<tspan x="65" dy="0">IP 信誉云端 API 及相关数据处理任务开发。</tspan>
+		<tspan x="65" dy="20">IP 信誉对外提供10亿量级的 IP 威胁信息查询，每天更新并向设备端推送约1000万数据。</tspan>
+		<tspan x="65" dy="23">涉及技术：MapReduce，Kafka，Pika，数据编码优化。</tspan>
 	</text>
-	<text x="33" y="403" class="p2b">研发工程师,</text>
-	<text x="120" y="403" class="p2">2016-03 至 2018-07</text>
-	<text x="33" y="426" class="p2b">TransferEasy Inc.</text>
+	<text x="33" y="723" class="p2b">研发工程师,</text>
+	<text x="120" y="723" class="p2">2016-03 至 2018-07</text>
+	<text x="33" y="746" class="p2b">TransferEasy Inc.</text>
 
-	<circle cx="50" cy="443" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="538" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="648" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="723" r="3" class="li-disc"></circle>
-    
-	<text x="65" y="449" class="p2">
-		<tspan x="65" dy="0">开发了第一版的"TransferEasy"交易系统。同时参与了Python服务端及PHP端的开发工作。包括核心交易系统(RESTful</tspan>
-		<tspan x="65" dy="20">服务)，内部运营系统，以及用户管理系统(PHP + bootstrap)。"TransferEasy"产品线有跨境汇款、跨境发薪、亚马逊店</tspan>
-		<tspan x="65" dy="20">铺收单等业务。( <a href="https://www.transfereasy.com/" target='_blank'>https://www.transfereasy.com/</a> )</tspan>
-		<tspan x="65" dy="23">涉及技术：微服务架构；Celery消息队列；复杂业务逻辑的拆分处理。</tspan>
+	<circle cx="50" cy="763" r="3" class="li-disc"></circle>
+	<circle cx="50" cy="858" r="3" class="li-disc"></circle>
+
+	<text x="65" y="769" class="p2">
+		<tspan x="65" dy="0">初版"TransferEasy"交易系统、"WiseCashier"支付聚合系统设计及开发。包括整体产品线规划，核心交易系统(RESTful</tspan>
+		<tspan x="65" dy="20">服务)，内部运营系统，以及用户管理系统(PHP + bootstrap)。"TransferEasy"产品线提供跨境汇款、跨境发薪等业务。</tspan>
+		<tspan x="65" dy="20">"WiseCashier"为海外商户提供微信/支付宝支付方案。 ( <a href="https://www.transfereasy.com/" target='_blank'>https://www.transfereasy.com/</a> <a href='https://www.wisecashier.com/' target='_blank'>https://www.wisecashier.com/</a> )</tspan>
+		<tspan x="65" dy="23">涉及技术：微服务架构；开放平台设计；复杂业务逻辑的拆分处理。</tspan>
 		<tspan x="65" dy="30">"BasaltMatrix"项目负责人，管理10人左右的开发团队，参与了整个产品线的规划和开发。</tspan>
 		<tspan x="65" dy="20">负责沟通协调，产品结构设计，数据库设计，以及部分关键算法实现。包括针对1000万+风控黑名单数据的搜索引擎，</tspan>
 		<tspan x="65" dy="20">大型scrapy爬虫，移动端APP（iOS + Android），SaaS，内部运营系统，API开放平台。该产品线为微信、海航、老虎</tspan>
 		<tspan x="65" dy="20">证券等企业，以及香港、新西兰等地的MSB行业商户提供反洗钱、反欺诈风控服务。 ( <a href="https://www.basaltmatrix.com/" target='_blank'>https://www.basaltmatrix.com/</a> )</tspan>
 		<tspan x="65" dy="23">涉及技术：scrapy爬虫；自然语言处理；黑名单模糊搜索。</tspan>
-		<tspan x="65" dy="30">参与了"WiseCashier"产品的原型版本设计及开发，负责API开发平台开发，与微信服务的系统对接，项目基础框架的</tspan>
-		<tspan x="65" dy="20">搭建。"WiseCashier"为海外商户提供微信/支付宝支付方案。 ( <a href='https://www.wisecashier.com/' target='_blank'>https://www.wisecashier.com/</a> )</tspan>
-		<tspan x="65" dy="23">涉及技术：签名设计；支付接口聚合。</tspan>
-
-		<tspan x="65" dy="30">管理数据组，负责部分技术面试，公司早期内网安全。</tspan>
 	</text>
 
 
 
-	<text x="33" y="762" class="p2b">安全工程师,</text>
-	<text x="120" y="762" class="p2">2014-06 至 2016-03</text>
-	<text x="33" y="785" class="p2b">北京鑫奥博科技发展公司</text>
+	<text x="33" y="982" class="p2b">安全工程师,</text>
+	<text x="120" y="982" class="p2">2014-06 至 2016-03</text>
+	<text x="33" y="1005" class="p2b">北京鑫奥博科技发展公司</text>
 	
-	<text x="65" y="816" class="p2">
-	<tspan x="65" dy="0">根据团队需求开发工具及脚本。比如 Burpsuite 手工注入辅助工具，邮箱撞库工具，团队协作工具，Python + PowerShell</tspan>
-	<tspan x="65" dy="20">远程控制脚本，PowerShell/Xss攻击脚本框架。</tspan>
-	<tspan x="65" dy="30">参与 Web 及外网渗透测试。</tspan>
-	<tspan x="65" dy="20">参与 Windows 环境下的APT维持。</tspan>
+	<text x="65" y="1030" class="p2">
+	<tspan x="65" dy="0">安全工具及脚本开发。如 Burpsuite 手工注入辅助工具，邮箱撞库工具，Xss攻击框架，PowerShell + Python远控脚本。</tspan>
+	<tspan x="65" dy="20">参与 Web 及外网渗透测试，Windows环境下的APT维持。</tspan>
+
 	</text>
-	<circle cx="50" cy="810" r="3" class="li-disc"></circle>
-	<circle cx="50" cy="860" r="3" class="li-disc"></circle>
-	
+	<circle cx="50" cy="1023" r="3" class="li-disc"></circle>
+	<circle cx="50" cy="1046" r="3" class="li-disc"></circle>
 
-	<line x1="33" y1="907.5" x2="356" y2="907.5" stroke="#545454" stroke-width="1"/>
-	<text x="375" y="913" class="h2">教 育 经 历</text>
-	<line x1="467" y1="907.5" x2="783" y2="907.5" stroke="#545454" stroke-width="1"/>
 
-	<text x="33" y="938" class="text-cap">
+	<line x1="33" y1="1087.5" x2="356" y2="1087.5" stroke="#545454" stroke-width="1"/>
+	<text x="375" y="1093" class="h2">教 育 经 历</text>
+	<line x1="467" y1="1087.5" x2="783" y2="1087.5" stroke="#545454" stroke-width="1"/>
+
+	<text x="33" y="1118" class="text-cap">
 		<tspan x="33" dy="0" class="p2b">信息安全，本科，部分课程内容：</tspan>
 		<tspan dx="0" dy="0" class="p2">计算机网络，雷达原理，计算机程序设计(C、C++)，密码学</tspan>
 	</text>
 	
-	<text x="33" y="961" class="text-cap">
+	<text x="33" y="1141" class="text-cap">
 		<tspan x="33" dy="0" class="p2b">中北大学 -</tspan>
 		<tspan dx="0" dy="0" class="p2">山西, 太原 2010 - 2014</tspan>
 	</text>
-	<line x1="33" y1="985.5" x2="375" y2="985.5" stroke="#545454" stroke-width="1"/>
-	<text x="395" y="990" class="h2">其 他</text>
-	<line x1="449" y1="985.5" x2="783" y2="985.5" stroke="#545454" stroke-width="1"/>
-	<text x="33" y="1014" class="p2">
+	<line x1="33" y1="1165.5" x2="375" y2="1165.5" stroke="#545454" stroke-width="1"/>
+	<text x="395" y="1170" class="h2">其 他</text>
+	<line x1="449" y1="1165.5" x2="783" y2="1165.5" stroke="#545454" stroke-width="1"/>
+	<text x="33" y="1194" class="p2">
 		<tspan x="33" dy="0">关注互联网行业，并有深入的思考，喜欢折腾，易于接受新鲜事物。</tspan>
 		<tspan x="33" dy="20">硬核游戏玩家，对MOBA类游戏有深入理解。懂一点设计 (海报/Web/PPT/排版)。写作爱好者。</tspan>
 		<tspan x="33" dy="20">渣口语，但英语读写没有问题，尤其是计算机领域，能读写开发文档，能发邮件和外国服务商对接。</tspan>
@@ -164,9 +151,9 @@
 		<a href='https://weibo.com/woostundy' target='_blank'> 或者 https://weibo.com/woostundy</a>
 		</tspan>
 	</text>
-	<text x="33" y="1100" class="p2">
-		<tspan dx="0">English resume: <a href='https://woody.style/resume_en.svg'>https://woody.style/resume_en.svg</a></tspan>
-		<tspan dx="10"> (由于篇幅原因，英文版稍有简略)</tspan>
-	</text>
+	<!--<text x="33" y="1300" class="p2">-->
+		<!--<tspan dx="0">English resume: <a href='https://woody.style/resume_en.svg'>https://woody.style/resume_en.svg</a></tspan>-->
+		<!--<tspan dx="10"> (由于篇幅原因，英文版稍有简略)</tspan>-->
+	<!--</text>-->
 </svg>
 <!-- 彩蛋 wechat d29vc3R1bmR5X3Njcm0K -->
