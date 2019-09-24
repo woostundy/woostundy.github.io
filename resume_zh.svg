@@ -53,7 +53,7 @@
 	<circle cx="425" cy="332" r="3" class="li-disc"></circle>
 	
 	<text x="34" y="290" class="p2">
-		<tspan x="65" dy="0">Linux 服务端开发 </tspan>
+		<tspan x="65" dy="0">Linux 服务端开发（go/python） </tspan>
 		<tspan x="440" dy="0">Web 安全/前端基础 </tspan>
 		<tspan x="65" dy="23">数据处理 </tspan>
 		<tspan x="440" dy="0">MySQL/No-SQL </tspan>
