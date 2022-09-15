@@ -1,0 +1,68 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3170780 */
+  /* Color fonts */
+  src: 
+       url('https://at.alicdn.com/t/font_3170780_lqjane0j17.woff2?t=1644226663515') format('woff2'),
+       url('https://at.alicdn.com/t/font_3170780_lqjane0j17.woff?t=1644226663515') format('woff'),
+       url('https://at.alicdn.com/t/font_3170780_lqjane0j17.ttf?t=1644226663515') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-aiqingniao:before {
+  content: "\e616";
+}
+
+.icon-xinlang:before {
+  content: "\e61a";
+}
+
+.icon-xinniang:before {
+  content: "\e61b";
+}
+
+.icon-qiqiu:before {
+  content: "\e613";
+}
+
+.icon-xingxing:before {
+  content: "\e870";
+}
+
+.icon-shenghuo:before {
+  content: "\e75a";
+}
+
+.icon-shipin:before {
+  content: "\e609";
+}
+
+.icon-qiqiu1:before {
+  content: "\e612";
+}
+
+.icon-qiqiu2:before {
+  content: "\e603";
+}
+
+.icon-hunli:before {
+  content: "\e617";
+}
+
+.icon-qiqiu3:before {
+  content: "\e604";
+}
+
+.icon-liwu:before {
+  content: "\edb6";
+}
+
+.icon-shouhuixingxing:before {
+  content: "\ed76";
+}
+
